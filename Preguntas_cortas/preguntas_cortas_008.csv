@@ -1,0 +1,20 @@
+¿En que consiste el proceso de compilacion anticipada AOT (Ahead-of-Time)?,En traducir el codigo intermedio de la aplicacion a codigo nativo antes de la ejecución (que es lo que haria un JIT)
+¿En que consiste el algoritmo EUI-64 modificado y para que se usa?,En introducir los bytes FF FE en medio de la direccion mac (48bits) e invertir el septimo bit del byte mas significativo Lo utiliza IPv6 para generar los 64bits menos significativos de la direccion IP (autoconfiguracion)
+¿Cuantos bytes hay en un megabyte?,- 10^6 bytes (Sistema internacional)
+¿Qué dos caracteristicas fundamentales tiene un arbol B+?,Los nodos hoja están enlazados entre si y los datos solo están en los nodos hoja (en resto de nodos contiene claves)
+¿Qué significa la siguiente declaración en Java? public static void process(List<? extends Foo> lista) { /* ... */ },Recibe un parametro que es un tipo generico List cuyo tipo de objetos que contiene son de la clase Foo o subtipos de esta
+¿Qué es una imagen Raster?,Mapa de bits
+¿En que consiste el Color Profundo o Deep Color?,Por lo menos 10bits por canal (RGB). con lo cual minimo son 30bits de profundidad Ej. HDMI 1.3 --> Compatible con profundidades de color de 10-bits. 12-bits y 16-bits (RGB o YCbCr) HDR10+ --> 10bits Dolby Vision --> 12bits
+¿Qué hace el comando init 6 en Linux?,Es el runlevel para reiniciar la maquina y que entre en el runlevel por defecto (initdefault dentro de /etc/inittab)
+¿Con que comando se puede conocer el estado de un servicio en Linux?,systemctl status nombreDelServicio service nombreDelServicio status
+¿Cual es la utilidad del comando chage en Linux?,Cambiar las fechas expiracion de la cuenta del usuario y de caducidad de la clave
+En el contexto de los web service. ¿a que se refiere el estandar MTOM?,A un estandar de la W3C para enviar ficheros adjuntos usando las capacidades MIME (dentro del mensaje HTTP)
+En el contexto de arquitectura de computadoras. ¿que es el opcode?,La primera parte de la instruccion que indica a cual se refiere
+¿Cuales son las VA (Autoridades de validación) del e-DNI?,FNMT y MINHAP
+¿Para que sirve la SAM en el sistema operativo Windows?,Almacenar password (hasheadas) de usuarios locales y remotos
+¿Cual es la utilidad del cmdlet Get-Member?,Poder consultar las propiedades y metodos de los objetos .Net que otros cmd-lets devuelven
+Caracteristicas principales del API JAXB,Poder generar un xml a partir de arbol de objetos Java de Negocio (marshall) y al reves (unmarshall)
+¿En que consiste el nivel de aislamiento READ COMMITED?,"En que una transaccion solo podrá ""ver"" la información de la que se haya hecho COMMIT desde otra(s) PROBLEMAS: Lectura fantasma y Lectura no-repetible"
+En el contexto de redes. ¿para que sirve el metodo CSMA/CD?,Es un protocolo usado en redes Ethernet donde se pueden dar problema de uso simultaneo del canal (detectando posibles colisiones)
+En el ambito de la seguridad en SI. ¿como se define el riesgo? ¿Que herramientas del CCN sirve para su gestión?,Como una funcion del impacto y la probabilidad de la amenaza. Herramientas PILAR. micro-PILAR. PILAR Basic y RMAT(configuracion)
+¿Qué tipos de certificados existen según el reglamento eIDAS?,* Cerficados cualificado: * De firma (personas fisicas) * De sello (personas juridicas) * De autenticacion web * Certificados NO cualificado

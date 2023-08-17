@@ -1,0 +1,20 @@
+¿que es PDF/A?,Formato de ISO para guardado a largo plazo (elimina algunas caracteristicas como: audio. video. cifrado. ...)
+¿que gestores de arranque conoces en Linux?,Lilo. Grub Legacy y Grub2
+¿con que comandos se pueden planificar trabajos en Linux?,cron/crontab. at y anacron
+¿Como se define una enumeracion en XSD?,xs:enumeration
+¿Que estructuras a parte de clases. interfaces. ... existen en Java para programar?,paquetes. clases. interfaces. anotaciones y enums
+¿Como se define un anotacion?,@Target(...) @Retention(...) public @interface Seguridad
+"¿Que registro se utiliza para transferir exclusivamente ""datos"" entre la memoria principal y la CPU?",MDR (Memory Data Register)
+¿cuales son los parametros de entrada de un codigo HMAC?,El documento/mensaje y clave (es un tipo de MAC que usa un funcion hash como algortimo) Nos proporciona integridad y autenticidad
+¿Que otra manera existe de direccionar la información en un disco duro. a parte de CHS?,LBA (Logical Block Addressing)
+En HTML. ¿se puede incrustar una imagen dentro de una pagina?,Sip. con las data-URI's
+En Linux. ¿para que sirve LVM?,Ofrecer una capa virtual de almacenamiento que nos de flexibilidad a la hora de poder realizar ampliaciones
+¿Que elementos se registran en un AD de Windows?,* User. Computer. Group. Printer. Shared Folder. Organizational Unit. Contact NOTA: Algunos de estos objetos (users. groups y computers) tienen una relevancia especial desde el punto de vista de la seguridad (Security Principals) y se les asigna un SID para identificarlos NOTA: Los grupos y las OU se las considera contenedores NOTA: En el AD tenemos dos vistas: fisica (Sites) y logica (OU's) NOTA: En el AD podemos gestionar Dominios (acme.com). Arboles (subdominios de acme.com) y Bosques (varios dominios distintos. acme.com y ruinosa.com)
+¿Cual es el sistema de ficheros de Windows 2012?,ReFS (simplificación del NTFS)
+¿En que consiste la cabecera Routing en IPv6?,Es una cabecera de extensión que sirve para marcar el encaminamiento desde el origen
+"¿Cuales son los pasos fundamentales del handsake ""basico"" de SSL? ¿Existe algun otro flujo mas ""complejo"" y cuando se usa?","- Intercambio de algoritmos criptograficos (lista de cipher suites) + version SSL/TLS - CLIENT HELLO - El servidor envia su certificado x509 al cliente y la suite de algoritmos elegida y el SesionID - SERVER HELLO - Intercambio de la clave ""simetrica"" - Cifrado simetrico de las comunicaciones con dicha clave"
+¿Que es el OCSP?,Protocolo que nos sirve para comprobar online (ej. por http) del estado de revocación de un certificado (Cada CA tiene el suyo --> VA)
+¿Que es una CRL?,Metodo de comprobación de la revocación mediante la descarga de una fichero con el total de ellas
+En linux. nombre por lo menos 4 gestor de escritorio/windows managers,GNOME / Mutter KDE / KWin XFCE / Xfwm CDE / MWM (Motif Window Manager) CINNAMON / Muffin MATE / Marco LXDE / OpenBox UNITY / Compiz
+¿Que programa ocupa mas memoria. uno iterativo o el equivalente recursivo?,El recursivo pues por cada llamada tenemos que guardar en la pila: parametros. dirección de retorno. etc
+En SQL. ¿como se define una columna para que solo admita numeros positivos?,CONSTRAINT constraint_name CHECK ( predicate )

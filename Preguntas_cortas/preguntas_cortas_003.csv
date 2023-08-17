@@ -1,0 +1,20 @@
+¿Que es una funcion de primera clase?,Tipico de la programacion funcional. Nos permite tratar a la funcion con mas potencia que otros paradigmas. es decir. que una funcion puede ser: - Asignada a una variable - Retornada por otra funcion - Pasar como parametro de entrada de otra funcion
+"Enumera cinco lenguajes de programacion funcionales. ¿Conoces algunos cambios introducidos en Java8 para ofrecer comportamiento ""funcional""?",- Lisp.Scheme.Clojure.Haskell.Fsharp.Ocaml.Erlang - Streams. Expresiones Lambda. interfaces java.util.function.Function y java.util.function.Predicate
+¿A que se le conoce como Spanning tree?,Al arbol de recubrimiento minimo (ver PRIM y KRUSKAL) que se calcula para poder alcanzar en nivel 2 a los demas host sin bucles
+En .NET. ¿Que es el CLR? ¿Que version del CLR usará el .NET FrameWork 4.5?,- El CLR es el motor de ejecución (ver Infraestructura CLI en ECMA 335) de .Net - La version del CLR más alta es la 4.0 (las versiones de CLR no va correlativas a las version del FW) (NOTA: Ver CoreCLR)
+En SQL. ¿Para que sirve un Trigger de tipo INSTEAD OF?,Para ejecutar el cuerpo del Trigger en lugar de la sentencia que provoco su activacion
+En SSL. ¿que significa mutual autentication?,Que se presentan los certificados de cliente y de servidor en ambos extremos respectivamente
+En GIT. ¿con que comando asociamos un repositorio remoto a nuestro repo local?,git add remote <alias> <url>
+"¿Que se denomina ""pipeline"" dentro de un software tipo CI/CD (integracion continua)?",Al conjunto de tareas que tenemos configuradas (ej: compilar. pasar test. deploy. ...) y se ejecutarán cada vez que haya nuevas versiones subidas al scv
+En java. ¿un interface puede tener algun metodo implementado?,Sip. se denominan default methods
+"En un switch. ¿Qué es un puerto configurado en ""modo access"" y que diferencia tiene con el que está configurado en ""modo trunk""?",El modo access sirve para configurar puertos para conectar por ej. host (trafico sin etiquetar) y el modo trunk sirve para intercambiar trafico etiquetado segun 802.1Q entre switch-switch y switch-router
+En CSS. ¿para que sirve la declaracion !important?,Para que tenga la maxima prioridad (independientemente del calculo de especificidad)
+En Javascript/DOM. ¿Conoces algun metodo para obtener un elemento(s) del DOM en base a su Id? ¿Y en base a un valor de algun atributo dado?Por ej. dame todos los nodos que tengan el valor true en su atributo aria-expanded,- document.getElementById('...') - documento.querySelector('...')
+¿Que datos fundamentales tiene una firma XML-DSIG?,- SignatureValue y SignatureMethod - DigestValue y DigestMethod - KeyInfo
+¿Que es ORVE y a quien va dirigido?,Un registro E/S (integrado en SIR y que cumple con la norma de intercambio SICRES 3.0) modo nube destinado a EELL
+Hablando de REST. ¿que ventajas nos aporta graph-ql en lugar de los clasicos servicios REST?,"La capacidad para ""seleccionar"" solo aquella información que nos interesa en el cliente. Tambien dispone de funcionalidades de actualización llamadas ""mutations"""
+¿Que tipo de BBDD es MongoDB? ¿Que otros modelosNoSQL+producto(s) asociados conoces?,- Sigue el modelo documental (JSON) - Modelos clave-valor. grafos. basado en columnas. etc. (Productos: Cassandra. Redis. Neo4j. ...)
+¿Para que sirve el comando touch de Linux? ¿Tiene alguna relación con el concepto de inodo?,- Para actualizar de un fichero (sino existe lo crea vacio) las fechas de acceso y modificacion (info presente en el inodo)
+¿Que es apache Xerces?,Parser XML que soporta JAXP. Stax. SAX y DOM
+¿Que diferencia existe entre un datagrama IP y un paquete IP?,El paquete IP es el resultado de fragmentar un datagrama IP como consecuencia de una MTU más pequeña que este
+¿Donde se almacena una microinstruccion en el caso de logica microprogramada?,En una ROM donde reside el software que hay que ejecutar para cada instrucción (concepto de secuenciador)

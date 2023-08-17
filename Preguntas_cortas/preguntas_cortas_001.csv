@@ -1,0 +1,20 @@
+¿Cómo se llama el lenguaje xml de intercambio de información entre herramientas CASE?,XMI (https://en.wikipedia.org/wiki/XML_Metadata_Interchange)
+¿Que tres tipos de tecnologías existen para fabricar SSD?,SLC.TLC.MLC (https://hardzone.es/2018/03/25/memorias-nand-ssd-diferencias/)
+"¿Cuales de los interfaces relacionados con discos duros son ""en paralelo"" ?",PATA/IDE y SCSI
+¿Con que código http de status devuelve un error un servicio web SOAP?,Error 500 + xml (soap-fault)
+¿Qué formas de representación/codificación conoces de un dígito decimal en binario?,BCD. Aiken y Exceso a 3
+¿Que define y donde se empaqueta el web.xml?,Se empaqueta dentro del fichero con extensión .war y sirve para configurar principalmente: * Servlet(s) (con su url asociada) * Filter(s) (idem) * Seguridad basada en roles (idem) * Metodo de login * Timeout de la sesión http * Parametros de inicio
+¿Cual es el comando de Git para cambiar de la rama master a la develop por ej?,# git checkout develop
+¿Para que se usa final en una clase JAVA? ¿y a nivel de metodo? ¿y a nivel de atributo?,* final para una clase --> ninguna otra clase podrá heredar de ella * final para un método --> no podrá ser sobrescrito (override) * final para un atributo --> funcionará como una constante
+"¿El selector .cadena {...} que elementos de la pagina ""selecciona"" ?","Selecciona aquellos elementos de la pagina con el atributo class=""cadena"""
+¿Con que librerias/frameworks implementarias en Java un Servicio Web SOAP?,Apache Axis/Axis2. Apache CXF. Metro. JBossWS
+¿Cómo se transforma en javascript una cadena json a un objeto y con que funcion se hace lo contrario?,JSON.parse(cadena) --> objeto JSON.stringify(objeto) --> cadena
+¿Con que tres API's de XML en Java se puede leer/analizar un documento XML ?,SAX. DOM y JAXB
+"¿Cómo se llaman en CSS los ""recursos"" a través de los cuales podemos determinar unos estilos diferentes en funciona del alto. ancho. ... del dispositivo ? ¿En que nivel de CSS se encuentra definidos estos recursos?",Con @media (media queries). Se encuentran definidas en el estándar CSS3
+¿En que consiste USB OTG?,Que el dispositivo funcione como maestro.
+¿Que es la herencia en css?,El funcionamiento de CSS mediante el cual una propiedad heredable (no todas los son por defecto) se transmite de una etiqueta a sus hijos
+¿Cómo se llama al estándar equivalente a los selectores en CSS para referirte a un nodo(s) dentro de un XML?,XPath
+Dentro de la recomendación XPath. ¿a que se refieres este selector //@cadena ?,"Selecciona todos los atributos ""cadena"" de cualquier nivel de profundidad del arbol"
+¿Que productos integra un WAMP y/o un LEMP?,* WAMP --> Windows Apache Mysql Php * LEMP --> Linux Nginx Mysql Php (La M y la P hoy en día también representan a MariaDB. Perl. ...)
+¿Que es un Entity en XML y donde se define?,Es una especie de macro (es decir. habrá un proceso de sustitución en el XML) y se define en el DTD
+¿Que significa pkcs#7 ?,Es un estándar de criptograma de clave pública que define el formato de la firma binaria o CMS

@@ -1,0 +1,20 @@
+En UML ¿Que dos relaciones se dan entre casos de uso?,"- <<include>> se usa para ""sacar factor comun"" de varios casos de usos y reutilizar esa funcionalidad - <<extends>> se usa para definir un comportamiento que se podra dar en funcion de una condicion (punto de extension)"
+¿Que suele conectar el FSB?,La CPU con el chipset Norte (encargado de los dispositivos rapidos: memoria. pci-e. etc)
+¿Cuantas particiones se admiten con GPT?,Tiene un numero ilimitado de particiones pero Windows lo limita a 128
+¿Con que comando se amplia un grupo de volumenes en LVM? ¿En que consiste un grupo de volumenes?,- vgextend - Es un conjunto de volumenes fisicos (pv)
+En JEE. ¿Cual es la clase principal que se usa para acceder a un arbol JNDI?,InitialContext del paquete javax.naming (metodo importante: lookup(String) --> Object )
+En Java. ¿Que significa @Override y para que sirve?,Sirve para declarar al compilar que estamos sobreescribiendo o implementando un metodo respecto del supertipo
+¿Existe algun estandar para JSON? ¿En java hay algun API? ¿y librerias?,- Estandar ECMA 404 - En Java el API se llama JSON-P y las librerias mas usadas son Jackson y GSON
+¿Para que sirve XSL-T? ¿y XSL-FO?,- XSL-T es una tecnologia mediante la cual un documento XML se transforma en otro con ayuda de un XSL Processor - XSL-FO es una tecnologia mediante la cual un documento XML se transforma en un documento de formato final (pdf. svg. etc)
+¿Que hace el comando git checkout develop?,Cambiarte de rama a develop y actualizarte el working directory
+¿Que cuatro etapas cubre RSA ?,Generación de claves. Distribucion. Cifrado. Descrifado
+En .NET. ¿como se denomina al bytecode generado por el csc.exe por ej? ¿Que es un ensamblado y que tipos hay?,- Codigo CIL - Es el empaquetado fisico del CIL junto con Metadatos.recusos.etc (forma de .exe o .dll)
+¿Que es logback?,Es una libreria de generación de mensajes de log como lo es log4j
+¿Que tipo de algoritmo de ordnacion es el del monticulo? --> Seleccion. Distribucion. Intercambio....?,Es un algoritmo de Seleccion que se basa en mantener constamente una estructura de datos llamada monticulo (en la cual siempre tenemos en la raiz al elemento mayor de todos. max-heap. o al menor de todos. min-heap)
+En NoSQL. ¿Que tipo de BBDD es OrientDB? ¿Que es lo que no garantizan estas BBDD generalmente?,- Es una BBDD multimodelo (documento. grafos y clave-valor) - No suelen garantizar ACID (en lugar de ello se habla de BASE)
+En Windows. ¿Que producto conoces para distribuir de forma automatica parches de seguridad a los equipos de usuario? ¿Y en Linux?,- WSUS y SCCM - Ansible. Chef. Puppet. ...
+En SQL. ¿que son las pseudotablas en el ambito de un disparador?,Son los recursos que nos permiten comprobar los datos antiguos y nuevos dentro del cuerpo del disparador
+En JEE. ¿a que se refiere el API JTA? ¿Que tipo producto hay detras de este API y para que sirve?,"Sirve para poder usar el servicio de transacciones distribuidas. Detras de este API el producto se denomina ""monitor de transacciones"""
+La extension de fichero .p12 ¿que significa y que diferencia tiene con la extension .cer?,- .p12 formato que hace referencia al estandar PKCS#12 (contenedor de certificados con clave privada) - .cer formato para exportar la parte publica del certificado
+¿Que es RSS y que estructura tiene?,Es un formato XML para exportar noticias y que luego podremos agregar/sindicar en un portal unico o software de escritorio (añadiendo origenes RSS o feeds).
+"En .NET ¿a que se refieren las ""Properties"" y que equivalencia tienen en Java?",Es una forma de acceder a ciertos campos de los objetos (modificación y consulta). En Java se les llama metodos getters y setters

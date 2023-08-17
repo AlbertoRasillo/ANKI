@@ -1,0 +1,632 @@
+# Codigos respuesta HTTP
+
+Tipo 100s,Informativos
+Tipo 200s,Códigos de exito
+Tipo 300s,Redireciones
+Tipo 400s,Problemas con la solicitud del cliente
+Tipo 500s,Error o problema al procesar la solicitud del cliente
+Nº código: OK, 200
+Nº código: Created. Se ha creado un nuevo recurso. Ej: PUT, 201
+Nº código: Accepted. Recibido pero no procesado(Batch), 202
+Nº código: Acción solicitada OK pero no necesita dar respuesta(ej. delete), 204
+Nº código: Se ha movido permanentemente, 301
+Nº código: Se ha movido temporal, 302
+Nº código: No se ha modificado desde la última petición, 304
+Nº código: Bad request, 400
+Nº código: No Autorizado(requiere autenticación cliente), 401
+Nº código: Prohibido el acceso(Forbidden), 403
+Nº código: Not found, 404
+Nº código: Metodo no permitido, 405
+Nº código: Request muy grande, 413
+Nº código: Internal error(generico), 500
+Nº código: Bad Gateway, 502
+Nº código: Servicio no disponible, 503
+Nº código: Gateway Error, 504
+
+# Headers HTTP
+
+Request ¿Autorización acceso BASIC o JWT?,Autorization: BASIC
+Request ¿Controlar el cache?,Cache-control
+Request ¿Tipos MIME aceptados?,Accept: text/html
+Request ¿Codificación caracteres aceptados?,Accept-Charset: utf-8
+Request ¿Lenguajes soportados?,Accept-Language: es-Es
+Request ¿Compresión soportada?,Accept-Encoding: gzip defflate
+Request ¿Tipo contenido?,Content-Type:
+Request ¿Tamaño del contenido?,Content-Length:
+Request ¿Cabecera de cookies?,Cookie:
+Request ¿Nombre del dominio?,Host:www.google.es
+Request ¿Particionar las respuestas?,Range: bytes = 500-599
+Request ¿Mantener la conexión activa?,Connection: keep-alive
+Request ¿Identificar al browser?,User-Agent
+Request ¿Politica de CORS?,Access-Control-Request-Method
+Response ¿La respuesta permanece hasta N segundos después de que se genera la respuesta?,Cache-control: max-age = 3600
+Response ¿Indica que contiene un fichero adjunto?,Content-disposition:attachment filename=
+Response ¿Elección de compresión mensaje?,Content-Encoding: gzip
+Response ¿Tamaño del tamaño del mensaje?,Content-Length
+Response ¿Rango del tamaño del mensaje respuesta del total?,Content-Range: bytes 2010-4120
+Response ¿Redirección?,Location: url
+Response ¿Fecha de ultima modificación?,Last-Modified:
+Response ¿Elección de compresión transferencia?,Tansfer-Encoding: gzip
+Response ¿Indica el tipo de autenticación debe usar el cliente?,www-Authenticate: Basic
+Response ¿Indentifica el servidor?,Server: ej. nginx
+Response ¿Politica cors de fuentes acceptadas?,Acces-Control-Allow-Origin: *
+Response ¿Envio de cookie?,Set-Cookie: cookie-name = cookie-value
+
+# Direcciones IPv6
+
+Identifican a un interface,Unicast
+Identifican a un grupo de interfaces,Multicast
+Identifican a interface dentro de un grupo,Anycast
+IPs Unicast Link-Local,FE80::/10
+IPs Unicast Unique-Local,FC00::/7 Se divide en dos bloques FD00::/8 y FC00::/8
+IPs Unicast Global,2000::/3
+IPs Multicast todos los nodos,FF02::1
+IPs Multicast todos los routers,FF02::2
+
+# Direcciones Classfull
+
+Rango IPs clase A,0-127 0.0.0.0 126 redes reservada y 127.0.0.0 loopback
+Rango IPs clase B,128-191
+Rango IPs clase C,192-223
+Rango IPs clase D(Multicast),224-239
+Rango IPs clase E(Experimental),240-255
+Direcciones uso privado,Clase A 10.0.0.0 Clase B 172.16.0.0-172.31.255.255 Clase C 192.168.0.0
+Direcciones automáticas APIPA,169.254.0.0/16 169.254.1.0-169.254.254.255 no se usan las 169.254.0.0/24 y 169.254.255.0/24
+
+# Versiones de Android Debian Ubuntu MacOSRedHat DesktopName
+
+Debian 12, Bookworm
+Debian 11, Bullseye
+Debian 10, Buster
+Debian 9, Stretch
+Ubuntu 22.04 LTS, Jammy Jellyfish
+Ubuntu 20.04 LTS, Focal Fossa
+Ubuntu 18.04 LTS, Bionic Beaver
+MacOS 14, Sonoma
+MacOS 13, Ventura
+MacOS 12, Monterey
+MacOS 11, Big Sur
+Nombres de entornos escritorio Linux, Gnome; KDE; Xfce; Mate; LXDE
+Ultima versión de RedHat, Red Hat 9
+Android 14, Upside Down Cake
+Android 13, Tiramisu
+Andoid 12, Snow Cone
+Android 11, Red Velvet Cake
+
+# Soluciones CCN-CERT
+
+¿Qué solución es la elaboración de la documentación de seguridad y facilita un marco para manejar información sensible?,AMPARO
+¿Cuál es el nombre de la solución que se enfoca en la auditoría continua para reducir las probabilidades de explotación de vulnerabilidades?,ANA
+¿Cuál es el nombre de la plataforma de formación con desafíos de seguridad informática?,ATENEA
+¿Qué solución se encarga de la protección y trazabilidad del dato?,CARLA
+¿Qué solución se enfoca en la protección de las infraestructuras tecnológicas y para la identificación de Amenazas Persistentes Avanzadas (APT)?,CARMEN
+¿Qué herramientas de seguridad son para dispositivos Android?,CCNDroid
+¿Cuál es el nombre de la herramienta para analizar el cumplimiento de ENS en Windows y Linux?,CLARA
+¿Cuál es el nombre de la solución de endpoint integrada en CARMEN para detección de malware y APT?,CLAUDIA
+¿Cuál es el nombre de la solución que es un agente ligero para Windows para protección de ransomware y utiliza el motor de CLAUDIA?,microCLAUDIA
+¿Cuál es el nombre del simulador de cibervigilancia para poner práctica conocimientos?,ELENA
+¿Qué solución es un sistema de vigilancia de la seguridad de la red corporativa que se integra con ROCIO y ANA?,EMMA
+¿Cuál es el nombre de la plataforma para la gestión de incidentes y amenazas de ciberseguridad que aplica inteligencia (SIEM)?,GLORIA
+¿Cuál es el nombre de la solución que evalúa el nivel de adecuación al ENS y el estado de seguridad de los sistemas?,INES
+¿Qué herramienta se utiliza para visualizar en tiempo real el estado de la ciberseguridad del sector público?,IRIS
+¿Cuál es el nombre de la solución de almacenamiento en la nube?,LORETO
+¿Qué solución es una herramienta de gestión y notificación de ciberincidentes que utiliza el Listado Unificado de Coordinación y Amenazas?,LUCIA
+¿Cuál es el nombre de la plataforma de sandbox para análisis de posibles ficheros maliciosos?,MARTA
+¿Cuál es el nombre de la herramienta del CCN que sirve como plataforma multiantivirus?,MARIA
+¿Cuál es el nombre del sistema de automatización de gestión de información y eventos de seguridad para anticiparse a las amenazas (NGSIEM)?,MONICA
+¿Cuál es el nombre de la herramienta para tareas de sobreescritura y borrado de archivos y discos?,OLVIDO
+¿Cuál es el nombre del repositorio de ciberinteligencia para intercambio bidireccional?,REYES
+¿Qué solución se utiliza para automatizar tareas realizadas por el auditor de seguridad?,ROCIO
+¿Cuál es el nombre de la plataforma de retransmisión de sesiones formativas en directo?,VANESA
+¿Cuál es el nombre del conjunto de herramientas EAR para análisis y gestión de riesgo de sistemas que sigue la metodología Magerit y tiene diferentes?,PILAR
+¿Cuál es el nombre de la plataforma de análisis avanzado de malware que evoluciona las capacidades de análisis dinámico (MARTA) y estático (MARIA) y cuenta con una interfaz unificada; estadísticas; histórico de muestras e informes?,ADA
+
+# Protocolos OSI
+
+Protocolos de capa 2, HDLC; LAPB
+Protocolos de capa 3, CLNS(No orientado a conexión) (CLNP; Routing IS-IS); CONS(Orientado a conexión)
+Protocolos de capa 4, TP0;TP1;TP2;TP3;TP4 (TP0 y TP2 son no fiables*)
+Equivalente SNMP, CMIS/CMIP
+Equivalente FTP, FTAM
+Equivalente LDAP, X.500
+Equivalente SMTP, X.400
+
+# Formato del datagrama IPv4 y IPv6
+
+En IPv4 el 1 campo protocol transporta?, ICMP; Es enrutable porque va sobre IP(nivel 3) en cambio ARP no es enrutable proque va sobre nivel 2
+En IPv4 el 6 campo protocol transporta?, TCP
+En IPv4 el 17 campo protocol transporta?, UDP
+En IPv4 el 50 campo protocol transporta?, ESP (Seguridad IP)
+En IPv4 el 51 campo protocol transporta?, AH (Seguridad IP)
+En IPv4 el 89 campo protocol transporta?, OSPF
+MTU Ethernet, 1500 bytes
+Tamaño Jumboframe y Run frames, 9000 bytes y 64 bytes
+Que hace algoritmo Descubridor MTU?, Se manda paquete con More Fragment = 0 para saber cual es la MTU suportada por cada una de las redes por donde pasa. Se usa para evitar la fragmentación
+En IPv6 cuales son las cabeceras de extensión principales, Hop-by-Hop 0; Destination Options; Routing 43; Fragment 44; Authentication 51; ESP 50
+
+# Nombres productos software
+
+Cuales son las herramientas de gestión de la configuración?, Ansible(sin agente usa SSH); Chef; Puppet; SCCM(Microsft); SaltStack; StackStorm; Terraform; CFEngine; Otter
+Que preprocesadores CSS conoces?, Less; Sass; Stylus
+Que Frameworks CSS conoces?, Bootstrap; Material; Tailwind
+Que motores de plantills Javascript para HTML existen?, Handlebars; Mustache; Pug
+Cual es el servidor web de .NET?, Kestrel
+Que proxy inversos conoces?, Nginx; Squid; Varnish; Haproxy
+Que software SIEM existen?, OSSIM; QRadar; Gloria/Monica(CNN)
+Que sistemas de autenticación AAA conoces?, Radius; TACACS; Diameter
+Herramientas de documentación REST?, Swagger/OpenAPI
+Herramientas de gestión de incidencias?, GLPI; Mantis; Redmine; Remedy; Jira; OSTicket; Bugzilla; Request Tracker; OTRS; SpiceWorks; Trac
+Herramientas control remoto puestos, VNC(puerto 5900); RDP(puerto 3389); TeamViewer(nube); AnyDesk; Chrome Remote Desktop; Citrix; LogMeIn; Be Anywhere; SSH
+Herramientas desarrollo app moviles multiplataforma, Nativas-> Xamarin; Flutter(DART); Hibridas-> Cordova; IONIC; React Native
+Herramientas de pruebas funcionales, Selenium; SOAP-UI; Watir(Ruby); WatiN(.NET)
+Herramientas de pruebas unitarias, JUnit; Nunit; TestNG
+Herramientas de prueba de carga, JMeter; HPLoadRunner; LoadUI
+Herrmientas de analisis de codigo estatico, PMD; Checkstyle; FindBugs
+Frameworks testing JavaScript, Jest; Jasmine; Mocha
+Nombres de package bundle, Webpack; Parcel; Browserify; FuseBox
+Herramienta para automatizar tareas sobre nodeJS, Gulp y Grunt
+Herramienta gestión dependencias frontend NodeJS, Bower(bower.json y bowerrc); Yarn; npm(package.json)
+Transpiladores JavaScript, Babel; Traceur; tsc
+Gestores dependencias PHP; Ruby; Python; Perl; Javascript, Composer(composer.json; /vendor); Gems(Gemfile); Pip(Setup.py); PPM; npm(package.json)
+Frameworks PHP; Ruby; Python; Pel; JavaScript, Laravel Symfony Cake PHP Yii Zend; Ruby on Rails Roda Cuba Padrino Sinatra; Django Flask Pyramid; Catalyst; Express(node)
+Diferencias entre XAMPP; LAMP; WAMP; MAMP, L -> linux W -> windows M -> Mac X -> Multiplataforma A -> Apache E -> Nginx M -> MariaDB/MySQL P-> PHP; Perl; Python
+Diferencias arquitectura entre MEAN; MERN; MEVN, Arquitectura MEAN: Mongo; Express; Angular/React(MERN)/VUE(MEVN); Node
+Software de Netflix; El que implementa patrón circuit breaker; API Gateway; Registro de microservicios(Catalogo); Balanceo de peticiones, Hystrix; Zuul; Eureka; Ribbon
+Software que envuevle a los cuatro frameworks de Netflix, Spring Cloud
+Que dos software hacen la función de service Mesh?, Istio(funciones con funcionalidades microservicios) + Envoy(balanceo carga; recuperación...)
+Que software se usa para trazabilidad en Microservicios?, Elastic Search; Jaeger; Solr; Lucence
+Que software se usa para observabilidad en Microservicios?, Grafana; Prometheus; Kiali
+Frameworks Microservicios para Java; Python; Node, Java-> Micronaut; Quarkus; Helidon; MicroProfile(JEE); Spring Cloud Python -> Flask Node -> NodeJS(V8)
+IaaS de Red Hat, OpenStack
+Dos ejemplos software PaaS, OpenShift(usa Kubernetes y Docker) y Heroku(modo nube)
+Herramientas NMS(Network Monitoring Systems), Nagios; Zabbix; Cacti; Zennos; Pandora FMS; Icinga; Solar Winds; Open NMS; HP OpenView; IBM Patrol
+
+# Niveles aislamiento SQL reglas Codd
+
+Que número es la regla de Codd: Un SGBD relacional debe gestionar sus BD de forma completa usando el modelo relacional, Regla 0
+Que número es la regla de Codd: Información. Todos los datos deben estar almacenados en las tablas, Regla 1
+Que número es la regla de Codd: Acceso garantizado. Cualquier dato es accesible sabiendo la clave de su fila y el nombre de su columna o atributo, Regla 2
+Que número es la regla de Codd: Tratamiento sistemático de los valores nulos. Capacidad de manejar valores nulos, Regla 3
+Que número es la regla de Codd: Catálogo en línea relacional. Es el diccionario de datos. Los metadatos se organizan también en tablas relacionales, Regla 4
+Que número es la regla de Codd: Sublenguaje de datos completo. Un lenguaje capaz de hacer todas las funciones del SGBD, Regla 5
+Que número es la regla de Codd: Vistas actualizadas. No puede haber diferencia entre los datos de las vistas y los datos de las tablas base, Regla 6
+Que número es la regla de Codd: Inserciones; modificaciones y eliminaciones de alto nivel. Lenguaje que maneja la BD sea muy humano, Regla 7
+Que número es la regla de Codd: Independencia física. Cambios en la física de la BD no afecta a las aplicaciones ni a los esquemas lógicos, Regla 8
+Que número es la regla de Codd: Independencia lógica. Cambios en el esquema lógico (tablas) de la BD no afectan al resto de esquemas, Regla 9
+Que número es la regla de Codd: Independencia de integridad. Las reglas de integridad (restricciones) deben de ser gestionadas y almacenadas por el SGBD, Regla 10
+Que número es la regla de Codd: Independencia de distribución, Regla 11
+Que número es la regla de Codd: No subversión. La base de datos no permitirá que exista un lenguaje o forma de acceso; que permita saltarse las reglas anteriores, Regla 12
+Que efecto de lectura tiene el nivel de aislamiento Read Uncommitted?, Lectura sucia; Lectura no repetible; Lectura fantasma 
+Que efecto de lectura tiene el nivel de aislamiento Read Committed?, Lectura no repetible; Lectura fantasma
+Que efecto de lectura tiene el nivel de aislamiento Repeatable Read?, Lectura fantasma
+Que efecto de lectura tiene el nivel de aislamiento Serializable?, Sin efectos de lectura. Es la más restrictiva.
+
+# Normas estandares internacionales
+
+Estándar Json?, ECMA 404
+Estándar CLI Common Language Infraestructure?, ECMA 335
+Estándar de lenguaje C#?, ECMA 334
+Estándar Lenguaje SQL?, ISO/IEC 9075
+Primera estandard ISO de SQL?, ANSI - 86
+Versión del estandard SQL ISO que incluye Triggers?, SQL: 1999 conocida también SQL3
+En que estandard ISO SQL se incluye obj. SEQUENCE?, SQL: 2003
+En que estandard de ISO SQL se incluye XML?, SQL:2006
+En que estandard de ISO SQL se incluye TRUNCATE?, SQL:2008
+En que estandard ISO SQL se añade JSON?, SQL:2016
+Codificacion Latin1 con ñ y el estandard con €?, ISO 8859-1; ISO 8859-15
+Estándar de CD-ROM?, ISO 9660
+Estándar de grabadoras CD/DVD?, UDF
+Estándar de PDF?, ISO 32000-1
+Estándar XPS(XML)?, ECMA 388
+Estandares JavaScript?, EcmaScript; ECMA 262; ES6 2015 ES7 2016
+Estándar UML?, ISO 19505 OMG
+Estándar tipos CPDs, TIA-942
+Estándar de detección y control de incendios en CPDs, NFPA 75
+Estándar de sistema de cableado; suelos y techos en CPDs, TIA 568
+Estándar circulación aire; pasillos frios y calientes CPDs, TIA 942
+Estándar HTTP?, RFC 7231
+Estándar SMI de SNMP y utilidad?,RFC 1155. La SMI trata el árbol core de OIDs; tipos de datos; Macro OBJECT-TYPE(objetos gestionados)
+Estándar de MIB SNMP y utilidad?, RFC 1156. Se importa el SMI 1155 y se añaden nuevas ramas propias del dispositivo
+Estándar MIB2 SNMP?, RFC 1213
+Estándar SNMPv1 y utilidad v2?, RFC 1157. La nueva versión SNMPv2c(GetBulk; v2 Trap; InformRequest Gestor-Gestor; Report sin uso) incompatible con v1
+Estándar SMIv2 SNMP?, RFC 2578
+
+# Algoritmos y criptografía
+
+Estándar criptográfico para firmar y/o cifrar mensajes?, PKCS#7
+Cuales son los algoritmos simétricos?, AES; RC5; 3DES; IDEA; ChaCha20; Blowfish; Twofish
+Cuales son los algoritmos asimétricos?, RSA; DSA; DH; EC
+Estándar para formato fichero para almacenar clave privada con certificado clave pública?, PKCS#12
+Estándar de cifrado basado en contraseñas?, PKCS#5
+Estándar intercambio claves Diffie-Hellman?, PKCS#3
+Estándar criptográfico RSA?, PKCS#1
+Estándar define interfaz dispositivo criptográfico(Cryptoki)?, PKCS#11
+Extensión del protocol de comunicaciones que actualiza una conexión texto plano a una encriptada,"
+STARTTLS(Opportunistic TLS). Usado por IMAP; POP3; LDAP; SMTP; FTP"
+
+# Estandares de red 802
+
+Distancia redes PAN, 10-100 metros
+Distancia redes LAN, típico 300 metros hasta 1-2Km 
+Distancia redes MAN y ejemplos, 10-100 Km. DQBQ; FDDI
+Distancia redes WAN y ejemplos, Alcance global. Frame Relay; ATM; IP; MPLS
+Estándar de VLANs?, 802.1Q; Recordar: 802.1D; 802.1s; 802.1w; 802.1aq
+Control de acceso a redes en base a puertos, 802.1x 
+Control del enlace lógico. LLC (Logical Link Control), 802.2
+Ethernet CMSA/CD, 802.3
+Fast Ethernet 100BASE-TX; 100BASE-FX, 802.3u
+Ethernet 1000BASE-X(fibra óptica) Y 1000BASE-T(par trenzado), 802.3z y 802.3ab
+Ethernet a 10G 10GBASE, 802.3ae
+PoE (Power o Ethernet. Potencia máxima de 15.4 W por boca), 802.3af
+PoE+ (Power o Ethernet. Potencia máxima de 30 W por boca, 802.3 at
+PoE++ (type 3 : 60 W máximo; type 4: 100 W máximo por boca), 802.3 bt
+Token Bus, 802.4
+Token Ring, 802.5
+Redes MAN DQDB (Distributed Queue Dual Bus). En hibernación e inactivo el grupo de trabajo, 802.6
+FDDI (Token Passing), 802.8 
+Cual es el estandar WiFi3; banda y Mbps?, 802.11g; 2.4GHZ; 54Mbps
+Cual es el estandard WiFi4; banda y Mbps?, 802.11n; 2.4 y 5 GHz; 150 Mbps 
+Cual es el estandard WiFi5; Modulación; banda y Mbps?, 802.11ac; 256 QAM; 5GHz; 450 Mbps; MU-MIMO (MU multiple user Multiple-Input Multiple-Outpu)
+Cual es el estandard WiFi6; Modulación; banda y Mbps?, 802.11ax; 1024 QAM; 2.4 y 5GHZ; 10.5 Gbps; OFDMA
+Cual es el estandard WiFi7; banda y Mbps?, 802.11 be; 2.4;5;6 GHZ y 46Gbps
+Cual es el estandard WWAN y distancia?, 802.20 < 15 km
+Cual es el estandard WMAN(WiMax) y distancia?., 802.16[m] < 5 km
+Cual es el estandard WPAN; distancia?, 802.15 < 10 m
+Cual es el estandard Bluetooth; velocidades?, 802.15.1(Desarrollo por SIG); Version4; 32 Mbit/s (BLE Low energy); Version5; 50 Mbit/s (5.1 Mesh)
+Cual es el estandard zigbee; velocidad?, 802.15.4; 250 Kbit/s; Domotica bajo consumo
+Tamaño clave WPA-Personal; WPA-Enterprise?, 128 bits y 192 bits
+
+# Redes Moviles
+
+Bandas de frecuencia 2G(GSM)?, 900MHz y 1800 MHz
+Velocidad de EDGE(2.75G), 384 Kbps
+Que tipo de red acceso tiene 3G(UMTS)?, UTRAN
+Donde se encuentran las Macrocelda; Microcelda; Picocelda?, 3G(UMTS)
+Que tipo de red acceso tiene 4G(LTE)?, E-UTRAN
+Que contiene la tarjeta SIM?, nº serie; estado; pin; clave autent./algorit.; IMSI(id internacional)
+Que codigo identifica al terminal?, IMEI
+Siglas de estación base?, BTS
+Siglas de controlador de estación base?, BSC junta todas las BTS
+Que elemento interconecta las diferentes redes moviles y fija(RTB)?, MSC Mobile switching center
+Base de datos de abonados(usuarios)?, HLR
+Base datos dinamicos de usuarios(ej. localización)?, VLR
+Base datos con IMEI(datos fisicos)?, EIR
+Base datos autenticación usuarios?, AUC
+
+# Ethernet 100Base 1000Base categorias cables fibra optica
+
+En un cable 10Base-T que significa 10 y T?, 10 = velocidad y T = par de cobre 
+En un cable 10Base-F que significa 10 y F?, 10 = velocidad y F = Fibra 
+Cuales son los tipos de ventana en fibra(F)?, S(1 ventana); L(2 ventanas); E(3 ventana) 
+Velocidad de cable cat5?, 100 Mbit/s
+Velocidad de cable cat5e?, 1000 Mbit/s 802.3ae
+Velocidad de cable y distancia máxima cat6?, 1 Gbit/s hasta 55 m
+Velocidad de cable y distancia máxima cat6A?, 10 Gbit/s hasta 100 m
+Velocidad de cable y distancia máxima cat7 y cat7A?, 10Gbit/s hasta 100 m
+Velociad de cable cat8.1 y cat8.2?, hasta 40 Gbps hasta 30 m
+Que es la fibra monomodo?, Se propaga una única longitud de onda de luz en el núcleo de fibra
+Que es la fibra multimodo?, núcleo de mayor diámetro que permite el paso de múltiples modos
+Distancia y velocidad fibra monomodo OS2?, 200 Km con velocidad de 1 a 10 Gbps  
+Distancia y velocidad fibra Multimodo OM2?, 500 m a 1 Gbps o de 82 m a 10 Gbps
+Distancia y velocidad fibra Multimodo OM3?, 1500 m a 1 Gbps o 300 m a 10 Gbps
+Distancia y velocidad fibra Multimodo OM4?, 500 m a 10 Gbps
+Que dos opciones existen para cable coaxial?, Thick(2.5 a 500 metros) y Thin(0.5 a 185 m)
+En cables de par trenzado que tipo no cuenta con ningún tipo de cobertura individual o en común?, UTP (Unshielded Twisted Pair)
+Tipo de cable par trenzado exterior apantallado exterior para el conjunto de alumnio?, FTP (Foiled Twisted Pair)
+Tipo de cable para trenzado con blindaje individual de cada par?, STP (Shielded Twisted Pair)
+Tipo de cable par trenzado con apantallamiento exterior de aluminio y con malla metalica?, SFTP (Screened Foiled Twisted Pair)
+Tipo de cable par trenzado blindaje individual; apantallado y blindado en el exterior?, SSTP (Screened Shielded Twisted Pair)
+
+# Tipos MIME
+
+Tipo MIME CSS, text/css
+Tipo MIME CSV, text/csv
+Tipo MIME HTML, text/html
+Tipo MIME JavaScript, text/javascript(.js)
+Tipo MIME XML, text/xml y application/xml
+Tipo MIME JSON, application/json
+Tipo MIME PDF, application/pdf
+Tipo MIME SVG, image/svg+xml (.svg)
+Tipo MIME texto plano, text/plain
+
+# Sintaxis XML DTD XSD se puede hacer tabla comparativa
+
+Como es la cabecera de xml cuando el fichero DTD es un fichero externo?, <?xml versión=“1.0” encoding=“utf-8” standalone=“no”?> <!DOCTYPE empleados SYSTEM “empleados.dtd”>
+<root xmlns:h=“http://uri-a” xmlns:f=“http://uri-b”>
+<aeropuerto xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:noNamespaceSchemaLocation='aeropuerto.xsd'>
+....
+
+# Sintasix Json
+
+Que tipos de datos tiene Json?,  Object (subdocumentos); Array; Number; String; true; false y null
+Json es case case sensitive?, Sí
+Los numeros decimales como se escriben?, Con punto ejemplo 4.5
+Que datos van sin dobles comillas?, Números; true/false; null
+Como se escriben las keys?, entre dobles comillas
+Librerias para procesar Json?, Jackson; Gson
+APIs de programación?, JSON-P y JSON-B
+Hay alguna forma de validar un Json?, Json Schema
+
+# Principio SOLID
+
+S, Single Responsability: una clase debe tene una responsabilidad única
+O, Open / Close: una clase o metodo de estar abierto para la extensión pero cerrado para modificación
+L, Liskov Subtitution: Los objetos deben poder ser reemplazable por subtipos sin alterar el funcionamiento del programa
+I, Interface Segregation: No forzar a los clientes a depender de interfaces que no usan; hay que separa interfaces
+D, Dependency Inversion Principle; Dependender de la interface; no de la implementación
+
+# Patrones de diseño GOF
+
+Patrones creacionales?, Singleton; Factory Method; Abstract Factory; Builder; Prototype
+Patrones estructurales?, Flyweight; Adapter; Facade; Proxy; Composite; Decorator; Bridge
+Limitar a 1 las instancias que se puede crear de una clase determinada (truco: constructor privado + método estático),Singleton
+Proporciona una interfaz para crear objetos en una superclase; mientras permite a las subclases concretar el tipo de objetos que se crearán,Factory Method
+Nos permite producir familias de objetos relacionados sin especificar sus clases concretas,Abstract Factory
+Crear clases especializadas en crear cada parte de un objeto muy complejo (ej Facturas + Lineas+ Condiciones),Builder
+Define el interface de clonación (metodo clone) que deberán implementar ciertas clases de negocio que quieran permitir clonar/duplicar uno de sus objeto para obtener otro idéntico,Prototype
+Si creo p.ej. 30.000 instancias de un objeto; y de repente nos damos cuenta de que hay una determinada info que es la misma (común) en todas las instancias; la solución es sacarlo fuera; a una clase externa. Esa info común la vamos a poner toda en una clase única y una única instancia,Flyweight
+Una clase A que quiere usar los métodos de otra B pero no sabe o no le viene bien tal cual están definidos. El adapter será una clase intermedia que le ofrece ese método que le viene a A y realizará internamente las llamadas correspondientes a B,Adapter
+Proporciona para un subsistema (paquete con clases relacionadas) un punto unico de acceso que ofrece servicios de más alto nivel que los que ofrece cada una de las clases de ese subsistema individualmente,Facade
+Sobre una clase dada; separa las responsabilidades de negocio en una clase y las otros responsabilidades en otra; de tal forma que las peticiones antes de llegar a la clase de negocio como tal; siempre pasan por la otra (ej que podria servir para implementar funcionalidades de seguridad; rendimiento; ...),Proxy
+De una estructura de contenedores (ej. clases con relaciones de agregacion entre ella) ofrece una solucion de contenedores flexible en la que poder crecer tanto en un numero de contenedores como en los tipos de cada uno de ellos,Composite
+Añadir responsabilidades extra a un objeto/componente concreto de manera dinámica (en tiempo de ejecución) sin recurrir a la herencia. Lo hace por medio de envoltorios (unos objetos agregan o envuelven a otros y así hasta llegar al componente que será la pieza más interna  de esa cebolla),Decorator
+Extrae de un componente (abstracción) ciertos grupos de funcionalidades (implementaciones) y relacionarlas con este por composición. Con esto conseguimos que tanto la posible jerarquía de abstracciones como de implementaciones pueda crecer independientemente,Bridge
+Clases para crear un analizador sintáctico de un cierto lenguaje/expresion (introduce el concepto de terminal y no terminal) creando un AST (arbol de sintaxis abstracta),Interpreter
+Consiste en definir una clase abstracta con el 'esqueleto' de un proceso/algortimo. Algunas de las funciones definidas en esa superclase están preparadas para ser sobreescritas en las hijas y asi terminar de definir dicho proceso,Template Method
+Representa una serie de objetos enlazados/encadenados de forma que sobre una petición dada; cada uno tendrá un unico cometido funcional y le pasará el control al siguiente 'eslabon' de esa cadena.,Chain of Responsability
+En lugar de estar añadiendo metodos nuevos a una clase; se trata de 'sacar' esos metodos y convertir a cada uno de ellos en una clase,Command
+Define un interface homogéneo (ej. método next) que tienen que implementar las distintas clases de tipo colección. Así los clientes no tendrán que preocuparse por los detalles de como recorrer cada una (dará igual si es un árbol; grafo; lista....siempre se usará el método next),Iterator
+Permite reducir las dependencias caóticas entre objetos. El patrón restringe las comunicaciones directas entre los objetos; forzándolos a colaborar únicamente a través de un objeto mediador,Mediator
+Clases que guardan la estado actual de un objeto; por si después de una modificación hubiera que dejarlo en el estado original. Es nuestro CTRL + Z,Memento
+Conjunto de clases que se sirven para notificar a ciertos clientes (mediante suscripción) por los cambios que se producen en ciertos objetos,Observer
+Consiste en crear una jerarquia de clases que se corresponde con los estados por los que pasa una entidad de negocio y en cada una de estas se define el comportamiento/logica de un estado concreto,State
+Define un interface para un cierto algoritmo de forma que podamos tener por debajo todas sus posibles versiones/implementaciones,Strategy
+
+# RAID
+
+Como calcular la capacidad de RAID 0, Capacidad Neta = Numero de discos * Capacidad de almacenamiento del disco más pequeño (Ej. RAID con discos de 120GB y 320GB nos dará una capacidad de 240GB)
+Como calcular la capacidad de RAID 1, Capacidad Neta = (Numero de discos * Capacidad de almacenamiento del disco más pequeño)/2
+Como calcular la capacidad de RAID 3; 4; 5, Capacidad Neta = (Número de discos - 1) x Capacidad de almacenamiento del disco más pequeño
+Como calcular la capacidad de RAID 6, Capacidad Neta = (Número de discos - 2) x Capacidad de almacenamiento del disco más pequeño
+Mínimo discos para RAID 0 y 1, 2 discos
+Mínimo discos para RAID 2; 3; 4; 5, 3 o más discos
+Mínimo discos para RAID 6, 4 o más discos
+Cuanto discos usa de paridad y que tipo de redundancia tiene RAID 2, Multiples discos para paridad y redundancia con Hamming-Code
+Cuantos discos usa de paridad RAID 3 y 4?, Un unico disco de paridad
+Que tipo de paridad usa RAID 5 y 6?, RAID 5: Paridad distribuida(soporta 1 fallo en una unidad) - RAID 6: Doble paridad distribuida(soporta 2 fallos en una unidad)
+Que RAIDs trabajan a nivel de bloque(Block-Level)?, RAID 4; RAID5; RAID6. Los tres son de acceso independiente
+Que RAID trabaja a nivel de bit(Bit-Level)?, RAID 2
+Que RAID trabaja a nivel de Byte(Byte-Level)?, RAID 3
+
+# USB Thunderbolt Firewire Power Delivery
+
+Que velocidad de transferencia tiene USB 2.0?, 480 Mbps
+Que velocidad de transferencia tiene USB 3.0?, 5 Gbps para Gen 1. (Llamado USB 3.1 Gen 1)
+Que velocidad de transferencia tiene USB 3.1?, 10 Gbps para Gen 2. Para Gen 1 son 5 Gbps(Llamado USB 3.0)
+Que velocidad de transferencia tiene USB 3.2?, 20 Gbps para Gen 2 con 2 lanes. Para Gen 2 con 1 lane es 10 Gbps
+Que velocidad de transferencia tiene USB 4.0?, 40 Gbps para Gen 3 con 2 lanes. Anterior generación 20 Gbps. USB 4.0 con capacidad de tunneling; conectar disposivos PCIe y DisplayPort
+Que velocidad de transferencia tiene Thunderbolt 2?, 20 Gbps
+Que velocidad de transferencia tiene Thunderbolt 3?, 40 Gbps usa USB tipo C
+Que características tiene Thunderbolt?, Multiples protocolos(Display Port; HDMI; Ethernet); QoS; Multiples dispositivos; Transferencia bidireccional
+Que velocidades de transferencia tiene FireWire(IEEE 1394)?, Firewire 400 Mbps; Firewire 800 Mbps; Firewire S1600(1.6 Gbps); Firewire S3200(3.2 Gbps)
+Que Firewire va sobre RJ-45?, Firewire S800T
+Organismo estandanrización USB?, USB-IF; USB Implementers Forum
+Cual es el rango de potencia de Power Delivery(EPR)3.1?, 100 W a 240 W
+
+# Resoluciones pantalla
+
+Cual es la resolución de SVGA?, 800 x 600
+Cual es la resolución de XGA?, 1024 x 768
+Cual es la resolución de 720p?, 1280 x 720 (HD)
+Cual es la resolución de 1080p?, 1920 x 1080 (FHD)
+Cual es la resolución de 4K?, 3840 x 2160
+Cual es la resolución de 8K?, 7680 x 4320
+Cual es la resolución de 2K?, 2048 x 1080
+Cual es la resolución de quadHD?, 2560 x 1440
+
+# Puertos comunicaciones
+
+RIP, 520 UDP
+RIPng, 521 UPD
+BGP, 729 TCP
+LDP, 646 UDP-TCP
+DNS, 53 UDP-TCP; 853 TLS
+LDAP, 389; 636 con seguridad
+Kerberos, 88 UDP
+DHCP, 67 UDP(servidor) 68 UDP (cliente)
+DHCP6, 546 UDP(cliente) 547 UDP(servidor)
+SNMP, 161(Agente) y 162(Gestor; recibe Trap) UDP.
+RMON, 560 UDP
+FTP, 20 TCP(datos) 21 TCP(control)
+FTPS(SSL), 989(data) 990(control)
+SFTP(SSH), 22 TCP
+TFTP(trivial), 69 UDP
+SMTP, 25; 587; 467(SMTPS) todos TCP
+POP3, 110 Y 995(cifrado) ambos TCP
+IMAP4, 143(tcp-udp); 993(tcp) cifrado
+HTTP 3.0, 80 udp en la versión 3
+HTTPS, 443 TCP
+Telnet, 23 TCP
+SSH, 22 TCP
+IPP(internet printing protocol), 631
+LPD(Line Printer Daemon), 515 TCP
+RTP(Real Time Protocol), 5004
+RTCP(Real Timr Control Protocol), 5005
+SIP, 5060
+RDP, 3389
+RPC, 530
+RSYNC, 873
+SMB/CIFS, 445 TCP
+NTP(ultima 4), 123 UDP
+NetBIOS(Obsoleto), 137
+MySQL, 3306
+Postgres, 5432
+SQLServer, 1433
+Oracle, 1521 reemplaza 2483
+
+# Java Ecosistema
+
+javac, compilador
+java, interprete
+jshell, interprete ReadEvaluatePrintLoop - REPL de comandos interactivo. A partir de Java9
+javadoc, generacion de documentacion html a partir de los fuentes
+jar, empaquetar clases compiladas a veces con algun fichero mas como xml etc
+jarsigner, firmar y verificar ficheros jar
+keytool, criptografia
+wsimport, generacion de clases automaticas para los clientes de web services de tipo SOAP
+xjc, compilador que genera clases java a partir de un XSD
+rmic, compilador que genera clases java stubs en cliente y skeletons en servidor para su comunicacion C/S en programacion distribuida
+rmiregistry, servicio de nombres para registrar objetos distribuidos
+javap, desensamblador de ficheros .class
+jdb, depurador
+jdeps, analizador de dependencias de clases o de paquetes
+jmc y jconsole, herramientas de monitorizacion de la JVM
+Estructuras de programación en Java, Paquetes(Agrupación de clases; interfaces...); Clases; Interfaces; Enum; Anotaciones(se declara con @interface)
+final en clase; atributo; metodo, En class(No permite heredar hacia abajo); en atributo(Como una constante); en metodo(No permite sobreescritura)
+static, atributos y metodos de clase
+abstract, clase abstracta(no se puede instanciar; obliga que las hijas implementen metodos abstractos o las hijas sean abstract); metodo abstracto(se declara sin codificarlo; obliga que la clase sea abstracta)
+Permisos de acceso/visibilidad, protected(acceso para todos los hijos); private(acceso solo desde su clase); public(acceso desde cualquier parte del programa); default(Publico para su paquete)
+Ordena: clasePrincipal; implements; claseSecundaria; interfazUno; abstract; interfazDos; extends; class;, public abstract class ClaseSecundaria extends ClasePrincipal implements interfazUno; interfazDos 
+native, Definir un codigo que no esta en Java y queremos usar otro lenguaje de programación
+volatile, Cada Thread utiliza la memoria principal para tener los datos más actualizados en vez de la cache del Thread. 
+transient, Se usa para que un atributo no se serialice. Que no lo guarde o envie por la red
+synchronized, Un metodo synchronized solo soporta que sea ejecutado por 1 Thread cada vez. Tiene que ver algorit. exclusión mutua 
+Paquetes, (organizar a las clases). Tenemos que importarlos si queremos usar las clases de ese paquete salvo las que están en el paqueta java.lang (NOTA: los paquetes en java se organizan fisicamente dentro del jar en carpetas/directorios)
+Interfaces, definicion funcional pura --> sin codigo por lo menos hasta la version 1.7. Obliga a una serie de clases a cumplir con ese contrato.
+Programacion de red (bajo nivel), Socket/ServerSocket (tratamiento de TCP/IP)
+Programacion de red (alto nivel), RMI (programacion distribuida o cliente/servidor o llamada a metodos remotos)
+Persistencia de bajo nivel, (JDBC)Guardar/Recuperar/Borrar ... info de la BBDD relacional
+Interface Graficos de Usuario, Awt; JFC/Swing
+Soporte XML, JAXP --> SAX;DOM;StaX;TrAX
+Reflection, capacidad de acceder a los metadatos (clase;atributos;metodos) de un objeto en tiempo de ejecucion
+Novedades (version 1.5; 1.6; 1.7; 1.8; 1.9...),"
+- Streams (funciones map;filter;etc)
+- Expresiones Lambda
+- Optional y tipos de @FunctionalInterface (Function; Predicate...)
+- java.time copia de Joda-Time
+- Default Methods (en interfaces) permiten implementar codigo en las interfaces. Java 1.8
+- Modules (fichero module-info.java --> dependencias; servicios que ofrece; que consume; etc)
+"
+IDE's (Entornos/Editores de desarrollo), Eclipse; IntelliJ; Netbeans...
+Automatizacion del desarrollo, Ant (build.xml); Maven (pom.xml); Gradle (build.gradle en Groovy or Kotlin DSL); Ivy (extension de Ant para gestion de dependencias);Jenkins (integracion continua)...
+JDK's, OpenJDK; Amazon Corretto; IBM JDK...
+iText y PDFBox, Generacion de PDF's
+BouncyCastle, Criptografia
+Log4j; Logback; SLF4J(Facade;es una API del resto librerias logging)..., Logging
+Xerces; Xalan; Woodstox y Apache FOP, Parsers XML y Procesors XSL
+JUnit+Mockito y JMeter, Pruebas unitarias(JUnit);Juego de pruebas(Mockito) y de carga(JMeter)
+Apache Commons (lang;dbcp;crypto;fileupload;io;codec;etc) y Guava de Google, Proposito general
+Apache HttpComponents (HttpClient), Peticiones http a bajo nivel (En Java 11 ya existe un equivalente en java.net.http.HttpClient)
+Gson y Jackson, manejo de información en formato JSON
+Lombok, Simplifica el codigo. Usando anotaciones @Getter; @Setter... Genera automaticamente; no necesitamos crear las funciones 
+Apache POI, manejo de documentos de Office
+Apache Tika, Deteccion y extraccion de contenido de multitud de formatos
+Pentaho Kettle, ETL para extraccion de información; transformación y carga de ficheros
+Que dos tipos de excepciones existen,"
+- checked exception(heredan de Exception; obligan a poner try y catch salvo que se ponga throws ej. g() throws{....}) y 
+- unchecked exception(heredan de RuntimeException; no obliga a poner try/catch ni throws)
+"
+De que clase heredan los Error y las Exception?, Throwable. Las RuntimeException heredan de Exception. https://docs.oracle.com/javase/tutorial/essential/exceptions/throwing.html
+
+# SQL
+
+Configurar e inicio de transacción SQL y sublenguaje donde se encuentra, SET TRANSACTION(configurar TX) / START TRANSACTION(iniciar TX). DCL->TCL
+Como establecer un punto en las transacciones para no deshacer todo, con SAVEPOINT / RELEASE SAVEPOINT
+Confirmar o deshacer cambios en una transacción y sublenguaje donde se encuentra, COMMIT / ROLLBACK. DCL-TCL
+Sublenguaje donde se encuentra la sentencia MERGE y para que sirve?, DML; mezcla de una tabla sobre otra; MERGE INTO tabla_target USING tabla_source ON search_condición ...
+Sublenguaje donde se encuentra la sentencia CALL procedure y para que sirve, DCL sirve para llamar/ejecutar un procedimiento almacenado(SQL/PSM). Los datos no salen del SGDB
+Que sentencia se usa para borrar objetos y cambiarlos?, DROP y ALTER
+En que sublenguaje se encuentra TRUNCATE, DDL normalemente pero puede encontrarse en DML en algunos gestores. Borra todas las filas de tabla pero la estructura(index; constraints...) permanece
+Que constraint/restricciones existen, CHECK(condición); PRIMARY KEY; UNIQUE(admite 1 null); FOREIGN KEY
+"Como crear una tabla distribuidores(
+    dist_id: máximo 4 caracteres y sin nulos,
+    dist_nombre: 40 caracteres, 
+    sales_rep: enteros, 
+    zip: 5 caracteres),
+clave primaria: dist_id
+clave foranea apunta a empleados: sales_rep
+restricción valor unico: zip
+restricción 5 digitos 0-9: zip","
+CREATE TABLE distribuidores (
+  dist_id CHAR(4) NOT NULL, 
+  dist_nombre VARCHAR(40), 
+  sales_rep INT, 
+  zip CHAR(5) CONSTRAINT pk_dist_id PRIMARY KEY(dist_id), 
+  CONSTRAINT fk_emp_id FOREIGN KEY(sales_rep) REFERENCES empleados(emp_id), 
+  CONSTRAINT uniq_zip UNIQUE(zip) CONSTRAINT chk_zip CHECK(
+    zip LIKE '[0-9][0-9][0-9][0-9][0-9]'
+  ))"
+Sentencia para cambiar una tabla y añadir/cambiar/borrar una columna,"
+ALTER TABLE nombre_tabla ADD COLUMN nombre_col [tipo_dato] [atributos]
+ALTER TABLE nombre_tabla ADD [restricción constraint]
+ALTER TABLE nombre_tabla ALTER COLUMN nombre_col SET DEFAULT; SET NOT NULL; SET DATA TYPE [tipo_dato]
+ALTER TABLE nombre_tabla DROP COLUMN nombre_col"
+Como dar permisos a un usuario sobre una tabla/vista..., GRANT [privilegios] ON object_name TO usuario(s)/role(s) [WITH GRANT OPTION]
+Como quitar permisos a un usuario sobre una tabla/vista..., REVOKE [privilegio] ON object_name FROM usuario(s)/role(s)
+Como insertar datos en una tabla,"INSERT INTO [tabla] (col1,col2...) VALUES ('...','...',...)"
+Como actualizar datos en una tabla, UPDATE [tabla] SET col1=valor; col2=valor WHERE [condicines]
+Borrar datos en una tabla, DELETE FROM [tabla] WHERE [condiciones]. No existe DELETE * FROM [tabla]
+Orden de palabras reservadas en una consulta,"
+SELECT 
+  [ALL | DISTINCT] ...
+FROM 
+  ... [JOIN] ...
+WHERE 
+  ... [AND | OR | NOT] ...
+GROUP BY 
+  ...
+HAVING 
+  ...
+ORDER BY 
+  ... [ASC | DESC]"
+Que funciones de agregado existen, SUM; COUNT(* o columna; no nulos); MAX/MIN; AVG(media)
+Sintaxis y operadores utilizados en subconsultas,"
+SELECT 
+  ...
+FROM 
+  ...
+WHERE 
+  [EXISTS] |
+  col1[[NOT] IN] |
+  col1[ =, >=,<...][ANY / SOME / ALL] (
+    SELECT 
+      ...
+  )"
+Que sentencia se usa para ver el plan de ejecución, explain plan
+Con que otro operador va HAVING?, con GROUP BY
+Que diferencia hay entre UNION y UNION ALL?, UNION ALL no elimina si hay repetidos. SELECT cols UNION [ALL] SELECT cols; Queries deben ser compatibles
+Sintáxis de trigger,"
+CREATE TRIGGER auditar_phone_book 
+    [AFTER | BEFORE | INSTEAD OF] 
+    [INSERT | UPDATE | DELETE] ON phone_book FOR EACH ROW 
+    BEGIN 
+    INSERT INTO phone_book_auditoria(col1,...) 
+VALUES 
+  (
+    auditoria_seq.nextval, 'UPDATE', 
+    [OLD | NEW].col1...
+  );
+END;"
+Que caracterísiticas tiene un procedimiento?, Se ejecuta con CALL; acepta parametros(a diferencia de los triggers) no retorna valor; pueden usar cursores; CREATE PROCEDURE nombre... 
+
+# Oracle SQLserver Mysql Postgres
+
+En Oracle que significado tiene la base de datos, Solo hay una. Es el conjunto de ficheros(estructura interna) pertenece a Oracle no al usuario
+Puerto Oracle, 1521 y reemplazado por 2483
+Que elementos conoces de la arquitectura Oracle, PGA(Proceso de servidor atiende usuario); SGA(Area global caches); Listener(atiende peticiones usuario); DBWn(escritura ficheros de DB); LGWR(Escribe redo log)
+Que tablespaces se crean en Oracle, USERS; SYSTEM; SYSAUX
+Que estructura logica y fisica tiene oracle?,"
+- Logica: Base de Datos->Tablespace->Segmento(Tabla;indice;undo-rollback...)->Extension()->Bloque
+- Fisica: Archivo de datos->Bloque del S.O.
+- Tablespace se relaciona con-> Archivo datos y Bloque logico se relaciona con-> Bloque del S.O."
+Que ficheros crea SQL Server por cada DB, Primary(.mdf);Secundary(.ndf);Transaction Log(.ldf)
+Ficheros que crea MySQL, .frm(formato tabla); myd(datos); myi(indices)
+Script de MySQL para instalación segura, mysql_secure_installation; mariadb-secure-installation 
+Lenguajes SQL/PSM de Oracle;SQL Server; Postgres, PL/SQL; Transact-SQL; PL/pgSQL
+
+
+
+
+
+
+

@@ -1,0 +1,742 @@
+# Comandos Windows GPO politicas grupo
+
+Editor de GPOs o directivas de de grupo locales, gpedit.msc
+Mostrar las GPOs de usuario y/o computadora que están siendo aplicadas, gpresult
+gpresult /r, resumen tando del USER como del COMPUTER
+gpresult /z, informacion super detallada
+gpresult /h, gpresult /h informe_fichero.html
+gpresult /x, gpresult /x informe_fichero.xml
+gpresult /S, gpresult /S remote-pc-name
+gpupdate /force, forzamos la actualizacion
+gpupdate /boot, reinicia despues de la actualizacion
+gpupdate /logoff, cierra la sesion despues de la actualizacion
+gpupdate /target USER, solo se actualizan las directivas del usuario
+gpupdate /target COMPUTER, solo se actualizan las directivas del equipo
+
+# Comandos Windows Active Directory
+
+dsquery server domainroot, lista todos los controladores de dominio
+dsquery computer OU=Sales;DC=Contoso;DC=Com, busca todos los equipo de esa OU
+dsquery computer domainroot -name ServFichero*, busca en el dominio actual todas las maquinas cuyo nombre comience con 'ServFichero'
+dsquery user domainroot -name *smith -inactive 3, muestra a todos los usuarios cuyo nombre termina en 'smith' y que lleven más de 3 semanas de inactividad
+dsquery user ... -disabled, que las cuenta este desactivada
+dsquery user ... --stalepwd 30, que no haya cambiado la password desde hace al menos 30 dias
+dsquery user –samid 'username' | dsget user -email, obtener el email de un determinado usuario
+dsquery user -samid 'username' | dsget user -memberof -expand, obtener todos los grupos de un usuario; incluidos los anidados
+dsquery group -samid 'DEVELOPERS' | dsget group -members -expand  | dsget user -samid, obtener los miembros de un grupo
+dsget user ... -effectivepso, obtener las PSO=Politicas de sobre la configuración de las contraseñas
+dsget user ... -acctexpires, obtener la fecha de expiracion de la cuenta
+dsget user ... -disabled, si o no está desactivada
+dsget user ... -mustchpwd, si o no el usuario debe cambiar la contraseña en el siguiente inicio de sesion
+dsquery computer -inactive 4 | dsmod computer -disabled yes, deshabilita todos los equipos que hayan estado inactivos durante 4 o mas semanas
+dsadd user CN=Carlos;OU=Marketing;DC=ruinosa;DC=com, añade un usuario en una OU
+dsadd computer CN=SALESWKSTN1;OU=Ventas;DC=ruinosa;DC=com, alta de un equipo en una OU
+dsmod group CN=Marketing Users;CN=users;DC=ruinosa;DC=com -addmbr CN=Sara;OU=Marketing;DC=ruinosa;DC=com, añade usuario a un grupo
+dsmod user CN=Pepe;OU=Ventas;DC=ibm;Dc=com -pwd Abcd123 -mustchpwd yes, cambia la password+politica a un usuario
+dsrm -subtree -noprompt -c OU=Marketing;DC=ruinosa;DC=com, borra toda una OU
+
+# Comandos Windows net administrar recursos usuarios grupos servicios
+
+net user, muestra usuarios locales creados en la maquina
+net user pepe, muestra info del usuario pepe Ej: Ultimo cambio de password; si la contraseña expira; ultima sesion iniciada; grupos locales a los que pertenece; directorio principal; etc
+net user juan 1234 /add, alta del usuario local juan
+net user juan 1234 /add /domain, alta del usuario juan en el dominio
+net user fer *, con esto podemos cambiar la password del usuario
+Opción-> /passwordreq:yes/no, si es obligatorio tener password para esa cuenta
+Opción-> /passwordchg:yes/no, si el usuario puede cambiar la contraseña
+Opción-> /expires:fecha/never, expiracion de la cuenta
+Opción-> /active:yes/no, activa o desactiva la cuenta
+Opción-> /times:..., momentos en los que se puede usar la computadora/hacer login
+Opción-> /workstations:..., lista de equipos desde donde puede hacer login
+net accounts, modifica politicas de cuentas y password
+net accounts /MINPWLEN:..., longitudMinimaDeLaPassword
+net accounts /MAXPWAGE:..., maximoDeDiasQueLaPasswordEsValida
+net accounts /UNIQUEPW:..., numeroDePasswordUnicasCuandoSeCambia
+net accounts /DOMAIN, estos comandos afectan al dominio en lugar de la maquina local
+net computer \\equipo /add o /del, añade o borra una maquina al dominio
+net session \\servidorNominas, listado con los usuarios y desde que maquinas están conectados al servidorNominas
+net print \\equipo, muestra las colas de impresion compartidas
+net print \\equipo\ShareName, muestra la cola de impresion de ese share
+net print \\equipo NumeroDeJob, gestion de un job particular
+net print \\equipo NumeroDeJob /hold o /release, retrasa/retiene o libera el job
+net print \\equipo NumeroDeJob /delete, borra el job
+net share gestion de recursos compartidos, sin parametros muestra los que hay actualmente creados
+net share DataCompartido=c:\Data, comparte el directorio c:\Data con el nombre publico DataCompartido
+net share DataCompartido=c:\Data /users:..., numeroMaximoUsuariosSimultaneos
+net share DataCompartido=c:\Data /delete, borrar el recurso compartido
+net group desarrolladores /add, añade grupo al dominio
+net localgroup desarrolladores /add, añade grupo local a la maquina
+net group desarrolladores pepe luis /add, añade usuarios al grupo
+net view, muestra la lista de maquinas del dominio actual o con /domain el que tu especifiques
+net view \\equipo /ALL, muestra todos los recursos compartidos del equipo. El $ en el nombre del recurso indica que son ocultos
+net use, gestión de unidades hacia --> recursos compartidos
+net use e: \\financiero\cartas, en la maquina cliente vamos a poder engancharnos contra el share creado en el servidor \\financiero
+net use [LPTx:] \\ComputerName\printer_share /persistent:yes, asignar una impresora compartida en la red a un puerto
+net use e: \\financiero\cartas /delete, borrar el mapeo de unidad
+net use e: \\financiero\cartas /persistent:yes, para que se realice el mapeo en cada inicio de sesion
+net use e: \\financiero\cartas /user:usuario password, mapeo con credenciales concretas
+net config server /autodisconnect:minutos, cierra sesiones inactivas al pasar x minutos
+net start/stop/pause/continue nombreDelServicio, gestión de servicios
+net time /domain[:dominio] /set, sincroniza la hora del equipo con la del dominio
+net time /rstdomain[:dominio] /set, idem pero contra un servidor de tiempos
+
+# Comandos Windows netsh configuracion de red
+
+netsh advfirewall set currentprofile state on, activar el firewall
+netsh advfirewall firewall add rule name='Open Port 80' dir=in action=allow protocol=TCP localport=80, regla para abrir el puerto 80 de entrada
+netsh advfirewall firewall set rule group='remote desktop' new enable=Yes, activar el servicio de RDP
+netsh interface ip show config, muestra configuracion TCP/IP
+netsh interface ip delete arpcache, borra la cache de ARP
+netsh interface ip set address name='Local Area Connection' source=static addr=192.168.0.10 mask=255.255.255.0 gateway=192.168.0.1 gwmetric=1, configuracion IP estatica
+netsh interface ip set address name='Local Area Connection' source=dhcp, configuracion IP dinamica
+netsh interface ip add dnsservers 'Local Area Connection' 10.0.0.1, añadir servidor de DNS
+netsh set machine servidorNominas, trabajar contra ese servidor
+netsh wlan add filter permission=block ssid=”WLAN name” networktype=infrastructure, bloquea la WIFI por SSID
+netsh http add iplisten address=1.1.1.1, publicar nueva IP de escucha
+netsh http add sslcert ipport=1.1.1.1:443 certhash=0102030405060708090A0B0C0D0E0F1011121314 appid={00112233-4455-6677-8899-AABBCCDDEEFF}, asocia un certificado con una determinada IP+Puerto
+netsh dump > copia_configuracion.txt, copia de seguridad de la configuracion
+netsh exec copia_configuracion.txt, restauracion de la configuracion
+
+# Comandos Windows robocopy copia backup de ficheros
+
+/S, copia subcarpetas
+/E, copia subcarpetas incluso VACIAS
+/MIR, modo espejo copia de forma recursiva pero al terminar se eliminan los archivos en el destino que ya no existen en el origen
+/MOV, mueve archivos y los elimina del origen después de ser copiados
+/MOVE, mueve archivos y carpetas y los elimina del origen después de ser copiados
+/L, hace una SIMULACION
+/MAX:bytes o /MIN:bytes, de un determinado tamaño
+/MAXAGE:dias o /MINAGE:dias, de una determinada antiguedad
+/Z, modo REINICIABLE
+/SEC, conservar permisos o /COPYALL
+/R:..., numeroReintentos
+/XF patron, excluye los archivos indicados
+
+# Comandos Windows arp ipconfig netstat nslookup getmac route tracert
+
+arp -a, muestra las entradas de la tabla
+arp -d direccion_ip, elimina el host especificado o todos si se usa *
+arp -s direccion_ip direccion_mac, agrega una entrada a la tabla
+ipconfig /displaydns, muestra las resoluciones DNS de la cache
+ipconfig /flushdns, borra la cache del DNS
+ipconfig  /renew, renueva la direccion IP
+ipconfig  /release, libera conexiones
+netstat -a, muestra todas las conexiones y puertos de escucha
+netstat -p protocolo, filtra por TCP;UDP
+netstat -r, muestra el contenido de la tabla de rutas
+netstat -o, muestra el PID del proceso asociado
+netstat -n, muestra los puertos y las direcciones en formato numerico
+nslookup -querytype=TXT -timeout=10 inap.es 8.8.8.8, consulta de los registros de tipo TXT de inap.es usando GoogleDNS
+nslookup -type=TXT -timeout=10 inap.es 8.8.8.8, consulta de los registros de tipo TXT de inap.es usando GoogleDNS
+Comando getmac, obtener la dirección fisica/MAC de una serie de interfaces de red
+Comando route, administración de la tabla de enrutamiento
+tracert / pathping -d, no convierte direcciones en nombres de host
+tracert / pathping -h, numero maximo de saltos en la busqueda
+tracert / pathping -w milisegundos, tiempo para esperar cada respuesta
+tracert / pathping -6, forzar usando IPv6
+
+# Versiones Linux
+
+path version Red Hat, cat /etc/redhat-release
+path version Ubuntu, cat /etc/lsb-release alternativa /etc/os-release
+path version Debian, cat /etc/os-release alternativa /etc/lsb-release
+path version release OS, cat /proc/sys/kernel/osrelease -> 5.10.0-21-amd64
+existe /etc/issue, /etc/osrelease y /etc/debian_version?, Sí podemos obtener info acerca de la distribucion de Linux
+path version tipo OS, cat /proc/sys/kernel/ostype -> Linux
+En Linux imprime toda la información nombre kernel; version; release; plataforma hardware, uname -a o --all
+En Linux imprime con uname el nombre del kernel, uname -s o --kernel-name
+En Linux imprime con uname el nombre de host del nodo de red, uname -n o --nodename
+En Linux imprime con uname la release del Kernel, uname -r o --kernel-release
+En Linux imprime con uname la versión del Kernel, uname -v o --kernel-version
+En Linux imprime con uname la versión de sistema operativo, uname -o o --operating-system
+En Linux imprime con uname plataforma hardware, uname -i o --hardware-platform
+En Linux imprime con uname arquitectura de procesador, uname -p o --processor
+En Linux imprime con lsb_release identificación del distribuidor, lsb_release -i
+En Linux imprime con lsb_release descripción de la distribución, lsb_release -d
+En Linux imprime con lsb_release la release de la distribución, lsb_release -r
+En Linux imprime con lsb_release nombre en clave de la distribución, lsb_release -c
+En Linux imprime con lsb_release toda la informacion, lsb_release -a
+
+# Linux paquetería
+
+Path en Debian con urls de los catálogos de todos los paquetes/programas, /etc/apt/sources.list
+Herramientas para instalar paquetes en Debian, aptitude; dselect; synaptic
+Buscar un paquete en Debian, apt-cache search programa; apt search programa
+Path en Red Hat con urls de los catálogos de todos los paquetes/programas, /etc/yum.repos.d
+Comando para instalar|borrar|buscar paquete online en Red Hat, yum install|remove|search programa o con dnf install|remove|search ...
+apt-cache search vsftpd, busca el paquete vsftpd en tu catalogo local
+apt-cache show vsftpd, info del paquete
+apt-get update, actualiza el indice de paquetes usando los repositorios
+apt-get upgrade, actualiza los paquetes instalados en el sistema
+apt-get install vsftpd, instala el paquete vsftpd online
+apt-get remove vsftpd, elimina el paquete
+apt-get purge vsftpd, elimina el paquete y ficheros de configuracion
+apt-get autoremove, elimina paquetes huerfanos que ya no son necesarios
+dpkg -i flash_2.8.2+squeeze1_i386.deb, instalación offline
+dpkg -l, lista paquetes instalados
+dpkg -r nombre_paquete, remove con -p hace un purge
+dpkg -c flash_2.8.2+squeeze1_i386.deb, listar el contenido
+dpkg -s nombre_paquete, chequea si está instalado
+dpkg -L nombre_paquete, localizacion/directorios de la instalacion
+dpkg -P nombre_paqueta, elimina el paquete y ficheros de configuración
+yum install firefox, instala el paquete firefox
+yum remove firefox, elimina el paquete
+yum update mysql, actualiza ese paquete
+yum list openssh, busca el paquete llamado exactamente openssh
+yum list installed, muestra paquetes instalados
+yum search openssh, busca el paquete openssh
+yum info firefox, muestra info del paquete
+yum repolist, muestra lista de repositorios activos
+yum --enablerepo=epel install phpmyadmin, para instalar desde un repo concreto
+rpm -ivh pidgin-2.7.9-5.el6.2.i686.rpm, instalación offline verbose
+rpm -Uvh nx-3.5.0-2.el6.centos.i686.rpm, hacer un upgrade
+rpm -qpR BitTorrent-5.2.2-1-Python2.4.noarch.rpm, chequear dependencias antes de la instalacion
+rpm -ql BitTorrent, lista los ficheros de la instalación
+rpm -evv nombre_paquete, elimina el paquete
+rpm -qi vsftpd, muestra información del paquete instalado
+rpm -qip sqlbuddy-1.3.3-1.noarch.rpm, muestra información del paquete
+
+# Linux gestión usuarios
+
+useradd -m -d /home/pepe -s /usr/bin/zsh -G devs;admins pepe, crea el usuario pepe; crea el directorio home especificado; le configura el shell zsh y le asocia a esa lista de grupos
+useradd -e 2022-01-22 pepe, fecha de expiracion de la cuenta
+useradd -f 45, bloquea la cuenta pasados esos dias de inactividad
+useradd -r nginx, crea una cuenta de sistema
+usermod -l pepeito pepe, cambia el login de 'pepe' a 'pepito'
+usermod -a -G Marketing pepe, añade a pepe al grupo de Marketing
+usermod -L pepe, bloquea la cuenta. Con -U desbloquea
+userdel -r pepe, borra la cuenta y todos sus ficheros asociados
+Diferencia entre adduser y useradd, adduser es un script que llama a useradd que usa el fichero de configuracion /etc/adduser.conf y ofrece un proceso de alta más sencillo e interactivo
+Para que sirve chage, nos sirve para gestionar la expiración de la cuenta del usuario y la policita de expiracion de la password
+Para que sirve passwd, nos permite cambiar la contraseña
+Que ficheros usa useradd, /etc/login.defs ej. parametro CREATE_HOME=yes y /etc/default/useradd 
+Que es cada campo de /etc/passwd sally:x:1029:503:Sally Jones:/home/sally:/bin/bash, username - password - uid - gid - comentario - home - shell. TIP: la x indica que la password está en /etc/shadow
+Que es cada campo de /etc/shadow sally:$6$EmoFkLZPkHkpczVN2XRcMdyj8/ZeeT5UnTQ:15505:0:-1:7:-1:-1:, username - hash de la password - Ultimo cambio de password ...TIP: Una ! delante de la password indica cuenta bloqueda. TIP: Un * en la password indica que no se puede hacer login
+Que es cada campo de /etc/group project1:x:504:sally;sam;ellen;george, groupname - password - GID - lista de usuarios
+who -q, muestra los login y el numero total de usuarios logados
+who -m, muestra el hostname desde donde está conectandose el usuario
+who -r, muestra el runlevel actual
+who -b, fecha y hora del ultimo inicio del sistema. comando similar: last -ap now
+Que hace el comando users, muestra solo el login de los usuarios conectados. Con users w muestra lo que están haciendo
+Que muestra el comando id, muestra información del usuario: uid; gid; grupos
+
+# Linux gestión permisos ficheros
+
+setfacl -m u:pepe:rw /path/fichero, añade acl de permiso de rw para el usuario pepe sobre el fichero
+setfacl -m g:developers:rwx /path/fichero, añade acl de permiso de rwx para el grupo developers sobre el fichero
+setfacl -b  ficharo, borrar todas las acl's del fichero
+setfacl -x  'acl' fichero, elimina una acl concreta sobre el fichero
+chmod 755 fichero, activar permisos rwx r_x r_x
+chmod 1755 fichero, activar permisos + el bit sticky. Idem que o+t 
+chmod 2755 ejecutable, activar permisos + el bit SetGID. Idem que g+s
+chmod 4755 ejecutable, activar permisos + el bit SetUID. Idem que u+s
+chmod --reference=fichero_origen fichero_destino, copiar permisos de un fichero a otro
+chown -R pepe:dev /path, establece como usuario y grupo propietario a todos los ficheros y directorios recursivamente 
+lsof -u pepe, lista los ficheros abiertos por el usuario
+lsof -p PID, lista los ficheros abiertos por el proceso con PID
+lsof -c nombre, lista los ficheros abiertos por el proceso con nombre
+lsof /path/fichero, muestra los procesos que tiene abierto el fichero
+lsof -t /path/fichero, muestra solo los PID de los procesos que tiene abierto el fichero
+Que información muestra stat fichero/directorio, permisos; nº inodo; tipo fichero; número enlaces hard links; Uid y Gid; fecha acceso modificación y cambio; tamaño
+
+# Linux tar tape archive
+
+tar cvf file.tar *.c, crea un fichero empaquetado sin comprimir
+tar cvfz file.tar.gz *.c, crea un fichero emaquetado y comprimido con gzip
+tar cvfj Phpfiles-org.tar.bz2 /home/php, crea un fichero emaquetado y comprimido con bzip2
+tar xvf file.tar, desempaqueta un fichero con o sin compresion
+tar xvf videos-14-09-12.tar.bz2, desempaqueta un fichero con o sin compresion
+opción -r, actualiza o añade un fichero en un empaquetado concreto
+opción -f, para poder especificar el nombre del fichero resultante
+opción -J, para usar el algoritmo de compresion xz
+opción -t, lista el contenido del archivo empaquetado o comprimido
+
+# Linux popurrí comandos
+
+whoami, lista el usuario actual
+exec comando, ejecuta el comando y te saca del shell como si hiceramos exit
+time comando, lista el tiempo que ha tardado en ejecutar el comando; el real; de usuario; de sistema
+touch nombre fichero, cre un fichero vacio con los permisos de la mascara actual umask
+Cual es el permiso de umask, umask=022
+Como se calcula los permisos por defecto, permiso BASE AND Not(umask). El umask es 022
+Permiso base fichero, 666
+Permiso base directorio, 777
+Como listar de forma larga y recursivo, ls -l -R
+Copiar si el origen está más actualizado que el destino, cp -u
+Copiar de forma recursiva, cp -r
+Mover fichero de forma interactiva, mv -i
+Borrar fichero preguntando, rm -i
+Borrar de forma recursiva, rm -r
+Modificar fecha de acceso fichero, touch -a
+Mofificar fecha de modificación, touch -m
+Parametro de touch que no crea fichero si no existe, touch -c
+Comando para crear copias de seguridad, cpio; con -i extraer; con -o create
+Copia datos entre dispositivos a bajo nivel, dd
+dd if=/deb/zero of=empty.img bs=1024 count=720,  if entrada; of salida; bs y count sector
+Con mkdir crear todos los subdirectorios necesarios, mkdir -p
+Comando para borrar todo el directorio y el arbol, rmdir -p. rmdir solo borra directorios que están vacios
+chown recursivo, chown -R. Solo puede ROOT o el owner del fichero puede hacer chown
+Cambiar el group owner fichero, chgrp
+Con find buscar un nombre directorio 'Musica'; de un uid '001'; con un tamaño '5MB'; con unos permisos '666'; con una fecha de acceso '2012-12-10',"
+find -type d -name Musica -perm 666 -user 001 -atime 2012-12-10 -size +5MB
+"
+Genera ficheros en trozos, split; en lineas o bytes
+Pasar de mayusculas a minusculas, tr
+Eliminar lineas duplicadas, uniq
+Como el cat pero te imprime los nº de linea, nl; -b a numera también las vacias
+Ver las primeras o las últimas N lineas, tail -200f fichero.log; head fichero.log
+Información paginada, more o less
+Corta en vertical fichero texto, cut; -b bytes; -f campos; c- caracteres
+Contar dentro de fichero texto, wc; -l lineas; -w palabras; -m caracteres; -c bytes
+Redirigir a ficheros y salida estandard a la vez, tee ej. prog | tee output.txt
+Ordenar fichero de texto, sort; -k campos; -n por valor numerico; -r invierte el orden; -f da igual mayusculas que minusculas
+Ver tamaño ocupa fichero/directorio, du . -sch
+Montaje unidad, mount -t filesystem origen destino
+Checkear y reparar sistema ficheros, fsck; e2fsck
+Listar ficheros abierto para un proceso, lsof
+Ejecutar comando en background, comando &; usar fg id para traer al foreground de nuevo. Si se hace logout se cancela el proceso
+Ejecutar comando en background y sobrevive al logout, nohup comando
+Set prioridad a un comando, nice
+Mostrar procesos, ps
+Listar modulos cargados por el kernel, lsmod; lsusb; lspci
+Camino que sigue una conexión con una ip destino, traceroute
+Información sobre puertos abiertos etc., netstat
+Listar mensajes de consola cuando arranca el S.O., dmesg
+Arrancar servicios de red, inetd
+Muestra configuración de red del interface, ifconfig; ip
+Activar/Desactivar interfaces red, ifup/ifdown
+Volcado de trafico de red, tcpdump
+Gestión routing, route
+
+# Linux paths ficheros
+
+/etc/apt/sources.list, URLs con los catálogos de todos los paquetes/programas (Debian)
+/etc/cache/apt/, Paquetes descargados por apt
+/var/lib/apt/lists, Catálogos descargados por apt
+/var/cache/apt/archives, Paquetes descargados por apt
+/etc/yum.repos.d, URLs con los catálogos de todos los paquetes/programas (RedHat)
+/etc/profile, Fichero de configuración global del sistema. Llama al bash.bashrc
+/etc/bash.bashrc, Fichero de configuración global del sistema
+/etc/skel, Ficheros que tendrá cada nuevo usuario en su HOME tras su creación
+~/.profile, Fichero de configuración de cada usuario
+~/.bashrc, Fichero de configuración de cada usuario
+~/bash_history, Histórico de los últimos comandos ejecutados por shell
+/dev/zero, Dispositivo instrumental que devuelve ceros
+/dev/cdrom, CD-ROM
+/dev/hda, Disco duro PATA/IDE
+/dev/sda, Disco duro SATA/SCSI
+/dev/null, Dispositivo instrumental que devuelve nulos o que ignora lo que se le redirige a él
+/dev/random, Dispositivo instrumental que genera números aleatorios
+/var/log/syslog, Se queda registrado todo suceso del sistema; cuando un servicio arranca o para; si genera algún error; etc
+/etc/fstab, Montajes permanentes al arrancar el sistema. device  mount_point  FS  options
+/etc/mtab, Montajes actuales del sistema
+/lib, Librerías
+/usr/lib, Librerías
+/etc/crontab, Procesos planificados que se van a ejecutar
+/etc/cron.daily/, Directorio con los scripts de los procesos que se van a ejecutar diariamente
+/etc/cron.deny, Listado de usuarios que no pueden tener crontab
+/etc/cron.d, Más ficheros crontab para no tener todo en /etc/crontab
+/etc/anacron, Tareas a ejecutar por anacron
+/var/spool/cron/crontabs, Cada usuario tiene su propio crontab
+/etc/inittab, Fichero de configuración para lanzar los scripts de inicialización del sistema
+/etc/rc0.d, Directorio con enlaces a los servicios/demonios de Systemd (S/K)
+/etc/init.d, Directorio donde están los servicios/demonios/scripts de arranque para el proceso init
+/sbin/init, Relacionado con el sistema de inicia clásico /etc/inittab
+/bin/systemd, Sistema de inicio nuevo /lib/systemd/system
+/etc/systemd/system, Unidades instaladas por el administrador
+/etc/inetd.conf, Usado por el demonio supervisor de red inetd
+/etc/hosts, Fichero de resolución local (IP - Nombre)
+/etc/hostname, Nombre de la máquina local
+/etc/resolv.conf, Configuración del DNS; al que pedimos las resoluciones de Nombre - IP
+/etc/host.conf, Fichero de configuración del cliente DNS para indicar cómo resolver los nombres de host
+/etc/network/interfaces, Configuración de la tarjeta de red en Debian
+/etc/sysconfig/network-scripts/ifcfg-eth0, Configuración de la tarjeta de red en RedHat
+/etc/passwd, Información de las cuentas de usuario
+/etc/shadow, Contraseñas salteadas de los usuarios. Solo ! usuario sin contraseña. ! + contraseña: usuario bloqueado
+/etc/group, Nombres de los grupos y usuarios que pertenecen a cada uno
+/proc, Sistema de ficheros isntrumental. Filesystem montado en memoria
+/proc/sys/kernel/osrelease, Versión de la release
+/proc/sys/kernel/ostype, Kernel
+/proc/sys/kernel/hostname, Nombre del host
+/proc/sys/kernel/version, Versión del kernel
+/proc/sys/fs/file-max, máximo número de ficheros abiertos para todo el sistema
+/proc/filesystems, Sistemas de ficheros soportados
+/proc/version, Versión del kernel y otra información
+/proc/meminfo, Información de la memoria del sistema
+/proc/cpuinfo, Información de la CPU
+/proc/interrupts, Lista de IRQs; interrupciones
+/proc/stat, Estadísticas del sistema
+/proc/ioports, Información de los puertos de E/S
+/etc/security/limits.conf, Nice para usuario/proceso; nº máximo de procesos y archivos abiertos. soft (cambiable). hard (máximo).
+/etc/adduser.conf, Fichero de configuración para adduser
+/etc/login.defs, Fichero de configuración para useradd
+/etc/default/useradd, Fichero de configuración para useradd
+/etc/sudoers, Configuración del comando sudo. Formato del fichero: who hosts = [(as who)] [tags] commands
+/var/lib/docker, Directorio raíz de Docker
+/var/lib/docker/volumes, Ubicación donde se guardan los volúmenes de almacenamiento de Docker
+/etc/mysql/my.cnf, Tiene los !includedir a los ficheros de configuración de MySQL
+/etc/mysql/conf.d, Fichero de configuración de MySQL
+/etc/mysql/mariadb.conf.d/50-server.cnf, Fichero de configuración de MariaDB
+/etc/mysql/mysql.conf.d/mysql.conf, Fichero de configuración de MySQL
+/etc/pg-hba.conf, Fichero de configuración de la autenticación de usuarios de Postgres
+/etc/postgresql/9.6/main/postgresql.conf, Configuración del servidor Postgres
+/et/pg_hba.conf, Configuración autenticación servidor de Postgres
+/etc/snmp/snmp.conf, Se configura la community (rocommunity) para autorizar al gestor SNMP y la ip para los traps (trap2sink)
+/etc/apache2/.htpasswd, Usuario/Contraseña autorizados a acceder a los recursos HTTP. Autenticación básica
+/etc/apache2/sites_available, Sitios disponibles para su gestión con Apache
+/etc/apache2/sites_enabled, Sitios habilitados para su gestión con Apache
+/etc/apache2/mods_available, Módulos disponibles para su gestión con Apache
+/etc/apache2/mods_enabled, Módulos habilitados para su gestión con Apache
+/etc/apache2/apache2.conf, Configuración de Apache en Debian
+/etc/httpd/conf/httpd.conf, Configuración de Apache en RedHat
+~/.ssh/id_rsa, Clave privada de SSH
+~/.ssh/id_rsa_pub, Clave pública de SSH
+~/.ssh/autorized_keys, Claves públicas de los usuarios autorizados a conectarse. Está en el host
+~/.ssh/known_hosts, Fingerprints de las claves públicas de los servidores a los que nos hemos conectado. Está en el servidor central
+/etc/ssh/sshd_config, Configuración del servidor SSH
+/etc/ssh/ssh_config, Configuración del cliente SSH
+/etc/ssh/ssh_host_rsa_key, Clave privada RSA usada por el demonio sshd
+/etc/ssh/ssh_host_rsa_key_pub, Clave pública RSA usada por el demonio sshd
+/etc/ssh/ssh_host_dsa_key, Clave privada DSA usada por el demonio sshd
+/etc/ssh/ssh_host_dsa_key_pub, Clave pública DSA usada por el demonio sshd
+/etc/ssh/ssh_host_ecdsa_key, Clave privada ECDH usada por el demonio sshd
+/etc/ssh/ssh_host_ecdsa_key_pub, Clave pública ECDH usada por el demonio sshd
+/etc/ansible/hosts, Inventario de máquinas a administrar por Ansible
+/etc/ansible/group_vars/, Directorio para colocar los ficheros YML con las variables de configuración para los grupos de Ansible
+/etc/ansible/ansible.cfg, Configuración general de Ansible
+/etc/salt/master, Configuración del servidor central de Salt
+/etc/salt/minion, Configuración de la máquina administrada por Salt
+/var/spool/mail, Buzones de correo
+/etc/samba/smb.conf, Configuración de SMB/CIFS
+/proc/sys/net/ipv4/ip_forward, Para activar ip forward en la máquina. Cambio temporal. Routing.
+/etc/sysctl.conf, Configuración parámetros del kernel. Configuración de routing (forward) para iptables. Cambio permanente
+
+# Linux paths ficheros B side
+
+URLs con los catálogos de todos los paquetes/programas (Debian), /etc/apt/sources.list
+Paquetes descargados por apt, /etc/cache/apt/
+Catálogos descargados por apt, /var/lib/apt/lists
+Paquetes descargados por apt, /var/cache/apt/archives
+URLs con los catálogos de todos los paquetes/programas (RedHat), /etc/yum.repos.d
+Fichero de configuración global del sistema. Llama al bash.bashrc, /etc/profile
+Fichero de configuración global del sistema, /etc/bash.bashrc
+Ficheros que tendrá cada nuevo usuario en su HOME tras su creación, /etc/skel
+Fichero de configuración de cada usuario, ~/.profile
+Fichero de configuración de cada usuario, ~/.bashrc
+Histórico de los últimos comandos ejecutados por shell, ~/bash_history
+Dispositivo instrumental que devuelve ceros, /dev/zero
+CD-ROM, /dev/cdrom
+Disco duro PATA/IDE, /dev/hda
+Disco duro SATA/SCSI, /dev/sda
+Dispositivo instrumental que devuelve nulos o que ignora lo que se le redirige a él, /dev/null
+Dispositivo instrumental que genera números aleatorios, /dev/random
+Se queda registrado todo suceso del sistema; cuando un servicio arranca o para; si genera algún error; etc, /var/log/syslog
+Montajes permanentes al arrancar el sistema. device  mount_point  FS  options, /etc/fstab
+Montajes actuales del sistema, /etc/mtab
+Librerías, /lib
+Librerías, /usr/lib
+Procesos planificados que se van a ejecutar, /etc/crontab
+Directorio con los scripts de los procesos que se van a ejecutar diariamente, /etc/cron.daily/
+Listado de usuarios que no pueden tener crontab, /etc/cron.deny
+Más ficheros crontab para no tener todo en /etc/crontab, /etc/cron.d
+Tareas a ejecutar por anacron, /etc/anacron
+Cada usuario tiene su propio crontab, /var/spool/cron/crontabs
+Fichero de configuración para lanzar los scripts de inicialización del sistema, /etc/inittab
+Directorio con enlaces a los servicios/demonios de Systemd (S/K), /etc/rc0.d
+Directorio donde están los servicios/demonios/scripts de arranque para el proceso init, /etc/init.d
+Relacionado con el sistema de inicia clásico /etc/inittab, /sbin/init
+Sistema de inicio nuevo /lib/systemd/system, /bin/systemd
+Unidades instaladas por el administrador, /etc/systemd/system
+Usado por el demonio supervisor de red inetd, /etc/inetd.conf
+Fichero de resolución local (IP - Nombre), /etc/hosts
+Nombre de la máquina local, /etc/hostname
+Configuración del DNS; al que pedimos las resoluciones de Nombre - IP, /etc/resolv.conf
+Fichero de configuración del cliente DNS para indicar cómo resolver los nombres de host, /etc/host.conf
+Configuración de la tarjeta de red en Debian, /etc/network/interfaces
+Configuración de la tarjeta de red en RedHat, /etc/sysconfig/network-scripts/ifcfg-eth0
+Información de las cuentas de usuario, /etc/passwd
+Contraseñas salteadas de los usuarios. Solo ! usuario sin contraseña. ! + contraseña: usuario bloqueado, /etc/shadow
+Nombres de los grupos y usuarios que pertenecen a cada uno, /etc/group
+Sistema de ficheros isntrumental. Filesystem montado en memoria, /proc
+Versión de la release, /proc/sys/kernel/osrelease
+Kernel, /proc/sys/kernel/ostype
+Nombre del host, /proc/sys/kernel/hostname
+Versión del kernel, /proc/sys/kernel/version
+máximo número de ficheros abiertos para todo el sistema, /proc/sys/fs/file-max
+Sistemas de ficheros soportados, /proc/filesystems
+Versión del kernel y otra información, /proc/version
+Información de la memoria del sistema, /proc/meminfo
+Información de la CPU, /proc/cpuinfo
+Lista de IRQs; interrupciones, /proc/interrupts
+Estadísticas del sistema, /proc/stat
+Información de los puertos de E/S, /proc/ioports
+Nice para usuario/proceso; nº máximo de procesos y archivos abiertos. soft (cambiable). hard (máximo)., /etc/security/limits.conf
+Fichero de configuración para adduser, /etc/adduser.conf
+Fichero de configuración para useradd, /etc/login.defs
+Fichero de configuración para useradd, /etc/default/useradd
+Configuración del comando sudo. Formato del fichero: who hosts = [(as who)] [tags] commands, /etc/sudoers
+Directorio raíz de Docker, /var/lib/docker
+Ubicación donde se guardan los volúmenes de almacenamiento de Docker, /var/lib/docker/volumes
+Tiene los !includedir a los ficheros de configuración de MySQL, /etc/mysql/my.cnf
+Fichero de configuración de MySQL, /etc/mysql/conf.d
+Fichero de configuración de MariaDB, /etc/mysql/mariadb.conf.d/50-server.cnf
+Fichero de configuración de MySQL, /etc/mysql/mysql.conf.d/mysql.conf
+Fichero de configuración de la autenticación de usuarios de Postgres, /etc/pg-hba.conf
+Configuración del servidor Postgres, /etc/postgresql/9.6/main/postgresql.conf
+Se configura la community (rocommunity) para autorizar al gestor SNMP y la ip para los traps (trap2sink), /etc/snmp/snmp.conf
+Usuario/Contraseña autorizados a acceder a los recursos HTTP. Autenticación básica, /etc/apache2/.htpasswd
+Sitios disponibles para su gestión con Apache, /etc/apache2/sites_available
+Sitios habilitados para su gestión con Apache, /etc/apache2/sites_enabled
+Módulos disponibles para su gestión con Apache, /etc/apache2/mods_available
+Módulos habilitados para su gestión con Apache, /etc/apache2/mods_enabled
+Configuración de Apache en Debian, /etc/apache2/apache2.conf
+Configuración de Apache en RedHat, /etc/httpd/conf/httpd.conf
+Clave privada de SSH, ~/.ssh/id_rsa
+Clave pública de SSH, ~/.ssh/id_rsa_pub
+Claves públicas de los usuarios autorizados a conectarse. Está en el host, ~/.ssh/autorized_keys
+Fingerprints de las claves públicas de los servidores a los que nos hemos conectado. Está en el servidor central, ~/.ssh/known_hosts
+Configuración del servidor SSH, /etc/ssh/sshd_config
+Configuración del cliente SSH, /etc/ssh/ssh_config
+Clave privada RSA usada por el demonio sshd, /etc/ssh/ssh_host_rsa_key
+Clave pública RSA usada por el demonio sshd, /etc/ssh/ssh_host_rsa_key_pub
+Clave privada DSA usada por el demonio sshd, /etc/ssh/ssh_host_dsa_key
+Clave pública DSA usada por el demonio sshd, /etc/ssh/ssh_host_dsa_key_pub
+Clave privada ECDH usada por el demonio sshd, /etc/ssh/ssh_host_ecdsa_key
+Clave pública ECDH usada por el demonio sshd, /etc/ssh/ssh_host_ecdsa_key_pub
+Inventario de máquinas a administrar por Ansible, /etc/ansible/hosts
+Directorio para colocar los ficheros YML con las variables de configuración para los grupos de Ansible, /etc/ansible/group_vars/
+Configuración general de Ansible, /etc/ansible/ansible.cfg
+Configuración del servidor central de Salt, /etc/salt/master
+Configuración de la máquina administrada por Salt, /etc/salt/minion
+Buzones de correo, /var/spool/mail
+Configuración de SMB/CIFS, /etc/samba/smb.conf
+Para activar ip forward en la máquina. Cambio temporal. Routing., /proc/sys/net/ipv4/ip_forward
+Configuración parámetros del kernel. Configuración de routing (forward) para iptables. Cambio permanente, /etc/sysctl.conf
+
+## Docker
+
+"Como obtener información sobre el uso de docker en el equipo?
+- Containers: 7
+-  Running: 0
+-  Paused: 0
+-  Stopped: 7
+- Images: 5
+Registry: https://index.docker.io/v1/
+Docker Root Dir: /var/lib/docker
+",docker info. Con docker inspect se obtiene información de objetos: volumen; imagen...
+Como descargar una imagen del hub?,docker pull jenkins
+Comando para obtener la versión del runtime docker,docker version
+Mostrar listado de los contenedores ejecutandose en el sistema,docker ps; docker container ls
+Mostrar listado de todos los contenedores,docker ps -a; docker container ls -a
+Como arrancar un contenedor,docker run image
+Como arrancar un contenedor con mapeo de puerto 8080 host y puerto contenedor 8888,docker run -p 8080:8888 jenkins. Otro ejemplo: docker run -p 8080:8080 -p 50000:50000 jenkins
+Como arrancar un contenedor en background; interactivo, docker run -dit image
+Crear un volumen Docker, docker volume create --name [nombre volumen]
+Listar volumenes Docker, docker volume ls
+Que parametros usar para arrancar un contenedor con un volumen almacenado en /var/mnt/datos en el host y /home/datos en el contenedor,-v /var/mnt/datos:/home/datos
+Que parametro usar para arrancar en segundo plano,-d
+Como crear un contenedor sin arrancarlo,docker create NombreImagen
+Como arrancar o parar un contenedor,docker start/stop id_del_contenedor
+Crear una nueva imagen de un contenedor editado, docker commit id_contenedor usuario/nombreimagen
+Como crear una imagen a partir del fichero Dockerfile situado en el directorio actual,docker build -t NombreImagen:TagImagen
+Dockerfile: a partir de la cual crear una imagen ej. imagen:tag_basealpine;ubuntu;scratch...,FROM
+Dockerfile: copiar desde el HOST/url hacia dentro de la imagen,COPY. Tambión existe ADD que sirve para urls
+Dockerfile: ejecucion de comandos: apt; mkdir; etc, RUN
+Dockerfile: exponer puertos en el container, EXPOSE solo con esto no podremos acceder desde el HOST
+Dockerfile: definir un directorio cuya información será persistente,VOLUME /myvolume. Nota: no especifica el directorio del host solamente se especifica dentro del contenedor
+Dockerfile: definir variable entorno/parametros, ENV(usado en el proceso build y persiste en contendor); ARG (solamente esta disponible en proceso build)
+Dockerfile: establecer el directorio de trabajo, WORKDIR
+Dockerfile: usuario con el que se ejecutarán las acciones,USER por defecto root
+Dockerfile: comando+argumentos por defecto que se ejecutará cuando se inicie un CONTAINER con esta imagen,CMD Solo puede haber un CMD en el Dockerfile!!! Alternativa: ENTRYPOINT(no permite sobreescribir comando)
+Mostrar imagenes que hay disponibles,docker images. Ojo la S! comando igual a ->  docker image ls 
+Como ejecutar un comando contra un contenedor en ejecución,docker exec
+Como entrar en el bash del contenedor,docker exec -it centos /bin/bash se crea un nuevo proceso en el enviroment del contenedor https://shorturl.at/xMNP5
+Como unirse a un contenedor en ejecución,docker attach conecta al standard input/output/error del proceso principal main https://shorturl.at/xMNP5
+Borrar contenedor,docker rm id_del_contenedor
+Borrar imagen docker,docker rmi id_de_la_imagen
+
+# Kubernetes
+
+Cliente terminal kubernetes,kubectl
+Conjunto de másquinas físicas o virtuales y otros recursos utilizados por kubernetes,Cluster
+Una máquina física o virtual ejecutándose en kubernetes donde pods pueden ser programados,Nodo
+Son la unidad más pequeña desplegable que puede ser creada; programada y manejada por kubernetes. Este Pod es un grupo de uno o más contenedores; con almacenamiento compartido entre ellos,Pod
+Se asegura de que el número específicado de réplicas del pod estén ejecutándose. Permite escalar de forma facil los sistemas y maneja la re-creación de un pod cuando ocurre un fallo,Replication Controller
+Es una abstracción que define un conjunto de pods y la lógica para acceder a los mismos,Service
+Kubernetes: como se gestionan los pods definiciones_pods.yaml,kubectl apply -f definicion_pods.yaml modo declarativo O kubectl create -f definicion_pods.yaml modo imperativo https://i.stack.imgur.com/7IHhi.jpg
+Pods que están ejecutandose,kubectl get pods
+Nodos en el cluster,kubectl get nodes
+Info mas detallada del pod,kubectl describe pod nombreDelPod
+
+# Apache
+
+Como instalar apache?, sudo apt install apache2
+Como activar configuración de un site?, a2ensite 100-ruinosa.conf. Se hacen unos enlaces simbolicos entre ficheros del directorio sites_available y sites_enabled, dentro de /etc/apache2
+Como activar modulos por ejemplo ssl?, a2enmod ssl activa el modulo de SSL. En realidad se hacen unos enlaces simbolicos entre ficheros del directorio mods_available y mods_enabled, dentro de /etc/apache2
+Como gestionar servicio apache?, apache2ctl status/fullstatus; apache2ctl start/stop/restart apache2ctl -t test del fichero de configuracion
+Como ver los modulos activos?, apache2ctl -M
+Como testear el fichero de configuración?, apache2ctl -t
+Que campo se usa dentro del fichero de configuración del site para asignar un nombre dominio, ServerName ruinosa.com. Nota: usa la cabecera http Host: ruinosa.com para identicar la web solicitada
+Que campo se usa dentro del fichero de configuración del site para asignar el path principal, DocumentRoot /var/www/ruinosa.com
+Que campo se usa dentro del fichero de configuración del site para asignar el puerto de escucha, <VirtualHost *:8080>
+Como configurar el SSL para un site?, "
+Hay que añadir al fichero: 
+SSLEngine on
+SSLCertificateFile /etc/apache2/ssl/example/apache.crt
+SSLCertificateKeyFile /etc/apache2/ssl/example/apache.key
+"
+Como añadir al site una autenticación básica, Añadir al fichero de configuración del site: AuthType Basic; AuthUserFile /var/www/acme.com/.users.pwd; require valid-user
+Path directorios apache en Debian y Redhat?, En Debian /etc/apache2/apache2.conf En Redhat /etc/httpd/conf/httpd.conf
+
+# Linux ssh scp
+
+apt install openssh-server, solo servidor
+apt install ssh, instala cliente y servidor
+/etc/ssh/ssh_config, fichero configuración de cliente ssh
+/etc/ssh/sshd_config, fichero de configuración del servidor ssh
+$HOME/.ssh/authorized_keys, fichero con las claves publicas de los clientes autorizados a conectarse
+$HOME/.ssh/known_hosts, fichero con los fingerprint de la claves publicas de los servidores a los que nos hemos conectado
+/etc/ssh/ssh_host_rsa_key, autenticacion del host; otras: /etc/ssh/ssh_host_dsa_key; /etc/ssh/ssh_host_ecdsa_key
+ssh-keygen -t rsa/dsa/ecdsa -b numero_bits_clave, generacion de par de claves
+ssh-keygen -l -f ssh_host_ecdsa_key.pub, muestra el fingerprint de esa clave
+ssh-copy-id, copia de la clave publica al servidor donde queremos conectarnos ej. ssh-copy-id username@remote_host
+ssh-agent, agente de autenticacion --> Para evitar tener que teclear la Passpharse cada vez
+ssh-add, añadir claves privadas al agente de autenticacion
+ssh-keyscan, recopilar claves publicas de ciertos hosts
+Campo dentro /etc/ssh/sshd_config PubkeyAuthentication yes|no, permitir autenticación con clave pública. Campo: AuthorizedKeysFile  .ssh/authorized_keys .ssh/authorized_keys2
+Campo dentro /etc/ssh/sshd_config PermitRootLogin yes|no, permitir hacer login a usuario root
+Campo dentro /etc/ssh/sshd_config PasswordAuthentication yes|no ,permitir hacer login con password. Opcional PermitEmptyPasswords yes|no
+ssh, cliente de ssh
+ssh username@remote_host, conectar al host e iniciar una sesion interactiva remotamente
+ssh -l username remote_host, conectar al host e iniciar una sesion interactiva remotamente
+ssh username@remote_host comando, ejecutar un comando remotamente
+ssh -p puerto username@remote_host comando, conectar a un puerto diferente al 22
+ssh -A, estando conectado a un servidor si quieres conectarte a otro esta opción transmite las credenciales
+ssh -L your_port:site_or_IP_to_access:site_port username@host, crea un tunel local
+ssh -R remote_port:site_or_IP_to_access:site_port username@host, crea un tunel remoto
+scp your_username@remotehost.edu:foobar.txt /some/local/directory,"
+- descargar fichero remoto en directorio del host local 
+- scp [other options] [source username@IP]:/[directory and file name] [destination username@IP]:/[destination directory]"
+scp foobar.txt your_username@remotehost.edu:/some/remote/directory, subir fichero local a servidor remoto
+Opción scp: -r, copia recursiva
+Opción scp: -p, conservará los tiempos de modificación iniciales y los atributos del archivo
+Opción scp: -l, limita el ancho de banda usado. Kbit/s
+
+# Ansible
+
+/etc/ansible/group_vars/,"
+Directorio para colocar los ficheros YML con las variables de configuración para los grupos de Ansible
+ansible_ssh_user: root"
+/etc/ansible/ansible.cfg,"
+Configuración general de Ansible
+[defaults]
+inventory      = /etc/ansible/hosts"
+/etc/ansible/hosts,"
+inventario de host
+[group_name]
+alias ansible_ssh_host=your_server_ip
+[labservers]
+nodo1 ansible_ssh_host=192.168.0.24
+nodo2 ansible_ssh_host=192.168.0.26
+"
+ansible all -m ping, -m para usar un determinado module
+ansible all -m shell -a 'df -h', -a para pasar argumentos al module
+ansible all -a 'uname -a', usa el modulo por defecto 'command'
+ansible all -m apt -a 'name=vim', instala vim en todos los servidores
+ansible all -m file -a 'dest=/var/www/prueba mode=644 state=directory', crear un directorio
+ansible-playbook apache.yml,"
+ejecuta un playbook sobre server1
+Ejemplo de playbook:
+- name: Playbook to install Apache
+   hosts: labservers (grupo servidores donde se va instalar)
+   become: true
+   user: root
+   tasks: 
+    - name: Ansible apt install Apache
+      apt:
+        name: apache2
+        state: present (present: asegurará se instale un paquete; absent: eliminará el directorio; latest: actualiza última versión)
+"
+
+# SaltStack
+
+/etc/salt/master,"
+fichero de configuración del master
+interface: 0.0.0.0
+publish_port: 4505
+user: root
+ret_port: 4506
+file_roots:
+	base:
+		- /srv/salt"
+/etc/salt/minion_id, fichero de configuración minion; se genera tipicamente con el hostname cuando arranca el minion
+/etc/salt/minion,"
+fichero de configuración minion
+master: 192.168.0.23
+master_port: 4506
+user: root
+file_client: local (para configurar el minion con Modelo Standalone)"
+systemctl start salt-master | service salt-master start | salt-master -d | salt-master -l debug, formas de iniciar el master
+salt-minion -d, iniciar el minion
+Que es el fichero /src/salt/mc.sls, Ejemplo de fichero con Salt States formulas. Similar a playbook en Ansible
+salt-key -L, listar todas las claves que maneja el master
+salt-key -A, para aceptar claves pendientes
+salt-call --local, para ejecutar funciones directamente en el minion sin que este contacte con el master - Modelo Standalone
+salt '*' test.version, les dice a los minion que ejecuten la funcion test.version
+salt '*' state.apply mc, invocar al fichero sls correspondiente
+salt-cp '*' salt.doc /usr/local/, enviar el fichero salt.doc a todos los minions
+salt '*' disk.usage, orden a minions: espacio en disco utilizado
+salt '*' cmd.run 'ls -l /etc', orden a minions: ejecutar comando
+salt '*' pkg.install vim, orden a minions: instalar vim
+salt '*' network.interfaces, orden a minions: para obtener las interfaces red
+salt '*' grains.get 'cpu_model', orden a minions: obtener información sobre el item cpu_model; ipv4_interfaces...
+
+# Oracle SQLserver MySQL Postgres
+
+Oracle: Como crear un tablespace, create tablespace ts_data datafile '/var/data/oracle/ts_data_01.dbf' ... ;
+Oracle: Como crear una tabla especificando el tablespace, create table Alumnos(...) tablespace ts_data ...;
+Oracle: Como se crea un schema?,"
+creando un usuario:
+create user nominas_owner
+IDENTIFIES BY 'password'
+DEFAULT TABLESPACE ts_data
+TEMPORARY TABLESPACE ts-temp;
++
+GRANT CONNECT TO nominas_owner(CONNECT es un rol que incluye privilegios CREATE SESSION...)"
+Oracle: herramientas backup, RMAN y DATA PUMP(expdp: exportación y impdp: importación)
+Oracle: herramienta arranque/parada, SQLPLUS
+
+mysqldump -u root -p --databases nombre_bd1 nombre_bd2 > respaldo.sql, crea copia de seguridad con username; pide password; para 2 bases de datos
+mysqldump opciones: --routines --add-drop-database --no-data,"
+- routines: tambien copia PROCEDURES y FUNCTIONS
+- add-drop-database Añade la sentencia 'DROP DATABASE' antes de cada sentencia 'CREATE DATABASE'
+- no-data: sin datos, solo el esquema"
+mysqladmin -u root -p ping, chequea si mysqld está vivo
+mysqladmin -u root -p shutdown, shutdown del servidor
+mysqladmin -u root -p version, version y estado del servidor
+mysqladmin -u root -p processList, lista de todos los procesos activos
+mysqladmin -u root -p kill id_proceso, matar un proceso concreto
+mysqladmin -u root -p create nominas, crear la bbdd nominas
+mysqladmin -u root -p reload, recarga tablas de privilegios
+mysqladmin -u root -p stop-slave, para la replicación en un servidor esclavo
+mysqladmin -h ip_servidor_remoto, administrar remotamente un mysql
+mysqlimport --local db_name fichero.txt, importar datos de un fichero externo
+mysqlshow, muestra información sobre bbdd; tablas y columnas
+mysqldumpslow, lista queries que tardan mucho tiempo en ejecutarse
+myisamchk, chequea; analiza;optimiza y repara tablas MyISAM
+pg_ctl start/stop/status/restart, inicio; para y control del PostgreSQL server
+psql -h host -d base_de_datos -U user -W, pedirá password
+psql base_de_datos < fichero_backup.sql, restauracion; psql -d base_de_datos -f fichero_backup.sql (restauracion)
+pg_dump base_de_datos > fichero_backup.sql, backup de una bbdd; pg_dump -Fc base_de_datos > fichero_backup (custom_format)
+pg_dumpall > fichero_backup.sql, backup de todas las bbdd
+pg_restore -d base_de_datos fichero_backup_custom_format, restauración cuando el formato de backup es de tipo custom-format
+vacuumdb test; vacuumdb --analyze bigdb, limpia y analiza la bbdd. Ej: tuplas muertas
+
+# SNMP
+
+Como instalar SNMP en Linux, apt install snmpd
+Que agente se instala en Linux, NET-SNMP
+
+# VLAN
+
+# IPtables

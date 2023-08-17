@@ -1,0 +1,20 @@
+¿A que se refiere y que caracteristicas tiene el formato mbox?,Formato de buzon de correo electrónico con formato texto/MIME
+¿Para que nos sirve el registro MX dentro de una entrada de DNS?,Para averiguar a que MTA de destino (según el nombre de dominio) hay que redirigir el correo electronico
+¿Que dos grandes funcionalidades tiene el protocolo SSH?,Copia y acceso/control remoto
+Relativo a la seguridad ¿Que es una funcion MAC? ¿Tiene alguna relacion con las funciones hash?,Con MAC garantizamos integridad y autenticacion (porque emisor/receptor comparten clave secreta) Las funciones Hash solo necesitan del mensaje/documento para generar el residuo
+¿Que utilidad tienen las caches de L1?,Dotar a cada core del microprocesador de una cache de datos y otra de instrucciones
+¿Que signifca E/S mapeada en memoria?,Una forma de comunicacion con el dispositivo a traves de zonas concretas de la memoria ram (o puesto a port-mapped)
+A nivel de cache. ¿que quiere decir write-through?,Que vamos a escribir en el mismo instante tanto en la cache como en la memoria principal (buscamos coherencia)
+En Java. para que se usa la palabra reservada extends?,Herencia entre clases y entre interfaces
+¿Con que palabra se define un metodo abstracto en C#? ¿y en VB.NET?,En c# usamos abstract y en VB.Net MustOverride/MustInherit
+¿A que se refiere el estandar CMIS? ¿Como se llama el tipo de productos que lo implementan? ¿Existe equivalente en Java?,API Estandar (Servicios Web SOAP y REST) para acceder a CMS (en concreto gestores documentales como Alfresco. Documentum. etc) El API equivalente en Java es la JCR (Java Content Repository)
+En una aplicación Java de consola (empaquetada como un jar). ¿donde se especifica cual es la clase que tiene el metodo main()?,Dentro del fichero META-INF/Manifest.mf (campo Main-Class)
+¿Que representa el WWN y que estructura tiene?,Es un identificador para una tarjeta HBA. Switch FC. Cabina SAN....e incluso cada uno de sus puertos (WWPN) Tambien tienen WWN los dispositivos SAS (Serial SCSI)
+¿Un SSD de tipo NVMe tiene la limitación de velocidad impuesta según el interface SATA-3 ?,No porque usa otro interface como es PCI Express para comunicarse
+¿Qué podemos decir de las caracteristicas del tipo de memoria DDR SDRAM?,Doble ratio de transferencia (en un solo ciclo de reloj transmite información por dos canales) Dinamica (necesita refresco) Sincrona (funciona con reloj)
+En MySql. ¿a que nos referimos cuando decimos que vamos a usar InnoDB?,Motor de almacenamienta que soporta caracteristicas transaccionales (ACID)
+¿Cual es el nivel de aislamiento más restrictivo hablando de transacciones de BBDD?,Serializable es el mas seguro pero tambien el que peor rendimiento presenta
+El algoritmo del quicksort se dice que tiene una complejidad de O(nlog n). ¿es siempre cierto?,En el peor caso (con una mala elección de pivote) se nos va a O(n^2)
+En HTML5. ¿cual es la utilidad de la etiqueta figure ?,El elemento figure representa a una pieza de documento autocontenido que se utiliza habitualmente para encerrar imágenes. gráficos. tablas de referencia. videos. poemas. fragmentos de código. etc. Ésta. podrían ser acompañada por una leyenda o título (elemento figcaption) que puede usarse para hacer una referencia al fragmento desde alguna otra parte del documento. Además del título opcional. un elemento figure puede contener a otros elementos como imágenes (img). párrafos (p). código de computadora (code). citas (cite). etc. Ser autocontenido significa que figure tiene cierto grado de independencia del flujo del documento. y su posición relativa al contenido circundante no necesita ser exacta.
+¿Para que nos sirve el formato WOFF?,Formato de fuente que incluye de forma comprimida y con metadatos(xml) fuentes OpenType o TrueType
+¿Que usos tienen en Java las clases StringBuffer y StringBuilder?,Representan cadenas variables(mutables) StringBuffer --> Thread-safe porque todos su metodos están sincronizados (segura pero mal rendimiento) StringBuilder --> Por defecto no es segura en un entorno multihillo
