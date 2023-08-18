@@ -649,7 +649,7 @@ Lenguajes SQL/PSM de Oracle;SQL Server; Postgres, PL/SQL; Transact-SQL; PL/pgSQL
 
 # CPD TIA 942
 
-Porcentaje disponibilidad en Tier I...Tier IV, Tier I: 99,671% Tier II: 99,741% Tier III: 99,982% Tier IV: 99,995%
+Porcentaje disponibilidad en Tier I...Tier IV, Tier I: 99.671% Tier II: 99.741% Tier III: 99.982% Tier IV: 99.995%
 Componentes redundantes en Tier I...Tier IV, Tier I: No hay Tier II: N+1 Tier III: N+1 Tier IV: 2(N+1)
 Distribución energía en Tier I...Tier IV, Tier I: Única Tier II: Única Tier III: 1 Activa + 1 Pasiva Tier IV: 2 Activas
 Paradas/año en Tier I...Tier IV, Tier I: 2/año 12h Tier II: 3/2 años 12h Tier III: No Tier IV: No
@@ -675,8 +675,8 @@ quettabyte (QB) 10^30"
 
 # Terminos entidad-relacion relacional FN base-matematica
 
-En el modelo E/R cardinalidad,
-En el modelo E/R grado,
+En el modelo E/R cardinalidad, nº de entidades que se relacionan de un extremo con el otro extremo
+En el modelo E/R grado, nº tipos de entidad que participan en la relación. Binaria; ternaria...
 Que incluye E/R básico,"
 - Entidad/Tipo Entidad
 - Atributo
