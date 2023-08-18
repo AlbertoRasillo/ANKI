@@ -331,20 +331,43 @@ Tipo MIME texto plano, text/plain
 
 # Sintaxis XML DTD XSD se puede hacer tabla comparativa
 
-Como es la cabecera de xml cuando el fichero DTD es un fichero externo?, <?xml versión=“1.0” encoding=“utf-8” standalone=“no”?> <!DOCTYPE empleados SYSTEM “empleados.dtd”>
-<root xmlns:h=“http://uri-a” xmlns:f=“http://uri-b”>
-<aeropuerto xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:noNamespaceSchemaLocation='aeropuerto.xsd'>
-....
+Como es la cabecera de xml cuando el fichero DTD es un fichero externo?,"
+<?xml versión=“1.0” encoding=“utf-8” standalone=“no”?>
+<!DOCTYPE empleados SYSTEM “empleados.dtd”>
+con standalone=no el dtd externo; SYSTEM= externa privada PUBLIC= externa pública"
+Crear comentario en xml,<!-- comentario -->
+Que son los tipos CDATA y PCDATA, CDATA para ATTLIST y PCDATA para ELEMENT. Nota: otros tipos ANY(Mixto) y EMPTY
+Etiqueta con texto para que el parser no lo analice, <![CDATA[texto sin analizar]]>
+Crear un empty element, <role />
+Que hace: <!ELEMENT deportistas (futbol | f1 | tenis)*>, * 0 o N esas opciones. + es 1 o N; ? es 0 o 1
+Tipos de atributos, #REQUIRED;#IMPLIED(opcional);#FIXED valor(entre " o ')
+Para que se el atributo ID/IDREF, equivalente a un PK/FK
+<root xmlns:h=“http://uri-a” xmlns:f=“http://uri-b”>, TODO
+Que hace <aeropuerto xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:noNamespaceSchemaLocation='aeropuerto.xsd'>,"
+xmlns:xsi=... se da de alta el espacio de nombres de XMLSchema-instance
+xsi:noNamespaceSchemaLocation='aeropuerto.xsd' se expecifica el xsd"
+Que es: <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSChema", cabecera del fichero donde se define el xsd
+Etiquetas que en hay XSD <xs:....>,"
+- complexType(all(no importa orden); choice; sequence(importa el orden))
+- sympleType(puede ir dentro de un element o fuera asignando un name)
+- element(string; time...)
+- attribute(ID...)
+- pattern
+- restriction
+En XSD como se indica la cardinalidad, minOccurs y maxOccur. Si no se dice nada es 1 y unbounded = N
+Que restricciones se pueden usar en XSD, length(fija); minLength; maxLength; pattern; enumeration...
+Para se usa la etiqueta extension, para definir una etiqueta a partir de otra
 
-# Sintasix Json
+# Sintaxis Json
 
 Que tipos de datos tiene Json?,  Object (subdocumentos); Array; Number; String; true; false y null
+Como escrbes un campo Nombre con el valor Pepe, ""Nombre": "Pepe","
 Json es case case sensitive?, Sí
 Los numeros decimales como se escriben?, Con punto ejemplo 4.5
 Que datos van sin dobles comillas?, Números; true/false; null
 Como se escriben las keys?, entre dobles comillas
-Librerias para procesar Json?, Jackson; Gson
-APIs de programación?, JSON-P y JSON-B
+Librerias para procesar Json?, Jackson; GSON
+APIs de programación?, JSON-P(Bajo nivel) y JSON-B(Alto nivel)
 Hay alguna forma de validar un Json?, Json Schema
 
 # Principio SOLID
@@ -624,9 +647,97 @@ Ficheros que crea MySQL, .frm(formato tabla); myd(datos); myi(indices)
 Script de MySQL para instalación segura, mysql_secure_installation; mariadb-secure-installation 
 Lenguajes SQL/PSM de Oracle;SQL Server; Postgres, PL/SQL; Transact-SQL; PL/pgSQL
 
+# CPD TIA 942
 
+Porcentaje disponibilidad en Tier I...Tier IV, Tier I: 99,671% Tier II: 99,741% Tier III: 99,982% Tier IV: 99,995%
+Componentes redundantes en Tier I...Tier IV, Tier I: No hay Tier II: N+1 Tier III: N+1 Tier IV: 2(N+1)
+Distribución energía en Tier I...Tier IV, Tier I: Única Tier II: Única Tier III: 1 Activa + 1 Pasiva Tier IV: 2 Activas
+Paradas/año en Tier I...Tier IV, Tier I: 2/año 12h Tier II: 3/2 años 12h Tier III: No Tier IV: No
+Como se mide la eficiencia energética, DCiE = Consumo electrico Ti / Potencia entrada; PUE = 1 /DCiE
+Que es RPO, Cantidad aceptable de pérdida de datos. Entre el último backup y cuando sucede el desastre
+Que es RTO, Desde que se detecta el desastre hasta que se vuelve a recuperar
+En los racks medida anchura y altura(u) normalizada, Anchura: 19 pulgadas; Altura: 1.75 pulgadas. Temperatura 21ºC humedad 50% hr
 
+# Unidades medidia almacenamiento información
 
+Que unidades hay en el sistema internacional y en ISO de - a + tamaño,"
+Sist. Internacional     ISO
+kilobyte (kB)	10^3	kibibyte (KiB)	2^10
+megabyte (MB)	10^6	mebibyte (MiB)	2^20
+gigabyte (GB)	10^9	gibibyte (GiB)	2^30
+terabyte (TB)	10^12	tebibyte (TiB)	2^40
+petabyte (PB)	10^15	pebibyte (PiB)	2^50
+exabyte (EB)	10^18	exbibyte (EiB)	2^60
+zettabyte (ZB)	10^21	zebibyte (ZiB)	2^70
+yottabyte (YB)	10^24	yobibyte (YiB)	2^80
+ronabyte (RB)   10^27
+quettabyte (QB) 10^30"
 
+# Terminos entidad-relacion relacional FN base-matematica
 
+En el modelo E/R cardinalidad,
+En el modelo E/R grado,
+Que incluye E/R básico,"
+- Entidad/Tipo Entidad
+- Atributo
+- Dominio
+- Relación(cardinalidad; grado; rol)
+- Tipo correspondencia"
+Que incluye E/R extendido,"
+- Entidad fuerte/debil(existencia;identificación)
+- Generalización
+- [Especialización; Agregación]-> Disjunta/Solapada; Total/Parcial"
+En E/R que es tipo correspondencia, Número máximos que pueden particiar en una relación(1:1; 1:N; N:M)
+Que jerarquías existen en E/R y que diferencias tienen,"
+- Total/Parcial: (1, x), (n, x)
+- Exclusiva/Solapada: (x, 1) / (x, n)"
+En DFD que tipos de flujos de datos existen, consulta; actualización; diálogo; flujo control; proceso control(manejar eventos)
+Que flujos están permitidos y siempre que debe haber, proceso-proceso; proceso-almacen; proceso-entidad externa
+Que flujogramas conoces, actividad UML; Nassi; Bertini; Tabourier; Jackson; Warnier
+En modelo Relacional que es el Grado, nº atributos de la relación
+En modelo Relacional que es la extensión(cardinalidad), conjunto de tuplas de la relación
+Sinonimos de tupla;atributo;grado;cardinalidad en una tabla y fichero,"
+- Tabla: fila; columna; nº columnas; nº filas
+- Fichero: registro; campo; nº campos; nº registros"
+Si en una relación existe una clave ajena los valores deben coincidir con..., la clave primaria referenciada o ser Nulos
+Cuando se da la 1FN, cuando cada atributo de una tupla tiene como mucho un valor
+Cuando se da la 2FN, si está en 1FN y atributos no principales tienen dependencia funcional completa de clave primaria
+Cuando se da la 3FN, si está en 2FN y no hay dependencias transitivas(de otro atributo no principal)
+Cuando se da la FNBC, si los únicos determinantes son claves candidatas
+Cuando se da la 4FN, si está en 3FN y toda dependencia multivaluada no trivial esta implicada por una clave candidata
+Cuando se da la 5FN, si está en 4FN y toda dependencia de combinación está implicada por claves candidatas
+Cuando se da la 6FN, si está en 5FN y tiene una clave primaria y como mucho otro atributo más
+Que diferencia hay entre algebra relacional y cálculo relacional, uno es procedimental y otro declarativo(basado en tuplas y en dominios)
+Operaciones básicas algebra relacional,"
+- Selección: filtrar tuplas
+- Proyección: extraer atributos
+- Producto cartesiano: todos X todos
+- Unión: tuplas de ambas relaciones
+- Diferencia: R-S tuplas de R que no estén en S"
+Operaciones derivadas algebra relacional, intersección; unión natural; división; outer joins
+
+# Complejidades algoritmos
+
+Complejidad promedia algoritmo Burbuja, O(n²) y el mejor O(n)
+Complejidad promedia algoritmo Inserción directa, O(n²) y el mejor O(n)
+Complejidad promedia algoritmo QuickSort, O(n log(n)) y el peor O(n²)
+Complejidad promedia algoritmo MergeSort, O(n log(n))
+Complejidad promedia alritmo HeapSort/Monticulo, O(n log(n))
+Complejidad promedia algoritmo Selección, O(n²)
+Complejidad promedia algoritmo Radix Sort, O(n*K)
+Complejidad promedia algoritmo Bucket Sort/BinSort, O(n)
+
+# Diagramas UML
+
+El diagrama de Perfil es de tipo ..., Estructural
+El diagrama de Actividad es de tipo ..., Comportamiento
+El diagrama de Paquetes es de tipo ..., Estructural
+El diagrama de Despliegue es de tipo ..., Estructural
+El diagrama de Maquina de estados es de tipo ..., Comportamiento
+El diagrama de Casos de uso es de tipo ..., Comportamiento
+El diagrama de Clases es de tipo ..., Estructural
+El diagrama de Componentes es de tipo ..., Estructural
+El diagrama de Objetos es de tipo ..., Estructural
+El diagrama de Composite es de tipo ..., Estructural
+Dentro de los diagramas de comportamiento -> Interacción ..., Comunicación; Interaction Overview; Secuencia; Timing
 

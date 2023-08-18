@@ -348,7 +348,7 @@ Gestión routing, route
 /etc/hosts, Fichero de resolución local (IP - Nombre)
 /etc/hostname, Nombre de la máquina local
 /etc/resolv.conf, Configuración del DNS; al que pedimos las resoluciones de Nombre - IP
-/etc/host.conf, Fichero de configuración del cliente DNS para indicar cómo resolver los nombres de host
+/etc/host.conf, Fichero de configuración del cliente DNS para indicar cómo resolver los nombres de host. Nueva versión: /etc/nsswitch.conf
 /etc/network/interfaces, Configuración de la tarjeta de red en Debian
 /etc/sysconfig/network-scripts/ifcfg-eth0, Configuración de la tarjeta de red en RedHat
 /etc/passwd, Información de las cuentas de usuario
@@ -451,7 +451,7 @@ Usado por el demonio supervisor de red inetd, /etc/inetd.conf
 Fichero de resolución local (IP - Nombre), /etc/hosts
 Nombre de la máquina local, /etc/hostname
 Configuración del DNS; al que pedimos las resoluciones de Nombre - IP, /etc/resolv.conf
-Fichero de configuración del cliente DNS para indicar cómo resolver los nombres de host, /etc/host.conf
+Fichero de configuración del cliente DNS para indicar cómo resolver los nombres de host, /etc/host.conf. Nueva versión: /etc/nsswitch.conf
 Configuración de la tarjeta de red en Debian, /etc/network/interfaces
 Configuración de la tarjeta de red en RedHat, /etc/sysconfig/network-scripts/ifcfg-eth0
 Información de las cuentas de usuario, /etc/passwd

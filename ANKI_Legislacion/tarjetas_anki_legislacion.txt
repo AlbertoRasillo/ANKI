@@ -132,6 +132,7 @@ Estado Sitio: causas - quien declara - Derechos supendidos?,"
 
 # DNIe
 
+A que edad es obligatorio obtener DNI, mayores 14 años
 Validez DNIe cuando el solicitante no haya cumplido los cinco años de edad?, Dos años
 Validez DNIe cuando el titular haya cumplido los cinco años de edad y no haya alcanzado los treinta al momento de la expedición o renovación?, Cinco años
 Validez DNIe cuando el titular haya cumplido los treinta y no haya alcanzado los setenta?, Diez años
@@ -220,7 +221,7 @@ Motivos de  cese del Defensor del Pueblo?,"
 
 # Agenda digital 2026
 
-Cuando empezo a transformar digitalmente el país y y cuando empieza a desarrolarse?, En 2013 y en 2022
+Cuando empezo a transformar digitalmente el país y y cuando empieza a desarrollarse?, En 2013 y en 2022
 Cuantos ejes y medidas tiene, 12 ejes(10 estrategicos y 2 transversales); 50 medidas
 Eje1: La conectividad digital..., 100% población con cobertura 100 Mbps
 Eje2: 100% espacio radiolectrico preparado para..., 5G 
@@ -234,6 +235,7 @@ Eje9: Transito a una economia del dato..., 25% empresas usen IA y Big Data.
 Eje10: Garantizar los derechos..., mediante una carta de derechos digitales
 Nuevo Eje11: Colaboración públicoprivada: vehiculo electrico, Economía circular... PERTE(Proyectos Estratégicos Recuperación Transformación Económica)
 Nuevo Eje12: Iniciativa proyectos estrátegicos regionales, RETECH(Redes Territoriales de Especialización Tecnológica): Gemelos Digitales; GreenTech; RuralTech... 
+Cuantos ejes estrategicos y transversales, 10 y 2
 
 # TODO Ley Sociedad Información
 
