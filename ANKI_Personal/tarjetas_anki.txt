@@ -230,6 +230,7 @@ Estándar de MIB SNMP y utilidad?, RFC 1156. Se importa el SMI 1155 y se añaden
 Estándar MIB2 SNMP?, RFC 1213
 Estándar SNMPv1 y utilidad v2?, RFC 1157. La nueva versión SNMPv2c(GetBulk; v2 Trap; InformRequest Gestor-Gestor; Report sin uso) incompatible con v1
 Estándar SMIv2 SNMP?, RFC 2578
+Estandar representación coma flotante, IEEE 754
 
 # Algoritmos y criptografía
 
@@ -329,31 +330,31 @@ Tipo MIME PDF, application/pdf
 Tipo MIME SVG, image/svg+xml (.svg)
 Tipo MIME texto plano, text/plain
 
-# Sintaxis XML DTD XSD se puede hacer tabla comparativa
+# Sintaxis XML DTD XSD
 
 Como es la cabecera de xml cuando el fichero DTD es un fichero externo?,"
-<?xml versión=“1.0” encoding=“utf-8” standalone=“no”?>
-<!DOCTYPE empleados SYSTEM “empleados.dtd”>
+<?xml versión='1.0' encoding='utf-8' standalone='no'?>
+<!DOCTYPE empleados SYSTEM 'empleados.dtd'>
 con standalone=no el dtd externo; SYSTEM= externa privada PUBLIC= externa pública"
-Crear comentario en xml,<!-- comentario -->
-Que son los tipos CDATA y PCDATA, CDATA para ATTLIST y PCDATA para ELEMENT. Nota: otros tipos ANY(Mixto) y EMPTY
-Etiqueta con texto para que el parser no lo analice, <![CDATA[texto sin analizar]]>
-Crear un empty element, <role />
-Que hace: <!ELEMENT deportistas (futbol | f1 | tenis)*>, * 0 o N esas opciones. + es 1 o N; ? es 0 o 1
-Tipos de atributos, #REQUIRED;#IMPLIED(opcional);#FIXED valor(entre " o ')
-Para que se el atributo ID/IDREF, equivalente a un PK/FK
-<root xmlns:h=“http://uri-a” xmlns:f=“http://uri-b”>, TODO
-Que hace <aeropuerto xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:noNamespaceSchemaLocation='aeropuerto.xsd'>,"
+Crear comentario en xml,"<!-- comentario -->"
+En DTD: que son los tipos CDATA y PCDATA, CDATA para ATTLIST y PCDATA para ELEMENT. Nota: otros tipos ANY(Mixto) y EMPTY
+En DTD: Etiqueta con texto para que el parser no lo analice,"<![CDATA[texto sin analizar]]>"
+En DTD: Crear un empty element,"<role />"
+"En DTD que hace: <!ELEMENT deportistas (futbol | f1 | tenis)*>", * 0 o N esas opciones. + es 1 o N; ? es 0 o 1
+En DTD: Tipos de atributos, #REQUIRED;#IMPLIED(opcional);#FIXED valor(entre dobles comillas o simples)
+En DTD: Para que se el atributo ID/IDREF, equivalente a un PK/FK
+"<root xmlns:h='http://uri-a' xmlns:f='http://uri-b'>", TODO
+"Que hace <aeropuerto xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:noNamespaceSchemaLocation='aeropuerto.xsd'>","
 xmlns:xsi=... se da de alta el espacio de nombres de XMLSchema-instance
 xsi:noNamespaceSchemaLocation='aeropuerto.xsd' se expecifica el xsd"
-Que es: <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSChema", cabecera del fichero donde se define el xsd
+Que es: <xs:schema xmlns:xs='http://www.w3.org/2001/XMLSChema', cabecera del fichero donde se define el xsd
 Etiquetas que en hay XSD <xs:....>,"
 - complexType(all(no importa orden); choice; sequence(importa el orden))
 - sympleType(puede ir dentro de un element o fuera asignando un name)
 - element(string; time...)
 - attribute(ID...)
 - pattern
-- restriction
+- restriction"
 En XSD como se indica la cardinalidad, minOccurs y maxOccur. Si no se dice nada es 1 y unbounded = N
 Que restricciones se pueden usar en XSD, length(fija); minLength; maxLength; pattern; enumeration...
 Para se usa la etiqueta extension, para definir una etiqueta a partir de otra
@@ -649,10 +650,10 @@ Lenguajes SQL/PSM de Oracle;SQL Server; Postgres, PL/SQL; Transact-SQL; PL/pgSQL
 
 # CPD TIA 942
 
-Porcentaje disponibilidad en Tier I...Tier IV, Tier I: 99.671% Tier II: 99.741% Tier III: 99.982% Tier IV: 99.995%
-Componentes redundantes en Tier I...Tier IV, Tier I: No hay Tier II: N+1 Tier III: N+1 Tier IV: 2(N+1)
-Distribución energía en Tier I...Tier IV, Tier I: Única Tier II: Única Tier III: 1 Activa + 1 Pasiva Tier IV: 2 Activas
-Paradas/año en Tier I...Tier IV, Tier I: 2/año 12h Tier II: 3/2 años 12h Tier III: No Tier IV: No
+Porcentaje disponibilidad en Tier I...Tier IV, Tier I: 99.671%; Tier II: 99.741%; Tier III: 99.982%; Tier IV: 99.995%
+Componentes redundantes en Tier I...Tier IV, Tier I: No hay; Tier II: N+1; Tier III: N+1; Tier IV: 2(N+1)
+Distribución energía en Tier I...Tier IV, Tier I: Única; Tier II: Única; Tier III: 1 Activa + 1 Pasiva; Tier IV: 2 Activas
+Paradas/año en Tier I...Tier IV, Tier I: 2/año 12h; Tier II: 3/2 años 12h; Tier III: No; Tier IV: No
 Como se mide la eficiencia energética, DCiE = Consumo electrico Ti / Potencia entrada; PUE = 1 /DCiE
 Que es RPO, Cantidad aceptable de pérdida de datos. Entre el último backup y cuando sucede el desastre
 Que es RTO, Desde que se detecta el desastre hasta que se vuelve a recuperar
@@ -672,6 +673,19 @@ zettabyte (ZB)	10^21	zebibyte (ZiB)	2^70
 yottabyte (YB)	10^24	yobibyte (YiB)	2^80
 ronabyte (RB)   10^27
 quettabyte (QB) 10^30"
+
+Que es un Nibble, 4 bits
+Que es un Crumb, 2 bits
+Cual es numero 16 en BCD, 0001 0110 Cada digito se codifica independientemente. Pesos 2³ 2² 2¹ 2⁰
+En BCD cual es el digito 1100?, No se puede. Sólo puede 0-9
+Cuales son los pesos del código AIKEN, 2421
+En Base 64 cuantos carácteres de padding(=) puede haber, puede 1 o 2. Base64 tiene 64 carácteres
+Cuantos bits tiene ASCII y Base64, 7 bits+1 paridad; 6 bits
+Cuantos bits tiene EBCDIC, 8 bits
+Cuantos bits tiene ISO 8859-1(latin-1), 8 bits ISO 8859-15 incorpora simbolo €
+Cuantos bits tiene UTF-8, 8 bit Unicode Transformation Format. Longitud variable 1-4 bytes
+Cuantos bits tiene UTF-16, 1 o 2 palabras de 16 bits. 2-4 bytes
+Cual es codificación latin-1 en Windows, windows-1252
 
 # Terminos entidad-relacion relacional FN base-matematica
 
@@ -722,7 +736,7 @@ Complejidad promedia algoritmo Burbuja, O(n²) y el mejor O(n)
 Complejidad promedia algoritmo Inserción directa, O(n²) y el mejor O(n)
 Complejidad promedia algoritmo QuickSort, O(n log(n)) y el peor O(n²)
 Complejidad promedia algoritmo MergeSort, O(n log(n))
-Complejidad promedia alritmo HeapSort/Monticulo, O(n log(n))
+Complejidad promedia algoritmo HeapSort/Monticulo, O(n log(n))
 Complejidad promedia algoritmo Selección, O(n²)
 Complejidad promedia algoritmo Radix Sort, O(n*K)
 Complejidad promedia algoritmo Bucket Sort/BinSort, O(n)
@@ -740,4 +754,36 @@ El diagrama de Componentes es de tipo ..., Estructural
 El diagrama de Objetos es de tipo ..., Estructural
 El diagrama de Composite es de tipo ..., Estructural
 Dentro de los diagramas de comportamiento -> Interacción ..., Comunicación; Interaction Overview; Secuencia; Timing
+
+# Arquitectura CPU
+
+Que significa una CPU 64 bits,"
+tamaño de 64 bits para: 
+- Registro CPU
+- Ancho bus datos
+- Instrucciones
+- Pero 48 bits espacio de direcciones y bus de direcciones
+Que es una palabra en arquitectura computadoras, trozo de información que puede manejar
+Diferencias entre arquitectura Harvard y Von Neumann,"
+- Harvard memoria separada para datos e instrucciones. Mejor rendimiento al paralelizar y seguridad
+- Von Neumann 1 única memoria para instrucciones y datos. Cuellos botella
+Que hace la unidad de control, carga instrucciones; decodifica instrucciones
+Que hace la ALU, operaciones aritméticas y manipulación bits
+Que tipos de registros existen,"
+- MAR(Mem. Address Reg.)
+- MDR(Mem. Data Reg.)
+- AC(Acumulador)
+- PC(Program counter)
+- CIR(Current Instruction Reg.)
+Cual es el ciclo de instrucción del procesador,"
+fetch(búsqueda/carga) -> Decodificador -> Secuenciador(ejecuta)"
+Que hace el Contador de Programa(PC; intel-> Instruction Pointer), contiene dirección memoria de la siguiente instrucción a ejecutar(puntero)
+Que modos de direccionamiento existen, implicito;inmediato;indirecto;directo/absoluto
+Que es la segmentación/pipeline y en que tipo procesador se usa, es paralelizar instrucciones; se usa en RISC
+Que es el BSB, es un bus que conecta la CPU con la caché
+En la memoria DDR-200 que significa PC1600, 100Mhz X 2(Double Data Rate) X 8 Bytes = 1600 MB/S. Es el ancho banda del módulo
+
+
+
+
 

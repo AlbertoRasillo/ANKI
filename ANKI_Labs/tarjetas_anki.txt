@@ -1,147 +1,10 @@
-# Comandos Windows GPO politicas grupo
-
-Editor de GPOs o directivas de de grupo locales, gpedit.msc
-Mostrar las GPOs de usuario y/o computadora que están siendo aplicadas, gpresult
-gpresult /r, resumen tando del USER como del COMPUTER
-gpresult /z, informacion super detallada
-gpresult /h, gpresult /h informe_fichero.html
-gpresult /x, gpresult /x informe_fichero.xml
-gpresult /S, gpresult /S remote-pc-name
-gpupdate /force, forzamos la actualizacion
-gpupdate /boot, reinicia despues de la actualizacion
-gpupdate /logoff, cierra la sesion despues de la actualizacion
-gpupdate /target USER, solo se actualizan las directivas del usuario
-gpupdate /target COMPUTER, solo se actualizan las directivas del equipo
-
-# Comandos Windows Active Directory
-
-dsquery server domainroot, lista todos los controladores de dominio
-dsquery computer OU=Sales;DC=Contoso;DC=Com, busca todos los equipo de esa OU
-dsquery computer domainroot -name ServFichero*, busca en el dominio actual todas las maquinas cuyo nombre comience con 'ServFichero'
-dsquery user domainroot -name *smith -inactive 3, muestra a todos los usuarios cuyo nombre termina en 'smith' y que lleven más de 3 semanas de inactividad
-dsquery user ... -disabled, que las cuenta este desactivada
-dsquery user ... --stalepwd 30, que no haya cambiado la password desde hace al menos 30 dias
-dsquery user –samid 'username' | dsget user -email, obtener el email de un determinado usuario
-dsquery user -samid 'username' | dsget user -memberof -expand, obtener todos los grupos de un usuario; incluidos los anidados
-dsquery group -samid 'DEVELOPERS' | dsget group -members -expand  | dsget user -samid, obtener los miembros de un grupo
-dsget user ... -effectivepso, obtener las PSO=Politicas de sobre la configuración de las contraseñas
-dsget user ... -acctexpires, obtener la fecha de expiracion de la cuenta
-dsget user ... -disabled, si o no está desactivada
-dsget user ... -mustchpwd, si o no el usuario debe cambiar la contraseña en el siguiente inicio de sesion
-dsquery computer -inactive 4 | dsmod computer -disabled yes, deshabilita todos los equipos que hayan estado inactivos durante 4 o mas semanas
-dsadd user CN=Carlos;OU=Marketing;DC=ruinosa;DC=com, añade un usuario en una OU
-dsadd computer CN=SALESWKSTN1;OU=Ventas;DC=ruinosa;DC=com, alta de un equipo en una OU
-dsmod group CN=Marketing Users;CN=users;DC=ruinosa;DC=com -addmbr CN=Sara;OU=Marketing;DC=ruinosa;DC=com, añade usuario a un grupo
-dsmod user CN=Pepe;OU=Ventas;DC=ibm;Dc=com -pwd Abcd123 -mustchpwd yes, cambia la password+politica a un usuario
-dsrm -subtree -noprompt -c OU=Marketing;DC=ruinosa;DC=com, borra toda una OU
-
-# Comandos Windows net administrar recursos usuarios grupos servicios
-
-net user, muestra usuarios locales creados en la maquina
-net user pepe, muestra info del usuario pepe Ej: Ultimo cambio de password; si la contraseña expira; ultima sesion iniciada; grupos locales a los que pertenece; directorio principal; etc
-net user juan 1234 /add, alta del usuario local juan
-net user juan 1234 /add /domain, alta del usuario juan en el dominio
-net user fer *, con esto podemos cambiar la password del usuario
-Opción-> /passwordreq:yes/no, si es obligatorio tener password para esa cuenta
-Opción-> /passwordchg:yes/no, si el usuario puede cambiar la contraseña
-Opción-> /expires:fecha/never, expiracion de la cuenta
-Opción-> /active:yes/no, activa o desactiva la cuenta
-Opción-> /times:..., momentos en los que se puede usar la computadora/hacer login
-Opción-> /workstations:..., lista de equipos desde donde puede hacer login
-net accounts, modifica politicas de cuentas y password
-net accounts /MINPWLEN:..., longitudMinimaDeLaPassword
-net accounts /MAXPWAGE:..., maximoDeDiasQueLaPasswordEsValida
-net accounts /UNIQUEPW:..., numeroDePasswordUnicasCuandoSeCambia
-net accounts /DOMAIN, estos comandos afectan al dominio en lugar de la maquina local
-net computer \\equipo /add o /del, añade o borra una maquina al dominio
-net session \\servidorNominas, listado con los usuarios y desde que maquinas están conectados al servidorNominas
-net print \\equipo, muestra las colas de impresion compartidas
-net print \\equipo\ShareName, muestra la cola de impresion de ese share
-net print \\equipo NumeroDeJob, gestion de un job particular
-net print \\equipo NumeroDeJob /hold o /release, retrasa/retiene o libera el job
-net print \\equipo NumeroDeJob /delete, borra el job
-net share gestion de recursos compartidos, sin parametros muestra los que hay actualmente creados
-net share DataCompartido=c:\Data, comparte el directorio c:\Data con el nombre publico DataCompartido
-net share DataCompartido=c:\Data /users:..., numeroMaximoUsuariosSimultaneos
-net share DataCompartido=c:\Data /delete, borrar el recurso compartido
-net group desarrolladores /add, añade grupo al dominio
-net localgroup desarrolladores /add, añade grupo local a la maquina
-net group desarrolladores pepe luis /add, añade usuarios al grupo
-net view, muestra la lista de maquinas del dominio actual o con /domain el que tu especifiques
-net view \\equipo /ALL, muestra todos los recursos compartidos del equipo. El $ en el nombre del recurso indica que son ocultos
-net use, gestión de unidades hacia --> recursos compartidos
-net use e: \\financiero\cartas, en la maquina cliente vamos a poder engancharnos contra el share creado en el servidor \\financiero
-net use [LPTx:] \\ComputerName\printer_share /persistent:yes, asignar una impresora compartida en la red a un puerto
-net use e: \\financiero\cartas /delete, borrar el mapeo de unidad
-net use e: \\financiero\cartas /persistent:yes, para que se realice el mapeo en cada inicio de sesion
-net use e: \\financiero\cartas /user:usuario password, mapeo con credenciales concretas
-net config server /autodisconnect:minutos, cierra sesiones inactivas al pasar x minutos
-net start/stop/pause/continue nombreDelServicio, gestión de servicios
-net time /domain[:dominio] /set, sincroniza la hora del equipo con la del dominio
-net time /rstdomain[:dominio] /set, idem pero contra un servidor de tiempos
-
-# Comandos Windows netsh configuracion de red
-
-netsh advfirewall set currentprofile state on, activar el firewall
-netsh advfirewall firewall add rule name='Open Port 80' dir=in action=allow protocol=TCP localport=80, regla para abrir el puerto 80 de entrada
-netsh advfirewall firewall set rule group='remote desktop' new enable=Yes, activar el servicio de RDP
-netsh interface ip show config, muestra configuracion TCP/IP
-netsh interface ip delete arpcache, borra la cache de ARP
-netsh interface ip set address name='Local Area Connection' source=static addr=192.168.0.10 mask=255.255.255.0 gateway=192.168.0.1 gwmetric=1, configuracion IP estatica
-netsh interface ip set address name='Local Area Connection' source=dhcp, configuracion IP dinamica
-netsh interface ip add dnsservers 'Local Area Connection' 10.0.0.1, añadir servidor de DNS
-netsh set machine servidorNominas, trabajar contra ese servidor
-netsh wlan add filter permission=block ssid=”WLAN name” networktype=infrastructure, bloquea la WIFI por SSID
-netsh http add iplisten address=1.1.1.1, publicar nueva IP de escucha
-netsh http add sslcert ipport=1.1.1.1:443 certhash=0102030405060708090A0B0C0D0E0F1011121314 appid={00112233-4455-6677-8899-AABBCCDDEEFF}, asocia un certificado con una determinada IP+Puerto
-netsh dump > copia_configuracion.txt, copia de seguridad de la configuracion
-netsh exec copia_configuracion.txt, restauracion de la configuracion
-
-# Comandos Windows robocopy copia backup de ficheros
-
-/S, copia subcarpetas
-/E, copia subcarpetas incluso VACIAS
-/MIR, modo espejo copia de forma recursiva pero al terminar se eliminan los archivos en el destino que ya no existen en el origen
-/MOV, mueve archivos y los elimina del origen después de ser copiados
-/MOVE, mueve archivos y carpetas y los elimina del origen después de ser copiados
-/L, hace una SIMULACION
-/MAX:bytes o /MIN:bytes, de un determinado tamaño
-/MAXAGE:dias o /MINAGE:dias, de una determinada antiguedad
-/Z, modo REINICIABLE
-/SEC, conservar permisos o /COPYALL
-/R:..., numeroReintentos
-/XF patron, excluye los archivos indicados
-
-# Comandos Windows arp ipconfig netstat nslookup getmac route tracert
-
-arp -a, muestra las entradas de la tabla
-arp -d direccion_ip, elimina el host especificado o todos si se usa *
-arp -s direccion_ip direccion_mac, agrega una entrada a la tabla
-ipconfig /displaydns, muestra las resoluciones DNS de la cache
-ipconfig /flushdns, borra la cache del DNS
-ipconfig  /renew, renueva la direccion IP
-ipconfig  /release, libera conexiones
-netstat -a, muestra todas las conexiones y puertos de escucha
-netstat -p protocolo, filtra por TCP;UDP
-netstat -r, muestra el contenido de la tabla de rutas
-netstat -o, muestra el PID del proceso asociado
-netstat -n, muestra los puertos y las direcciones en formato numerico
-nslookup -querytype=TXT -timeout=10 inap.es 8.8.8.8, consulta de los registros de tipo TXT de inap.es usando GoogleDNS
-nslookup -type=TXT -timeout=10 inap.es 8.8.8.8, consulta de los registros de tipo TXT de inap.es usando GoogleDNS
-Comando getmac, obtener la dirección fisica/MAC de una serie de interfaces de red
-Comando route, administración de la tabla de enrutamiento
-tracert / pathping -d, no convierte direcciones en nombres de host
-tracert / pathping -h, numero maximo de saltos en la busqueda
-tracert / pathping -w milisegundos, tiempo para esperar cada respuesta
-tracert / pathping -6, forzar usando IPv6
-
-# Versiones Linux
+# Linux versiones
 
 path version Red Hat, cat /etc/redhat-release
 path version Ubuntu, cat /etc/lsb-release alternativa /etc/os-release
 path version Debian, cat /etc/os-release alternativa /etc/lsb-release
 path version release OS, cat /proc/sys/kernel/osrelease -> 5.10.0-21-amd64
-existe /etc/issue, /etc/osrelease y /etc/debian_version?, Sí podemos obtener info acerca de la distribucion de Linux
+existe /etc/issue; /etc/osrelease y /etc/debian_version?, Sí podemos obtener info acerca de la distribucion de Linux
 path version tipo OS, cat /proc/sys/kernel/ostype -> Linux
 En Linux imprime toda la información nombre kernel; version; release; plataforma hardware, uname -a o --all
 En Linux imprime con uname el nombre del kernel, uname -s o --kernel-name
@@ -238,6 +101,8 @@ lsof -c nombre, lista los ficheros abiertos por el proceso con nombre
 lsof /path/fichero, muestra los procesos que tiene abierto el fichero
 lsof -t /path/fichero, muestra solo los PID de los procesos que tiene abierto el fichero
 Que información muestra stat fichero/directorio, permisos; nº inodo; tipo fichero; número enlaces hard links; Uid y Gid; fecha acceso modificación y cambio; tamaño
+ln -s origen nombre_enalce, enlace simbolico; funciona con directorios y fichero
+ln origen nombre_enlace, enlace duro; no vale para directorios
 
 # Linux tar tape archive
 
@@ -253,7 +118,7 @@ opción -t, lista el contenido del archivo empaquetado o comprimido
 
 # Linux popurrí comandos
 
-whoami, lista el usuario actual
+whoami, lista el usuario actual. /user (nombre de usuario + SID). /groups (grupos a los que pertenece). /priv (privilegios de seguridad)
 exec comando, ejecuta el comando y te saca del shell como si hiceramos exit
 time comando, lista el tiempo que ha tardado en ejecutar el comando; el real; de usuario; de sistema
 touch nombre fichero, cre un fichero vacio con los permisos de la mascara actual umask
@@ -513,7 +378,310 @@ Configuración de SMB/CIFS, /etc/samba/smb.conf
 Para activar ip forward en la máquina. Cambio temporal. Routing., /proc/sys/net/ipv4/ip_forward
 Configuración parámetros del kernel. Configuración de routing (forward) para iptables. Cambio permanente, /etc/sysctl.conf
 
-## Docker
+# Linux RAID
+
+Herramienta para gestionar discos RAID?,mdadm Multiple Disk and Device Management
+Comando para crear un RAID md0 de nivel 0 con 2 discos sdb1 y sdc1 y tamaño de chunk 128,mdadm -Cv /dev/md0 -l0 -n2 -c128 /dev/sdb1 /dev/sdc1
+
+# Linux mount
+
+Herramienta para crear unidades de punto de montaje,mount
+Montar unidad sdb1 con ext4 en /mnt/media, mount -t ext4 /deb/sdb1 /mnt/media
+Con las credenciales pepe y pass 1234 montar la unidad //server-name/nominas con cifs en /var/data/nominas como se hace?,"mount -t cifs //server-name/nominas /var/data/nominas -o username=pepe,password=1234,domain=ruinosa"
+Archivo que contiene los sistemas de ficheros soportados, cat /proc/filesystems
+Parametro para montaje solo lectura y lectura escritura, -ro y -rw
+Otras opciones que se pueden pasar con -o, nouser(solo root podra montar); exec/noexec(ejecutar binarios); sync/async(sincronización)
+Como cargar el modulo cifs para poderlo montar,modprobe cifs
+
+# Linux lvm
+
+pvcreate / pvdisplay / pvmove, crear un volumen fisico a partir de un disco entero o particion
+vgcreate / vgdisplay / vgextend / vgreduce, crear un grupo de volumenes fisicos
+vcreate / lvdisplay /lvextend / lvreduce, crear un volumen logico a partir de un grupo de volumenes
+"Paso 1:
+pvcreate /dev/sda1 /dev/sdb1 /dev/sdc1
+vgcreate -s 32M tecmint_vg /dev/sda1 /dev/sdb1 /dev/sdc1","
+crea un grupo de volumenes a partir de los 3 PV's anteriores con tamaño de PE=32MB"
+"Paso 2:
+lvcreate -L 18G -n tecmint_documents tecmint_vg 
+lvcreate -L 18G -n tecmint_manager tecmint_vg
+lvcreate -L 18G -n tecmint_public tecmint_vg","
+a partir del VG creamos 3 LV o volumenes logicos"
+"Paso 3:
+mkfs.ext4 /dev/tecmint_vg/tecmint_documents
+mkfs.ext4 /dev/tecmint_vg/tecmint_public
+mkfs.ext4 /dev/tecmint_vg/tecmint_manager","
+formateamos los 3 LV con ext4"
+"Paso 4:
+mount /dev/tecmint_vg/tecmint_documents /mnt/tecmint_documents/
+mount /dev/tecmint_vg/tecmint_public /mnt/tecmint_public/
+mount /dev/tecmint_vg/tecmint_manager /mnt/tecmint_manager/","
+montamos los distintos LV sobre directorios concretos"
+"Ejemplo de ampliacion:
+vgextend tecmint_vg /dev/sda4
+lvextend -L +2G /dev/tecmint_vg/tecmint_documents
+resize2fs /dev/tecmint_vg/tecmint_documents","
+- Ampliamos el VG con un volumen fisico adicional
+- Ampliamos un LV con 2G adicionales
+- Necesitamos hacer esto para que el filesystem actualice sus metadatos"
+"Ejemplo de reduccion de un volumen logico:
+resize2fs /dev/tecmint_vg/tecmint_documents 10G
+lvreduce -L 10G /dev/tecmint_vg/tecmint_documents","
+resize2fs...necesitamos hacer esto para que el filesystem actualice sus metadatos"
+"Ejemplo de reduccion de un grupo de volumenes:
+vgreduce -v vg_testing /dev/sdc1
+pvmove /dev/sdc1","
+- Para esto no puede haber ningun PE en sdc1
+- Esto es lo que habría que hacer si sdc1 no estuviera vacio
+- resize2fs funciona sin tener que desmontar el filesystem (si es para ampliar, si queremos reducir habrá que desmontarlo)"
+
+# Linux fdisk mkfs resize2fs e2fsck
+
+fdisk /dev/sdb,"
+para discos SATA o SCSI. fdisk /dev/hdb(para discos PATA o IDE)
+1-4 para primarias o extendia (solo una)
+5 en adelante para particiones logicas dentro de la extendida"
+herramienta para manipular particiones GPT?, gdisk y parted
+comando para mostrar listado de todos los dispositivos de almacenamiento bloque, lsblk
+comando para otener información física del discocilindros, pistas...hdparm /dev/sda1
+formatear dispositivos con sistemas de ficheros, mkfs.ext4 /dev/sdb1
+reducir o ampliar un sistemas de ficheros, resize2fs /dev/sdb1 50g. -M (shrink o reduce hasta el minimo posible el filesystem)
+reparar sistemas de ficheros, umount /dev/vdb1 (requisito previo). e2fsck /dev/vdb1
+
+# Linux rsync
+
+rsync -avzh /root/rpmpkgs /tmp/backups/, en local
+rsync -avzh rpmpkgs/ root@192.168.0.101:/home/, en remoto contra el rsync daemon - puerto 873 por defecto
+rsync -avzhe ssh root@192.168.0.100:/root/install.log /tmp/, en remoto contra el servicio de SSH
+-v, verbose
+-a, archive mode; copia ficheros/directorios recursivamente conservando links; permisos; propietarios; etc
+-z, comprime
+-h, human-readable
+-e, especificar el shell remoto - ssh
+-u, si en el destino el fichero está modificado no se sincroniza con el origen
+--delete, si un fichero no existe en el origen y si en el destino lo borra
+--max-size='200k', tamaño maximo de ficheros a ser transferidos
+--bwlimit=600, limita el uso del ancho de banda en KB/s
+--remove-source-files, una vez transferidos los archivos se borran del origen
+--dry-run, en realidad te permite 'probar' como quedaría la ejecución del comando pero no hace cambios realmente
+
+# Linux top nice-renice ldd kill ps watch cron-crontab at
+
+Campo muestra comando top ID, PID del proceso
+Campo muestra comando top USER, usuario que lanzo el proceso
+Campo muestra comando top PR, valor de la prioridad a nivel de kernel. Si pone rt es que se está ejecutando en tiempo real. PR = 20 + NI
+Campo muestra comando top NI, valor de 'nice'. Si tiene un valor bajo (hasta -20) quiere decir que tiene más prioridad que otro con valor alto (hasta 19).
+Campo muestra comando top VIRT,	memoria virtual total consumida por el proceso
+Campo muestra comando top RES, memoria consumida por el proceso en RAM
+Campo muestra comando top SHR, memoria compartida con otros procesos
+Campo muestra comando top S, estado del proceso
+Campo muestra comando top %CPU,	porcetaje de CPU utilizado por el proceso
+Campo muestra comando top % MEM, valor de RES en porcentaje respecto del total de RAM
+Campo muestra comando top TIME+, tiempo de cpu usado por el proceso desde que inicio
+nice -n valor-de-nice comando argumentos,"
+solo el root puede usar los valores negativos
+El valor-de-nice toma valores entre -20 y +19 (siendo 10 el valor por defecto)"
+renice -n -12 -p 1055, solo a ese PID
+renice -n -2 -u apache2, para todos los procesos del user apache2
+otro fichero tambien se puede establecer un nice para un usuario, /etc/security/limits.conf
+listar las depenencias (librerias dinamica) que usa un determinado programa/libreria, ldd
+whereis -b; which; type, localización de la ruta del binario
+kill -l, (muestra todas las señales)
+kill SIGKILL 63772 o kill -9 63772, (este numero es un pid)
+pkill; killall, variantes que lo hacen en base al nombre del proceso
+nohup sh your-script.sh > /path/to/custom.out &, si queremos que nuestro comando 'sobreviva' a la señal SIGHUP
+watch -n segundos_para_refrescar -d, monitorizar la salida de un comando en tiempo real. Resaltar cambios en la salida
+crontab -e, para editar el fichero con la planificacion
+crontab -l, lista el crontab actual
+crontab -r, borrar el crontab actual
+Formato del fichero cron/crontab,"
+m h dom mon dow usario comando (n lineas)
+m --> minuto (0-59)
+h --> hora (0-23)
+dom --> dia del mes (1-31)
+mon --> mes (1-12)
+dow --> dia de la semana (0-7 son domingo)"
+crontab: @daily root /path/to/backup/script.sh, Ejecucion diaría del script.sh
+crontab: 3/3 2/4 2 2 2, Cada 3 minutos empezando por el minuto 3 (3;6;9; etc.) de las horas 2;6;10; etc (cada 4 horas empezando en la hora 2) del día 2 de febrero y que sea martes
+crontab: 45 10 * * sun root apt-get -y update, Usuario root ejecutará una actualización todos los domingos (sun) a las 10:45 a.m
+"crontab: 00 12 1,15,28 * *", A las 12 del día todos los días primero; quince y 28 de cada mes (ideal para nóminas)
+@reboot root /path/to/inicio/script.sh, Ejecucion unica al arranque
+Cada usuario puede tener su propio crontab?, Si y se guarda en (en /var/spool/cron/crontabs/). Siempre y cuando dicho usuario no este registrado en el fichero /etc/cron.deny
+crontab: Que sucede si el día del mes y el día de la semana tienen valor ambos, se ejecutará cuando se cumplan cualquiera de los dos; no sólo cuando ambos se cumplan; es decir; se hace un OR
+/etc/cron.d, Más ficheros crontab. Asi podemos separar un poco y no meterlo todo en /etc/crontab
+/etc/cron.daily, directorio/atajo para ejecutar scripts diarios
+/etc/cron.hourly, directorio/atajo para ejecutar scripts cada hora
+at now + 1 minute -f script.sh, planificacion de procesos en un momento concreto unicamente
+atq, ver los trabajos encolados
+atrm, eliminar un trabajo encolado
+ps -eF, todos los procesos y formato largo extendido. Con --forest o -H saca el arbol padres/hijos
+-p --> PID, muestra un proceso concreto
+-u --> UID/user, muestra los procesos del usuario efectivo
+-U --> UID/user, muestra los procesos del usuario real
+-g --> GID/grupo, muestra los procesos del grupo efectivo
+-G --> GID/grupo, muestra los procesos del grupo real
+-eo, lista_columnas_a_mostrar
+Campo muestra comando ps: PPID, PID del proceso padre
+Campo muestra comando ps: C, consumo de cpu
+Campo muestra comando ps: SZ, consumo de memoria VIRTUAL
+Campo muestra comando ps: S o STAT, estado del proceso (R=Running; S=interruptible sleep (waiting for an event to complete)..
+Campo muestra comando ps: RSS, consumo de memoria REAL
+Campo muestra comando ps: PSR, procesador asignado
+Campo muestra comando ps: STIME, cuando inicio el proceso
+Campo muestra comando ps: LWP, ID del thread
+Campo muestra comando ps: NLWP, Numero de threads del proceso
+
+# Linux gestion red arp ip-ifconfig nmap ss-netstat dig-nslookup-host ping-ping6 route traceroute tcpdump ifup-ifdown
+
+arp -a, muestra todas las entradas
+arp -d direccion_ip, borra una entrada
+arp -n, muestra direcciones numericas
+arp -s direccion_ip direccion_mac, añade entrada manualmente
+ifconfig -a, muestra todos los interfaces de red
+ifconfig eth0 192.168.56.5 netmask 255.255.255.0, asignar una IP
+ifconfig eth0 up/down, activar o desactivar un interface
+ip addr show, muestra los interfaces de red. Version corta --> ip a s
+ip addr add 192.168.56.1 dev eth0, asignacion temporal de ip
+ip addr del 192.168.56.15/24 dev eth0, eliminacion de ip
+ip neigh, mostrar la tabla de vecinos. Sustituye al comando arp
+ip link set eth1 up/down, activar/desactivar interfaces
+ip route show, muestra tabla de encaminamiento; como netstat -nr
+ip route add 10.10.20.0/24 via 192.168.50.100 dev eth0, añade un ruta estatica
+ip route add default via 192.168.50.100, añade un gateway por defecto
+nmap server2.ruinosa.com, escaneo de puertos
+nmap 192.168.0.*, escaneo de una subred
+nmap -A 192.168.0.101, escanea informacion del SO y traceroute
+nmap -O server2.ruinosa.com, detectar sistema operativo
+nmap -sA 192.168.0.101, para detectar reglas del firewall
+nmap -sS 192.168.0.101, escaneo de puertos basa en el envio de TCP SYN; Half-Open scan
+nmap -p 80 server2.ruinosa.com, escanear un puerto especifico
+nmap -sV 192.168.0.101, descubrir versiones de los servicios
+netstat -at, solo conexiones TCP. Con -au serían UDP
+netstat -atn, no resuelva las IP a nombres
+netstat -l, solo conexiones en estado LISTEN
+netstat -ltnp, muestra el PID/ProgramName
+netstat -ltne, muestra el UID
+netstat -nr, muestra tabla de encaminamiento; como ip route show
+netstat -ie, muestra los interfaces de red
+netstat -ac, modo promiscuo; se refresca cada 5 segundos
+ss -at '( dport = :22 or sport = :22 ', permite filtros
+con lsof -i, obtenemos una información muy similar ss / netstat
+host -t AAAA www.ruinosa.com, localiza la ipv6 de ese nombre
+dig yahoo.com, consulta registros A y AAAA
+dig yahoo.com MX, consulta registro MX
+dig -x 72.30.38.140 +short, resolucion inversa
+nslookup yahoo.com, consulta registro A
+nslookup 209.191.122.70, resolucion inversa
+nslookup -query=mx yahoo.com, consulta registro MX
+nslookup -type=mx yahoo.com 8.8.8.8, idem; usando el DNS de Google
+ping -c 4 192.168.0.103, lanza unicamente 4 ECHO_REQUEST
+ping parametro: -f, flood; envia 100 o mas paquetes por segundo
+ping parametro: -i segundos, incrementa el intervalo de envio entre paquetes
+ping parametro: -6, solo usa IPv6
+route add default gw 192.168.29.1, gestión de tabla de encaminamiento obsoleto
+traceroute parametro: -g direccion_ip, especificar el gateway de salida
+traceroute parametro: -i direccion_ip, especificar el interface de salida
+traceroute parametro: -f first_ttl, en lugar de empezar por 1
+traceroute parametro: -m max_ttl, maximo numero de saltos
+traceroute parametro: -n, no resuelva las IP a nombres
+tcpdump -i eth0, capturar trafico del interface eth0
+tcpdump -c 5 -i eth0, capturar solo 5 paquetes
+tcpdump -A -i eth0, mostrar captura en modo ASCII
+tcpdump -D, mostrar interfaces disponibles
+tcpdump -w 0001.pcap -i eth0, guardar en un fichero la captura
+tcpdump -i eth0 tcp, captura trafico tcp
+tcpdump -i eth0 port 22, captura trafico del puerto 22
+tcpdump -i eth0 src/dst 192.168.0.2, captura hacia/desde una IP
+ifup eth0 / ifdown eth0, activar y desactivar interfaces de red
+iw dev, muestra tus interfaces wifi. Ej. wlp2s0
+iw wlp2s0 link, estado de conexion de ese dispositivo
+iw wlp2s0 scan, escanea la redes wifi
+nmcli dev wifi connect MiegiWifi password 1234, conectar a una wifi
+nmcli dev show, listado los dispositivos de red
+nmcli connection, listado de conexiones activas
+nc -v -w 2 z 192.168.56.1 22, scan a single port
+nc, paquete nc en RedHat y Netcat en Debian. Navaja suiza de red
+nc parametro: -v, verbose
+nc parametro: -w, timeout_segundos
+nc parametro: -z, simplemente que haga un escaneo
+nc -l -vv -p 5000, crear un servidor de chat -l listen mode. -vv more verbose
+
+# Linux gestion sistema seguridad hardware shutdown systemctl service dmesg free ulimit
+
+shutdown now, con -P apaga de la maquina
+shutdown -H now, para la maquina: procesos y cpu. Ej: mantenimiento/cambio tarjeta PCI
+shutdown -c, cancela un shutdown pendiente
+poweroff, apaga la maquina
+poweroff --reboot, reinicia la maquina
+halt, para la maquina
+halt -p, apaga la maquina
+halt --reboot, reinicia la maquibna
+systemctl status firewalld.service, chequea que el estado del servicio/unidad
+systemctl status firewalld, idem sin el '.service'
+systemctl list-unit-files --type=service --state=active, lista todos los servicios activos
+systemctl start/restart/stop/reload httpd.service, inicio;reinicio;parada y recarga
+systemctl enable/disable httpd.service, activar el servicio al arranque
+systemctl reboot, reiniciar la maquina
+systemctl poweroff, apagar la maquina
+systemctl halt, parar la maquina
+service miservicio start/stop/restart/reload/status, cambiar estado del servicio
+chkconfig miservicio on/off, activar el servicio al arranque
+dmesg --level=alert;crit;..., filtrar por el nivel de cada mensaje
+dmesg -k, mensajes del kernel
+dmesg -T, muestra la fecha y hora en un formato legible
+dmesg -w, se queda esperando a nuevos mensajes
+dmesg -u, mensajes del espacio de usuario
+sysctl -a, ver una lista completas de los parametros del kernel
+sysctl -w net.ipv4.ip_forward=1, ej. capacidad de routing; aunque temporal
+echo 'net.ipv4.icmp_echo_ignore_all = 1' >> /etc/sysctl.conf, es definitivo
+sysctl -p, aplicar los cambios
+lscpu, equivalente a cat /proc/cpuinfo
+lsusb / lspci, muestra los dispositivos conectados al USB o al PCI
+modprobe, añadir o borrar modulos del kernel
+free, muestra información de la memoria RAM obtiene la informacion de cat /proc/meminfo
+free -h, formato legible
+free -b/m/g/k, información en bytes/kibi/mebi/gibibyte --> base 2
+free --si, aplica las unidades del sistema internacional --> base 10
+ulimit, configuración/control de recursos para usuarios cambiar estos parametros en el fichero /etc/security/limits.conf. Un ususario puede cambiar su limite soft pero nunca el hard
+ulimit -Hn, ver el hard limit
+ulimit -Sn, ver el soft limit
+sudo -u carlos comando, ejecuta comando como si fuera 'carlos'. Fichero de configuracion /etc/sudoers
+
+# Linux ssh scp
+
+apt install openssh-server, solo servidor
+apt install ssh, instala cliente y servidor
+/etc/ssh/ssh_config, fichero configuración de cliente ssh
+/etc/ssh/sshd_config, fichero de configuración del servidor ssh
+$HOME/.ssh/authorized_keys, fichero con las claves publicas de los clientes autorizados a conectarse
+$HOME/.ssh/known_hosts, fichero con los fingerprint de la claves publicas de los servidores a los que nos hemos conectado
+/etc/ssh/ssh_host_rsa_key, autenticacion del host; otras: /etc/ssh/ssh_host_dsa_key; /etc/ssh/ssh_host_ecdsa_key
+ssh-keygen -t rsa/dsa/ecdsa -b numero_bits_clave, generacion de par de claves
+ssh-keygen -l -f ssh_host_ecdsa_key.pub, muestra el fingerprint de esa clave
+ssh-copy-id, copia de la clave publica al servidor donde queremos conectarnos ej. ssh-copy-id username@remote_host
+ssh-agent, agente de autenticacion --> Para evitar tener que teclear la Passpharse cada vez
+ssh-add, añadir claves privadas al agente de autenticacion
+ssh-keyscan, recopilar claves publicas de ciertos hosts
+Campo dentro /etc/ssh/sshd_config PubkeyAuthentication yes|no, permitir autenticación con clave pública. Campo: AuthorizedKeysFile  .ssh/authorized_keys .ssh/authorized_keys2
+Campo dentro /etc/ssh/sshd_config PermitRootLogin yes|no, permitir hacer login a usuario root
+Campo dentro /etc/ssh/sshd_config PasswordAuthentication yes|no ,permitir hacer login con password. Opcional PermitEmptyPasswords yes|no
+ssh, cliente de ssh
+ssh username@remote_host, conectar al host e iniciar una sesion interactiva remotamente
+ssh -l username remote_host, conectar al host e iniciar una sesion interactiva remotamente
+ssh username@remote_host comando, ejecutar un comando remotamente
+ssh -p puerto username@remote_host comando, conectar a un puerto diferente al 22
+ssh -A, estando conectado a un servidor si quieres conectarte a otro esta opción transmite las credenciales
+ssh -L your_port:site_or_IP_to_access:site_port username@host, crea un tunel local
+ssh -R remote_port:site_or_IP_to_access:site_port username@host, crea un tunel remoto
+scp your_username@remotehost.edu:foobar.txt /some/local/directory,"
+- descargar fichero remoto en directorio del host local 
+- scp [other options] [source username@IP]:/[directory and file name] [destination username@IP]:/[destination directory]"
+scp foobar.txt your_username@remotehost.edu:/some/remote/directory, subir fichero local a servidor remoto
+Opción scp: -r, copia recursiva
+Opción scp: -p, conservará los tiempos de modificación iniciales y los atributos del archivo
+Opción scp: -l, limita el ancho de banda usado. Kbit/s
+
+# Docker
 
 "Como obtener información sobre el uso de docker en el equipo?
 - Containers: 7
@@ -571,15 +739,15 @@ Info mas detallada del pod,kubectl describe pod nombreDelPod
 # Apache
 
 Como instalar apache?, sudo apt install apache2
-Como activar configuración de un site?, a2ensite 100-ruinosa.conf. Se hacen unos enlaces simbolicos entre ficheros del directorio sites_available y sites_enabled, dentro de /etc/apache2
-Como activar modulos por ejemplo ssl?, a2enmod ssl activa el modulo de SSL. En realidad se hacen unos enlaces simbolicos entre ficheros del directorio mods_available y mods_enabled, dentro de /etc/apache2
+Como activar configuración de un site?, a2ensite 100-ruinosa.conf. Se hacen unos enlaces simbolicos entre ficheros del directorio sites_available y sites_enabled; dentro de /etc/apache2
+Como activar modulos por ejemplo ssl?, a2enmod ssl activa el modulo de SSL. En realidad se hacen unos enlaces simbolicos entre ficheros del directorio mods_available y mods_enabled; dentro de /etc/apache2
 Como gestionar servicio apache?, apache2ctl status/fullstatus; apache2ctl start/stop/restart apache2ctl -t test del fichero de configuracion
 Como ver los modulos activos?, apache2ctl -M
 Como testear el fichero de configuración?, apache2ctl -t
 Que campo se usa dentro del fichero de configuración del site para asignar un nombre dominio, ServerName ruinosa.com. Nota: usa la cabecera http Host: ruinosa.com para identicar la web solicitada
 Que campo se usa dentro del fichero de configuración del site para asignar el path principal, DocumentRoot /var/www/ruinosa.com
-Que campo se usa dentro del fichero de configuración del site para asignar el puerto de escucha, <VirtualHost *:8080>
-Como configurar el SSL para un site?, "
+Que campo se usa dentro del fichero de configuración del site para asignar el puerto de escucha,"`<VirtualHost *:8080>`"
+Como configurar el SSL para un site?,"
 Hay que añadir al fichero: 
 SSLEngine on
 SSLCertificateFile /etc/apache2/ssl/example/apache.crt
@@ -587,40 +755,6 @@ SSLCertificateKeyFile /etc/apache2/ssl/example/apache.key
 "
 Como añadir al site una autenticación básica, Añadir al fichero de configuración del site: AuthType Basic; AuthUserFile /var/www/acme.com/.users.pwd; require valid-user
 Path directorios apache en Debian y Redhat?, En Debian /etc/apache2/apache2.conf En Redhat /etc/httpd/conf/httpd.conf
-
-# Linux ssh scp
-
-apt install openssh-server, solo servidor
-apt install ssh, instala cliente y servidor
-/etc/ssh/ssh_config, fichero configuración de cliente ssh
-/etc/ssh/sshd_config, fichero de configuración del servidor ssh
-$HOME/.ssh/authorized_keys, fichero con las claves publicas de los clientes autorizados a conectarse
-$HOME/.ssh/known_hosts, fichero con los fingerprint de la claves publicas de los servidores a los que nos hemos conectado
-/etc/ssh/ssh_host_rsa_key, autenticacion del host; otras: /etc/ssh/ssh_host_dsa_key; /etc/ssh/ssh_host_ecdsa_key
-ssh-keygen -t rsa/dsa/ecdsa -b numero_bits_clave, generacion de par de claves
-ssh-keygen -l -f ssh_host_ecdsa_key.pub, muestra el fingerprint de esa clave
-ssh-copy-id, copia de la clave publica al servidor donde queremos conectarnos ej. ssh-copy-id username@remote_host
-ssh-agent, agente de autenticacion --> Para evitar tener que teclear la Passpharse cada vez
-ssh-add, añadir claves privadas al agente de autenticacion
-ssh-keyscan, recopilar claves publicas de ciertos hosts
-Campo dentro /etc/ssh/sshd_config PubkeyAuthentication yes|no, permitir autenticación con clave pública. Campo: AuthorizedKeysFile  .ssh/authorized_keys .ssh/authorized_keys2
-Campo dentro /etc/ssh/sshd_config PermitRootLogin yes|no, permitir hacer login a usuario root
-Campo dentro /etc/ssh/sshd_config PasswordAuthentication yes|no ,permitir hacer login con password. Opcional PermitEmptyPasswords yes|no
-ssh, cliente de ssh
-ssh username@remote_host, conectar al host e iniciar una sesion interactiva remotamente
-ssh -l username remote_host, conectar al host e iniciar una sesion interactiva remotamente
-ssh username@remote_host comando, ejecutar un comando remotamente
-ssh -p puerto username@remote_host comando, conectar a un puerto diferente al 22
-ssh -A, estando conectado a un servidor si quieres conectarte a otro esta opción transmite las credenciales
-ssh -L your_port:site_or_IP_to_access:site_port username@host, crea un tunel local
-ssh -R remote_port:site_or_IP_to_access:site_port username@host, crea un tunel remoto
-scp your_username@remotehost.edu:foobar.txt /some/local/directory,"
-- descargar fichero remoto en directorio del host local 
-- scp [other options] [source username@IP]:/[directory and file name] [destination username@IP]:/[destination directory]"
-scp foobar.txt your_username@remotehost.edu:/some/remote/directory, subir fichero local a servidor remoto
-Opción scp: -r, copia recursiva
-Opción scp: -p, conservará los tiempos de modificación iniciales y los atributos del archivo
-Opción scp: -l, limita el ancho de banda usado. Kbit/s
 
 # Ansible
 
@@ -704,7 +838,7 @@ TEMPORARY TABLESPACE ts-temp;
 +
 GRANT CONNECT TO nominas_owner(CONNECT es un rol que incluye privilegios CREATE SESSION...)"
 Oracle: herramientas backup, RMAN y DATA PUMP(expdp: exportación y impdp: importación)
-Oracle: herramienta arranque/parada, SQLPLUS
+Oracle: herramienta arranque/parada, SQLPLUS. SHUTDOWN TRANSACTIONAL | INMEDIATE | ABORT | NORMAL
 
 mysqldump -u root -p --databases nombre_bd1 nombre_bd2 > respaldo.sql, crea copia de seguridad con username; pide password; para 2 bases de datos
 mysqldump opciones: --routines --add-drop-database --no-data,"
@@ -730,13 +864,169 @@ psql base_de_datos < fichero_backup.sql, restauracion; psql -d base_de_datos -f 
 pg_dump base_de_datos > fichero_backup.sql, backup de una bbdd; pg_dump -Fc base_de_datos > fichero_backup (custom_format)
 pg_dumpall > fichero_backup.sql, backup de todas las bbdd
 pg_restore -d base_de_datos fichero_backup_custom_format, restauración cuando el formato de backup es de tipo custom-format
-vacuumdb test; vacuumdb --analyze bigdb, limpia y analiza la bbdd. Ej: tuplas muertas
+PostgreSQL: vacuumdb test; vacuumdb --analyze bigdb, limpia y analiza la bbdd. Ej: tuplas muertas
 
 # SNMP
 
-Como instalar SNMP en Linux, apt install snmpd
+Como instalar agente SNMP en Linux, apt install snmpd
 Que agente se instala en Linux, NET-SNMP
+Que se configura en /etc/snmp/snmpd.conf,"
+- agentAddress udp:161,udp6:[::1]:161 puerto e ip de escucha
+- rocommunity public localhost(contraseña)
+- trap2sink   192.168.1.37 public Enviar traps a la dirección
+- informsink 192.168.1.1 private Enviar informs a la dirección"
 
-# VLAN
+# Windows GPO politicas grupo
 
-# IPtables
+Editor de GPOs o directivas de de grupo locales, gpedit.msc
+Mostrar las GPOs de usuario y/o computadora que están siendo aplicadas, gpresult
+gpresult /r, resumen tando del USER como del COMPUTER
+gpresult /z, informacion super detallada
+gpresult /h, gpresult /h informe_fichero.html
+gpresult /x, gpresult /x informe_fichero.xml
+gpresult /S, gpresult /S remote-pc-name
+gpupdate /force, forzamos la actualizacion
+gpupdate /boot, reinicia despues de la actualizacion
+gpupdate /logoff, cierra la sesion despues de la actualizacion
+gpupdate /target USER, solo se actualizan las directivas del usuario
+gpupdate /target COMPUTER, solo se actualizan las directivas del equipo
+
+# Windows Active Directory
+
+dsquery server domainroot, lista todos los controladores de dominio
+dsquery computer OU=Sales;DC=Contoso;DC=Com, busca todos los equipo de esa OU
+dsquery computer domainroot -name ServFichero*, busca en el dominio actual todas las maquinas cuyo nombre comience con 'ServFichero'
+dsquery user domainroot -name *smith -inactive 3, muestra a todos los usuarios cuyo nombre termina en 'smith' y que lleven más de 3 semanas de inactividad
+dsquery user ... -disabled, que las cuenta este desactivada
+dsquery user ... --stalepwd 30, que no haya cambiado la password desde hace al menos 30 dias
+dsquery user –samid 'username' | dsget user -email, obtener el email de un determinado usuario
+dsquery user -samid 'username' | dsget user -memberof -expand, obtener todos los grupos de un usuario; incluidos los anidados
+dsquery group -samid 'DEVELOPERS' | dsget group -members -expand  | dsget user -samid, obtener los miembros de un grupo
+dsget user ... -effectivepso, obtener las PSO=Politicas de sobre la configuración de las contraseñas
+dsget user ... -acctexpires, obtener la fecha de expiracion de la cuenta
+dsget user ... -disabled, si o no está desactivada
+dsget user ... -mustchpwd, si o no el usuario debe cambiar la contraseña en el siguiente inicio de sesion
+dsquery computer -inactive 4 | dsmod computer -disabled yes, deshabilita todos los equipos que hayan estado inactivos durante 4 o mas semanas
+dsadd user CN=Carlos;OU=Marketing;DC=ruinosa;DC=com, añade un usuario en una OU
+dsadd computer CN=SALESWKSTN1;OU=Ventas;DC=ruinosa;DC=com, alta de un equipo en una OU
+dsmod group CN=Marketing Users;CN=users;DC=ruinosa;DC=com -addmbr CN=Sara;OU=Marketing;DC=ruinosa;DC=com, añade usuario a un grupo
+dsmod user CN=Pepe;OU=Ventas;DC=ibm;Dc=com -pwd Abcd123 -mustchpwd yes, cambia la password+politica a un usuario
+dsrm -subtree -noprompt -c OU=Marketing;DC=ruinosa;DC=com, borra toda una OU
+
+# Windows net administrar recursos usuarios grupos servicios
+
+net user, muestra usuarios locales creados en la maquina
+net user pepe, muestra info del usuario pepe Ej: Ultimo cambio de password; si la contraseña expira; ultima sesion iniciada; grupos locales a los que pertenece; directorio principal; etc
+net user juan 1234 /add, alta del usuario local juan
+net user juan 1234 /add /domain, alta del usuario juan en el dominio
+net user fer *, con esto podemos cambiar la password del usuario
+Opción-> /passwordreq:yes/no, si es obligatorio tener password para esa cuenta
+Opción-> /passwordchg:yes/no, si el usuario puede cambiar la contraseña
+Opción-> /expires:fecha/never, expiracion de la cuenta
+Opción-> /active:yes/no, activa o desactiva la cuenta
+Opción-> /times:..., momentos en los que se puede usar la computadora/hacer login
+Opción-> /workstations:..., lista de equipos desde donde puede hacer login
+net accounts, modifica politicas de cuentas y password
+net accounts /MINPWLEN:..., longitudMinimaDeLaPassword
+net accounts /MAXPWAGE:..., maximoDeDiasQueLaPasswordEsValida
+net accounts /UNIQUEPW:..., numeroDePasswordUnicasCuandoSeCambia
+net accounts /DOMAIN, estos comandos afectan al dominio en lugar de la maquina local
+net computer \\equipo /add o /del, añade o borra una maquina al dominio
+net session \\servidorNominas, listado con los usuarios y desde que maquinas están conectados al servidorNominas
+net print \\equipo, muestra las colas de impresion compartidas
+net print \\equipo\ShareName, muestra la cola de impresion de ese share
+net print \\equipo NumeroDeJob, gestion de un job particular
+net print \\equipo NumeroDeJob /hold o /release, retrasa/retiene o libera el job
+net print \\equipo NumeroDeJob /delete, borra el job
+net share gestion de recursos compartidos, sin parametros muestra los que hay actualmente creados
+net share DataCompartido=c:\Data, comparte el directorio c:\Data con el nombre publico DataCompartido
+net share DataCompartido=c:\Data /users:..., numeroMaximoUsuariosSimultaneos
+net share DataCompartido=c:\Data /delete, borrar el recurso compartido
+net group desarrolladores /add, añade grupo al dominio
+net localgroup desarrolladores /add, añade grupo local a la maquina
+net group desarrolladores pepe luis /add, añade usuarios al grupo
+net view, muestra la lista de maquinas del dominio actual o con /domain el que tu especifiques
+net view \\equipo /ALL, muestra todos los recursos compartidos del equipo. El $ en el nombre del recurso indica que son ocultos
+net use, gestión de unidades hacia --> recursos compartidos
+net use e: \\financiero\cartas, en la maquina cliente vamos a poder engancharnos contra el share creado en el servidor \\financiero
+net use [LPTx:] \\ComputerName\printer_share /persistent:yes, asignar una impresora compartida en la red a un puerto
+net use e: \\financiero\cartas /delete, borrar el mapeo de unidad
+net use e: \\financiero\cartas /persistent:yes, para que se realice el mapeo en cada inicio de sesion
+net use e: \\financiero\cartas /user:usuario password, mapeo con credenciales concretas
+net config server /autodisconnect:minutos, cierra sesiones inactivas al pasar x minutos
+net start/stop/pause/continue nombreDelServicio, gestión de servicios
+net time /domain[:dominio] /set, sincroniza la hora del equipo con la del dominio
+net time /rstdomain[:dominio] /set, idem pero contra un servidor de tiempos
+
+# Windows netsh configuracion de red
+
+netsh advfirewall set currentprofile state on, activar el firewall
+netsh advfirewall firewall add rule name='Open Port 80' dir=in action=allow protocol=TCP localport=80, regla para abrir el puerto 80 de entrada
+netsh advfirewall firewall set rule group='remote desktop' new enable=Yes, activar el servicio de RDP
+netsh interface ip show config, muestra configuracion TCP/IP
+netsh interface ip delete arpcache, borra la cache de ARP
+netsh interface ip set address name='Local Area Connection' source=static addr=192.168.0.10 mask=255.255.255.0 gateway=192.168.0.1 gwmetric=1, configuracion IP estatica
+netsh interface ip set address name='Local Area Connection' source=dhcp, configuracion IP dinamica
+netsh interface ip add dnsservers 'Local Area Connection' 10.0.0.1, añadir servidor de DNS
+netsh set machine servidorNominas, trabajar contra ese servidor
+netsh wlan add filter permission=block ssid=”WLAN name” networktype=infrastructure, bloquea la WIFI por SSID
+netsh http add iplisten address=1.1.1.1, publicar nueva IP de escucha
+netsh http add sslcert ipport=1.1.1.1:443 certhash=0102030405060708090A0B0C0D0E0F1011121314 appid={00112233-4455-6677-8899-AABBCCDDEEFF}, asocia un certificado con una determinada IP+Puerto
+netsh dump > copia_configuracion.txt, copia de seguridad de la configuracion
+netsh exec copia_configuracion.txt, restauracion de la configuracion
+
+# Windows robocopy copia backup de ficheros
+
+/S, copia subcarpetas
+/E, copia subcarpetas incluso VACIAS
+/MIR, modo espejo copia de forma recursiva pero al terminar se eliminan los archivos en el destino que ya no existen en el origen
+/MOV, mueve archivos y los elimina del origen después de ser copiados
+/MOVE, mueve archivos y carpetas y los elimina del origen después de ser copiados
+/L, hace una SIMULACION
+/MAX:bytes o /MIN:bytes, de un determinado tamaño
+/MAXAGE:dias o /MINAGE:dias, de una determinada antiguedad
+/Z, modo REINICIABLE
+/SEC, conservar permisos o /COPYALL
+/R:..., numeroReintentos
+/XF patron, excluye los archivos indicados
+
+# Windows arp ipconfig netstat nslookup getmac route tracert variados
+
+arp -a, muestra las entradas de la tabla
+arp -d direccion_ip, elimina el host especificado o todos si se usa *
+arp -s direccion_ip direccion_mac, agrega una entrada a la tabla
+ipconfig /displaydns, muestra las resoluciones DNS de la cache
+ipconfig /flushdns, borra la cache del DNS
+ipconfig  /renew, renueva la direccion IP
+ipconfig  /release, libera conexiones
+netstat -a, muestra todas las conexiones y puertos de escucha
+netstat -p protocolo, filtra por TCP;UDP
+netstat -r, muestra el contenido de la tabla de rutas
+netstat -o, muestra el PID del proceso asociado
+netstat -n, muestra los puertos y las direcciones en formato numerico
+nslookup -querytype=TXT -timeout=10 inap.es 8.8.8.8, consulta de los registros de tipo TXT de inap.es usando GoogleDNS
+nslookup -type=TXT -timeout=10 inap.es 8.8.8.8, consulta de los registros de tipo TXT de inap.es usando GoogleDNS
+Comando getmac, obtener la dirección fisica/MAC de una serie de interfaces de red
+Comando route, administración de la tabla de enrutamiento
+tracert / pathping -d, no convierte direcciones en nombres de host
+tracert / pathping -h, numero maximo de saltos en la busqueda
+tracert / pathping -w milisegundos, tiempo para esperar cada respuesta
+tracert / pathping -6, forzar usando IPv6
+ntdsutil, herramienta de administración del fichero/bbdd del AD - 
+mstsc, microsoft terminal server connection. Arranca el cliente de escritorio remoto
+convert, convertir de fat16/32 a NTFS
+powercfg, configuración de opciones de energia
+tasklist / taskkill, gestión de tareas/procesos
+msconfig, configuración del sistema
+bcdedit, gestión del arranque de windows
+runas, ejecutar un comando como otro user
+msg, enviar mensaje a otro usuario
+pushd/popd, push directory / pop directory. Guarda y restaura el directorio actual generalmente usados en un script
+msinfo32, información del sistema
+certutil.exe -addstore Root MyCert.cer, importa una CA al almacen raiz
+certutil.exe -p MyPassword -importpfx MyCert.pfx, importa el pfx
+certutil -user -store MY, muestra todos los certificados del almacen personal
+sc create NewService binpath= c:\...\NewServ.exe type= share start= auto, crea nuevo servicio
+sc query type= service/driver/... state=active/inactive, consulta estado servicio
+sc /start/stop/delete nombreDelServicio, gestionar estado servicio
+
