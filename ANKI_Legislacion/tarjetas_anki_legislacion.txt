@@ -42,7 +42,7 @@ Articulo 19 CE?, Libertad de residencia y circulación
 Articulo 20 CE?, Libertad de expresión
 Articulo 21 CE?, Derecho de reunión y manifestación
 Articulo 22 CE?, Derecho asociación
-Articulo 23 CE?, Derecho de participación 
+Articulo 23 CE?, Derecho de participación
 Articulo 24 CE?, Tutela judicial efectiva
 Articulo 25 CE?, Principio de legalidad
 Articulo 27 CE?, Libertad de enseñanza y derecho a la educación
@@ -101,7 +101,7 @@ Supremo órgano consultivo del Gobierno, el Consejo de Estado. Asesora al Gobier
 
 Ante quien responde El Gobierno, ante el Congreso de los Diputados
 Proceso cuestión de confianza,"
-- El Presidente deliberando con el consejo de ministros plantea al Congreso la cuestión de confianza. 
+- El Presidente deliberando con el consejo de ministros plantea al Congreso la cuestión de confianza.
 - Si obtiene mayoria simple = confianza. Si no obtiene confianza dimite ante el Rey->Nuevo candidato"
 Proceso de moción de censura,"
 - Se adopta si alcanza mayoría absoluta
@@ -147,6 +147,10 @@ Que usos tiene el DNIe?, Medio de autenticación de identidad; Medio de firma/in
 El DNIe tiene antena NFC(Near Field Communication)?, Si
 Que prestadores de servicios de validación existen para el DNIe?, FNMT(Fabrica Nacional de Moneda y Timbre) y Ministerio de Hacienda Y Administraciones Públicas
 Quien es la Autoridad de Certificación DNIe?, Ministerio del Interior - Dirección General de la Policía
+Que documentos son necesarios para obtener el DNI, certificador nacimiento; fotografia 32x26; empadronamiento; certifiado diplomática(sólo residente extranjero)
+Que dedos se recogen para impresión dactilar, índices de ambas manos. Si no es posible: medio; anular o pulgar
+Que aparece en el anverso DNI, apellidos y nombre; fecha nacimiento; sexo; nacionalidad; nº dni y caracter nº identificación físcal; foto; firma; caducidad; nº soporte
+Que aparece en el reverso DNI, lugar nacimiento; provincia-nación; nombre de los padres; domicilio; lugar domicilio; provincia; nación; caracter OCR-B de lectura mecánica
 
 # Agenda 2030
 
@@ -155,10 +159,10 @@ Quien es la Autoridad de Certificación DNIe?, Ministerio del Interior - Direcci
 ¿Cuantos son los objetivos de desarrollo sostenible(ODS)?, 17 objetivos
 ¿Cuantos/Cuales son los ejes de centrales?, 5 Planeta-Personas-Prosperidad-Paz-Alianzas
 ¿Cuantos/Cuales son los pilares?, 3 El económico-el social-el ambiental
-Nº Objetivo - FIN DE LA POBREZA: Erradicar la pobreza en todas sus formas en todo el mundo., 1  
+Nº Objetivo - FIN DE LA POBREZA: Erradicar la pobreza en todas sus formas en todo el mundo., 1
 Nº Objetivo - HAMBRE CERO: Poner fin al hambre. conseguir la seguridad alimentaria y una mejor nutrición. y promover la agricultura sostenible., 2
 Nº Objetivo - SALUD Y BIENESTAR: Garantizar una vida saludable y promover el bienestar para todos y todas en todas las edades., 3
-Nº Objetivo - EDUCACIÓN DE CALIDAD: Garantizar una educación de calidad inclusiva y equitativa. y promover las oportunidades de aprendizaje permanente para todos., 4 
+Nº Objetivo - EDUCACIÓN DE CALIDAD: Garantizar una educación de calidad inclusiva y equitativa. y promover las oportunidades de aprendizaje permanente para todos., 4
 Nº Objetivo - IGUALDAD DE GÉNERO: Alcanzar la igualdad entre los géneros y empoderar a todas las mujeres y niñas., 5
 Nº Objetivo - AGUA LIMPIA Y SANEAMIENTO: Garantizar la disponibilidad y la gestión sostenible del agua y el saneamiento para todos., 6
 Nº Objetivo - ENERGÍA ASEQUIBLE Y NO CONTAMINANTE: Asegurar el acceso a energías asequibles. fiables sostenibles y modernas para todos., 7
@@ -188,7 +192,7 @@ Quien puede interponer recurso de amparo, Persona natural o jurídica que invoqu
 
 Que es el Defensor del Pueblo y funciones?,"
 - Un alto comisionado de las Cortes Generales(depende de ellas no del Gobierno).
-- Defensa de los derechos del Título I 
+- Defensa de los derechos del Título I
 - Supervisa actividad Administración Pública
 - Interponer recurso inconstitucionalidad y amparo ante el TC
 - Presenta un informe anual a las Cortes sobre el funcionamiento de la Administración Pública
@@ -224,28 +228,69 @@ Motivos de  cese del Defensor del Pueblo?,"
 Cuando empezo a transformar digitalmente el país y y cuando empieza a desarrollarse?, En 2013 y en 2022
 Cuantos ejes y medidas tiene, 12 ejes(10 estrategicos y 2 transversales); 50 medidas
 Eje1: La conectividad digital..., 100% población con cobertura 100 Mbps
-Eje2: 100% espacio radiolectrico preparado para..., 5G 
-Eje3: Competencias digitales en..., 80% de las personas; la mitad de ellas mujeres 
+Eje2: 100% espacio radiolectrico preparado para..., 5G
+Eje3: Competencias digitales en..., 80% de las personas; la mitad de ellas mujeres
 Eje4: 20.000 nuevos especialistas en..., Ciberseguridad
 Eje5: Digitalización servicios públicos..., 50% disponibles en app móvil
 Eje6: Digitalización de las empresas..., 25% del negocio PYME en comercio electrónico
 Eje7: Digitalización del modelo productivo..., 10% reducción CO2 por digitalización
-Eje8: Plataforma audiovisual europea..., incremento 30% de producción audiovisual. En AD2026: 10% reducción CO2 
-Eje9: Transito a una economia del dato..., 25% empresas usen IA y Big Data. 
+Eje8: Plataforma audiovisual europea..., incremento 30% de producción audiovisual. En AD2026: 10% reducción CO2
+Eje9: Transito a una economia del dato..., 25% empresas usen IA y Big Data.
 Eje10: Garantizar los derechos..., mediante una carta de derechos digitales
 Nuevo Eje11: Colaboración públicoprivada: vehiculo electrico, Economía circular... PERTE(Proyectos Estratégicos Recuperación Transformación Económica)
-Nuevo Eje12: Iniciativa proyectos estrátegicos regionales, RETECH(Redes Territoriales de Especialización Tecnológica): Gemelos Digitales; GreenTech; RuralTech... 
+Nuevo Eje12: Iniciativa proyectos estrátegicos regionales, RETECH(Redes Territoriales de Especialización Tecnológica): Gemelos Digitales; GreenTech; RuralTech...
 Cuantos ejes estrategicos y transversales, 10 y 2
 
-# TODO Ley Sociedad Información
+# TODO LSSI identidad firma electronica
 
 Servicios excluidos del ámbito aplicación, Servicios notarios; registradores propiedad; mercantiles; abogados y procuradores
-
+Sistema europeo de reconocimiento de indentidades/firma electrónica, eIDAS(reglamento 910/2014. ley 6/2020 lo amplia)
+Que tipo de mensajes(token) se usa en eIDAS, SAML firmados
+Infraestructura para conectarse entre los estados miembros, Nodos eIDAS(antiguamente STORK)
+Certificados usados por eIDAS,"
+- De firma(personas físicas)
+- De sello(personas jurídicas)
+- Autenticación web(vincula web con persona física/jurídica)
+- No cualificado(sin auditoría)"
+Firmas/sellos en el eIDAS, electrónica; avanzada; cualificada
+Que es la firma/sello avanzada,"
+- Esta vinculada firmante
+- Identifica al firmante
+- Alto nivel confianza
+- Cualquier modificación ulteriror es detectable"
+Que es la firma/sello cualificada, se crea con: dispositivo cualificado + certificado cualificado firma. Equivale firma manuscrita. Ej. DNIe
+Según la ley 40 con que puede firmar la administración, certificado Sello y CSV(usa un algoritmo; no un certificado)
+Según la ley 39 con que puede firmar el ciudadano, firma electrónica; certificado de sello y otros
+Que es el servicio Cl@ve, pasarela(gateway) que redirecciona peticiones a los diferentes métodos de identificación. Usa diferentes IDP(Identity Provider)
+Que métodos de identificación ofrece Cl@ve,"
+- DNI/Certificado electrónico. Usa @firma(webservice conecta con prestadores de certificados: FNMT...). El certificado de DNI lo emite la policia
+- PIN 24H. Usa la Agencia Tributaria (AEAT)
+- Clave permanente. Usa la Seguridad Social(GISS)
+- Conector eIDAS"
+Que niveles de seguridad tiene Cl@ve en función del procedimiento administrativo,"
+- Nivel bajo(Clave permanente sin SMS)
+- Nivel sustancial(Clave PIN y Clave Permanente reforzado; certificado SW)
+- Nivel alto(DNIe; certificado HW)"
+Que formatos de firma electrónica avanzada existen,"
+- XAdES(XML) Tipos: BES-EPES, T, X-L, A
+- CAdES(CMS→ Binaria) Tipos: BES-EPES, T
+- PAdES(PDF) Tipos: BES-EPES, LTV
+- OOXML y ODF(Microsoft Office)"
+Que es un Sello de Tiempo, firma para probar que un conjunto de datos existió antes de un momento dado y no han sido modificados
+Que es una TSA, Autoridad de Sellado de Tiempo. Es una tercera parte de confianza realiza el sello de tiempo. Utiliza una fuente tiempo confiable ej. ROA
 
 # TODO Servicios electrónicos confianza
 
 Periodo conservación información prestador servicios, 15 años desde la extinción del certificado o finalización servicio
 Importe seguro de responsabilidad civil del prestador servicios, 1.500.000 euros, excepto si pertenece al sector público
 Preaviso del prestador de cese actividad ante los clientes, antelación mínima 2 meses
-Prestadores servicios cualificados presentan un informe a MAETD, 1 febrero de cada año 
-Sanciones por infracciones muy graves; graves; leves, muy graves(150k-300k);graves(50.001-150k);leves(50k)
+Prestadores servicios cualificados presentan un informe a MAETD, 1 febrero de cada año
+Tipos de sanciones por infracciones,
+- Muy graves: multa por importe de 150.001 hasta 300.000 euros
+- Graves: multa por importe de 50.001 hasta 150.000 euros
+- Leves: multa por importe de hasta 50.000 euros
+Quien impone las sanciones muy graves, ministerio de asuntos económicos y transformación digital
+Quien impone las sanciones graves y leves, secretaria de estado de digitalización e inteligencia artificial
+El período de vigencia de los certificados cualificados, no será superior a cinco años
+Motivos de extinción por caducidad certificados electrónicos, expiración o revocación
+

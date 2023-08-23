@@ -177,8 +177,11 @@ Que dos software hacen la función de service Mesh?, Istio(funciones con funcion
 Que software se usa para trazabilidad en Microservicios?, Elastic Search; Jaeger; Solr; Lucence
 Que software se usa para observabilidad en Microservicios?, Grafana; Prometheus; Kiali
 Frameworks Microservicios para Java; Python; Node, Java-> Micronaut; Quarkus; Helidon; MicroProfile(JEE); Spring Cloud Python -> Flask Node -> NodeJS(V8)
-IaaS de Red Hat, OpenStack
-Dos ejemplos software PaaS, OpenShift(usa Kubernetes y Docker) y Heroku(modo nube)
+Servicios de IaaS  más populares, Amazon AWS; Red Hat(OpenStack); Azure; Google Cloud; Nube SARA
+Ejemplos software PaaS, OpenShift(usa Kubernetes y Docker); Heroku(modo nube); Cloud Foundry
+En IaaS servicios de almacenamiento modo objeto, S3(AWS); Swift(OpenStack)
+En IaaS servicios de maquinas virtuales, EC2(AWS); Nova(OpenStack)
+En IaaS servicios de almacenamiento modo bloque, EBS(AWS); Cinder(OpenStack)
 Herramientas NMS(Network Monitoring Systems), Nagios; Zabbix; Cacti; Zennos; Pandora FMS; Icinga; Solar Winds; Open NMS; HP OpenView; IBM Patrol
 
 # Niveles aislamiento SQL reglas Codd
@@ -196,7 +199,7 @@ Que número es la regla de Codd: Independencia lógica. Cambios en el esquema l�
 Que número es la regla de Codd: Independencia de integridad. Las reglas de integridad (restricciones) deben de ser gestionadas y almacenadas por el SGBD, Regla 10
 Que número es la regla de Codd: Independencia de distribución, Regla 11
 Que número es la regla de Codd: No subversión. La base de datos no permitirá que exista un lenguaje o forma de acceso; que permita saltarse las reglas anteriores, Regla 12
-Que efecto de lectura tiene el nivel de aislamiento Read Uncommitted?, Lectura sucia; Lectura no repetible; Lectura fantasma 
+Que efecto de lectura tiene el nivel de aislamiento Read Uncommitted?, Lectura sucia; Lectura no repetible; Lectura fantasma
 Que efecto de lectura tiene el nivel de aislamiento Read Committed?, Lectura no repetible; Lectura fantasma
 Que efecto de lectura tiene el nivel de aislamiento Repeatable Read?, Lectura fantasma
 Que efecto de lectura tiene el nivel de aislamiento Serializable?, Sin efectos de lectura. Es la más restrictiva.
@@ -231,6 +234,8 @@ Estándar MIB2 SNMP?, RFC 1213
 Estándar SNMPv1 y utilidad v2?, RFC 1157. La nueva versión SNMPv2c(GetBulk; v2 Trap; InformRequest Gestor-Gestor; Report sin uso) incompatible con v1
 Estándar SMIv2 SNMP?, RFC 2578
 Estandar representación coma flotante, IEEE 754
+Estandar Office Open XML Microsoft, ECMA 376
+Estandar mensaje de correo, RFC 822
 
 # Algoritmos y criptografía
 
@@ -248,11 +253,11 @@ STARTTLS(Opportunistic TLS). Usado por IMAP; POP3; LDAP; SMTP; FTP"
 # Estandares de red 802
 
 Distancia redes PAN, 10-100 metros
-Distancia redes LAN, típico 300 metros hasta 1-2Km 
+Distancia redes LAN, típico 300 metros hasta 1-2Km
 Distancia redes MAN y ejemplos, 10-100 Km. DQBQ; FDDI
 Distancia redes WAN y ejemplos, Alcance global. Frame Relay; ATM; IP; MPLS
 Estándar de VLANs?, 802.1Q; Recordar: 802.1D; 802.1s; 802.1w; 802.1aq
-Control de acceso a redes en base a puertos, 802.1x 
+Control de acceso a redes en base a puertos, 802.1x
 Control del enlace lógico. LLC (Logical Link Control), 802.2
 Ethernet CMSA/CD, 802.3
 Fast Ethernet 100BASE-TX; 100BASE-FX, 802.3u
@@ -264,9 +269,9 @@ PoE++ (type 3 : 60 W máximo; type 4: 100 W máximo por boca), 802.3 bt
 Token Bus, 802.4
 Token Ring, 802.5
 Redes MAN DQDB (Distributed Queue Dual Bus). En hibernación e inactivo el grupo de trabajo, 802.6
-FDDI (Token Passing), 802.8 
+FDDI (Token Passing), 802.8
 Cual es el estandar WiFi3; banda y Mbps?, 802.11g; 2.4GHZ; 54Mbps
-Cual es el estandard WiFi4; banda y Mbps?, 802.11n; 2.4 y 5 GHz; 150 Mbps 
+Cual es el estandard WiFi4; banda y Mbps?, 802.11n; 2.4 y 5 GHz; 150 Mbps
 Cual es el estandard WiFi5; Modulación; banda y Mbps?, 802.11ac; 256 QAM; 5GHz; 450 Mbps; MU-MIMO (MU multiple user Multiple-Input Multiple-Outpu)
 Cual es el estandard WiFi6; Modulación; banda y Mbps?, 802.11ax; 1024 QAM; 2.4 y 5GHZ; 10.5 Gbps; OFDMA
 Cual es el estandard WiFi7; banda y Mbps?, 802.11 be; 2.4;5;6 GHZ y 46Gbps
@@ -296,9 +301,9 @@ Base datos autenticación usuarios?, AUC
 
 # Ethernet 100Base 1000Base categorias cables fibra optica
 
-En un cable 10Base-T que significa 10 y T?, 10 = velocidad y T = par de cobre 
-En un cable 10Base-F que significa 10 y F?, 10 = velocidad y F = Fibra 
-Cuales son los tipos de ventana en fibra(F)?, S(1 ventana); L(2 ventanas); E(3 ventana) 
+En un cable 10Base-T que significa 10 y T?, 10 = velocidad y T = par de cobre
+En un cable 10Base-F que significa 10 y F?, 10 = velocidad y F = Fibra
+Cuales son los tipos de ventana en fibra(F)?, S(1 ventana); L(2 ventanas); E(3 ventana)
 Velocidad de cable cat5?, 100 Mbit/s
 Velocidad de cable cat5e?, 1000 Mbit/s 802.3ae
 Velocidad de cable y distancia máxima cat6?, 1 Gbit/s hasta 55 m
@@ -307,7 +312,7 @@ Velocidad de cable y distancia máxima cat7 y cat7A?, 10Gbit/s hasta 100 m
 Velociad de cable cat8.1 y cat8.2?, hasta 40 Gbps hasta 30 m
 Que es la fibra monomodo?, Se propaga una única longitud de onda de luz en el núcleo de fibra
 Que es la fibra multimodo?, núcleo de mayor diámetro que permite el paso de múltiples modos
-Distancia y velocidad fibra monomodo OS2?, 200 Km con velocidad de 1 a 10 Gbps  
+Distancia y velocidad fibra monomodo OS2?, 200 Km con velocidad de 1 a 10 Gbps
 Distancia y velocidad fibra Multimodo OM2?, 500 m a 1 Gbps o de 82 m a 10 Gbps
 Distancia y velocidad fibra Multimodo OM3?, 1500 m a 1 Gbps o 300 m a 10 Gbps
 Distancia y velocidad fibra Multimodo OM4?, 500 m a 10 Gbps
@@ -421,6 +426,7 @@ Que tipo de paridad usa RAID 5 y 6?, RAID 5: Paridad distribuida(soporta 1 fallo
 Que RAIDs trabajan a nivel de bloque(Block-Level)?, RAID 4; RAID5; RAID6. Los tres son de acceso independiente
 Que RAID trabaja a nivel de bit(Bit-Level)?, RAID 2
 Que RAID trabaja a nivel de Byte(Byte-Level)?, RAID 3
+Que es JBOD, Just a Bunch of Disks. Si una unidad de disco alcanza su capacidad, los datos se almacenan en la siguiente. No redundancia.
 
 # USB Thunderbolt Firewire Power Delivery
 
@@ -428,14 +434,17 @@ Que velocidad de transferencia tiene USB 2.0?, 480 Mbps
 Que velocidad de transferencia tiene USB 3.0?, 5 Gbps para Gen 1. (Llamado USB 3.1 Gen 1)
 Que velocidad de transferencia tiene USB 3.1?, 10 Gbps para Gen 2. Para Gen 1 son 5 Gbps(Llamado USB 3.0)
 Que velocidad de transferencia tiene USB 3.2?, 20 Gbps para Gen 2 con 2 lanes. Para Gen 2 con 1 lane es 10 Gbps
-Que velocidad de transferencia tiene USB 4.0?, 40 Gbps para Gen 3 con 2 lanes. Anterior generación 20 Gbps. USB 4.0 con capacidad de tunneling; conectar disposivos PCIe y DisplayPort
-Que velocidad de transferencia tiene Thunderbolt 2?, 20 Gbps
-Que velocidad de transferencia tiene Thunderbolt 3?, 40 Gbps usa USB tipo C
+Que velocidad de transferencia tiene USB 4.0?,"
+- 40 Gbps para Gen 3 con 2 lanes. Anterior generación 20 Gbps.
+- USB 4.0 con capacidad de tunneling; conectar disposivos PCIe y DisplayPort
+- Hay una versión poco conocida USB 4 Symetric/Asymetric con 80 Gbps"
+Que velocidad de transferencia tiene Thunderbolt 2?, 20 Gbps. Conector tipo PCIe+DisplayPort
+Que velocidad de transferencia tiene Thunderbolt 3 y 4?, 40 Gbps usa USB tipo C
 Que características tiene Thunderbolt?, Multiples protocolos(Display Port; HDMI; Ethernet); QoS; Multiples dispositivos; Transferencia bidireccional
 Que velocidades de transferencia tiene FireWire(IEEE 1394)?, Firewire 400 Mbps; Firewire 800 Mbps; Firewire S1600(1.6 Gbps); Firewire S3200(3.2 Gbps)
 Que Firewire va sobre RJ-45?, Firewire S800T
 Organismo estandanrización USB?, USB-IF; USB Implementers Forum
-Cual es el rango de potencia de Power Delivery(EPR)3.1?, 100 W a 240 W
+Cual es el rango de potencia de Power Delivery(EPR)3.1?, 100 W a 240 W. Anteriormente en la versión SPR 3.0 hasta 100W
 
 # Resoluciones pantalla
 
@@ -510,11 +519,11 @@ final en clase; atributo; metodo, En class(No permite heredar hacia abajo); en a
 static, atributos y metodos de clase
 abstract, clase abstracta(no se puede instanciar; obliga que las hijas implementen metodos abstractos o las hijas sean abstract); metodo abstracto(se declara sin codificarlo; obliga que la clase sea abstracta)
 Permisos de acceso/visibilidad, protected(acceso para todos los hijos); private(acceso solo desde su clase); public(acceso desde cualquier parte del programa); default(Publico para su paquete)
-Ordena: clasePrincipal; implements; claseSecundaria; interfazUno; abstract; interfazDos; extends; class;, public abstract class ClaseSecundaria extends ClasePrincipal implements interfazUno; interfazDos 
+Ordena: clasePrincipal; implements; claseSecundaria; interfazUno; abstract; interfazDos; extends; class;, public abstract class ClaseSecundaria extends ClasePrincipal implements interfazUno; interfazDos
 native, Definir un codigo que no esta en Java y queremos usar otro lenguaje de programación
-volatile, Cada Thread utiliza la memoria principal para tener los datos más actualizados en vez de la cache del Thread. 
+volatile, Cada Thread utiliza la memoria principal para tener los datos más actualizados en vez de la cache del Thread.
 transient, Se usa para que un atributo no se serialice. Que no lo guarde o envie por la red
-synchronized, Un metodo synchronized solo soporta que sea ejecutado por 1 Thread cada vez. Tiene que ver algorit. exclusión mutua 
+synchronized, Un metodo synchronized solo soporta que sea ejecutado por 1 Thread cada vez. Tiene que ver algorit. exclusión mutua
 Paquetes, (organizar a las clases). Tenemos que importarlos si queremos usar las clases de ese paquete salvo las que están en el paqueta java.lang (NOTA: los paquetes en java se organizan fisicamente dentro del jar en carpetas/directorios)
 Interfaces, definicion funcional pura --> sin codigo por lo menos hasta la version 1.7. Obliga a una serie de clases a cumplir con ese contrato.
 Programacion de red (bajo nivel), Socket/ServerSocket (tratamiento de TCP/IP)
@@ -542,12 +551,12 @@ JUnit+Mockito y JMeter, Pruebas unitarias(JUnit);Juego de pruebas(Mockito) y de 
 Apache Commons (lang;dbcp;crypto;fileupload;io;codec;etc) y Guava de Google, Proposito general
 Apache HttpComponents (HttpClient), Peticiones http a bajo nivel (En Java 11 ya existe un equivalente en java.net.http.HttpClient)
 Gson y Jackson, manejo de información en formato JSON
-Lombok, Simplifica el codigo. Usando anotaciones @Getter; @Setter... Genera automaticamente; no necesitamos crear las funciones 
+Lombok, Simplifica el codigo. Usando anotaciones @Getter; @Setter... Genera automaticamente; no necesitamos crear las funciones
 Apache POI, manejo de documentos de Office
 Apache Tika, Deteccion y extraccion de contenido de multitud de formatos
 Pentaho Kettle, ETL para extraccion de información; transformación y carga de ficheros
 Que dos tipos de excepciones existen,"
-- checked exception(heredan de Exception; obligan a poner try y catch salvo que se ponga throws ej. g() throws{....}) y 
+- checked exception(heredan de Exception; obligan a poner try y catch salvo que se ponga throws ej. g() throws{....}) y
 - unchecked exception(heredan de RuntimeException; no obliga a poner try/catch ni throws)
 "
 De que clase heredan los Error y las Exception?, Throwable. Las RuntimeException heredan de Exception. https://docs.oracle.com/javase/tutorial/essential/exceptions/throwing.html
@@ -564,19 +573,19 @@ En que sublenguaje se encuentra TRUNCATE, DDL normalemente pero puede encontrars
 Que constraint/restricciones existen, CHECK(condición); PRIMARY KEY; UNIQUE(admite 1 null); FOREIGN KEY
 "Como crear una tabla distribuidores(
     dist_id: máximo 4 caracteres y sin nulos,
-    dist_nombre: 40 caracteres, 
-    sales_rep: enteros, 
+    dist_nombre: 40 caracteres,
+    sales_rep: enteros,
     zip: 5 caracteres),
 clave primaria: dist_id
 clave foranea apunta a empleados: sales_rep
 restricción valor unico: zip
 restricción 5 digitos 0-9: zip","
 CREATE TABLE distribuidores (
-  dist_id CHAR(4) NOT NULL, 
-  dist_nombre VARCHAR(40), 
-  sales_rep INT, 
-  zip CHAR(5) CONSTRAINT pk_dist_id PRIMARY KEY(dist_id), 
-  CONSTRAINT fk_emp_id FOREIGN KEY(sales_rep) REFERENCES empleados(emp_id), 
+  dist_id CHAR(4) NOT NULL,
+  dist_nombre VARCHAR(40),
+  sales_rep INT,
+  zip CHAR(5) CONSTRAINT pk_dist_id PRIMARY KEY(dist_id),
+  CONSTRAINT fk_emp_id FOREIGN KEY(sales_rep) REFERENCES empleados(emp_id),
   CONSTRAINT uniq_zip UNIQUE(zip) CONSTRAINT chk_zip CHECK(
     zip LIKE '[0-9][0-9][0-9][0-9][0-9]'
   ))"
@@ -591,47 +600,47 @@ Como insertar datos en una tabla,"INSERT INTO [tabla] (col1,col2...) VALUES ('..
 Como actualizar datos en una tabla, UPDATE [tabla] SET col1=valor; col2=valor WHERE [condicines]
 Borrar datos en una tabla, DELETE FROM [tabla] WHERE [condiciones]. No existe DELETE * FROM [tabla]
 Orden de palabras reservadas en una consulta,"
-SELECT 
+SELECT
   [ALL | DISTINCT] ...
-FROM 
+FROM
   ... [JOIN] ...
-WHERE 
+WHERE
   ... [AND | OR | NOT] ...
-GROUP BY 
+GROUP BY
   ...
-HAVING 
+HAVING
   ...
-ORDER BY 
+ORDER BY
   ... [ASC | DESC]"
 Que funciones de agregado existen, SUM; COUNT(* o columna; no nulos); MAX/MIN; AVG(media)
 Sintaxis y operadores utilizados en subconsultas,"
-SELECT 
+SELECT
   ...
-FROM 
+FROM
   ...
-WHERE 
+WHERE
   [EXISTS] |
   col1[[NOT] IN] |
   col1[ =, >=,<...][ANY / SOME / ALL] (
-    SELECT 
+    SELECT
       ...
   )"
 Que sentencia se usa para ver el plan de ejecución, explain plan
 Con que otro operador va HAVING?, con GROUP BY
 Que diferencia hay entre UNION y UNION ALL?, UNION ALL no elimina si hay repetidos. SELECT cols UNION [ALL] SELECT cols; Queries deben ser compatibles
 Sintáxis de trigger,"
-CREATE TRIGGER auditar_phone_book 
-    [AFTER | BEFORE | INSTEAD OF] 
-    [INSERT | UPDATE | DELETE] ON phone_book FOR EACH ROW 
-    BEGIN 
-    INSERT INTO phone_book_auditoria(col1,...) 
-VALUES 
+CREATE TRIGGER auditar_phone_book
+    [AFTER | BEFORE | INSTEAD OF]
+    [INSERT | UPDATE | DELETE] ON phone_book FOR EACH ROW
+    BEGIN
+    INSERT INTO phone_book_auditoria(col1,...)
+VALUES
   (
-    auditoria_seq.nextval, 'UPDATE', 
+    auditoria_seq.nextval, 'UPDATE',
     [OLD | NEW].col1...
   );
 END;"
-Que caracterísiticas tiene un procedimiento?, Se ejecuta con CALL; acepta parametros(a diferencia de los triggers) no retorna valor; pueden usar cursores; CREATE PROCEDURE nombre... 
+Que caracterísiticas tiene un procedimiento?, Se ejecuta con CALL; acepta parametros(a diferencia de los triggers) no retorna valor; pueden usar cursores; CREATE PROCEDURE nombre...
 
 # Oracle SQLserver Mysql Postgres
 
@@ -645,7 +654,7 @@ Que estructura logica y fisica tiene oracle?,"
 - Tablespace se relaciona con-> Archivo datos y Bloque logico se relaciona con-> Bloque del S.O."
 Que ficheros crea SQL Server por cada DB, Primary(.mdf);Secundary(.ndf);Transaction Log(.ldf)
 Ficheros que crea MySQL, .frm(formato tabla); myd(datos); myi(indices)
-Script de MySQL para instalación segura, mysql_secure_installation; mariadb-secure-installation 
+Script de MySQL para instalación segura, mysql_secure_installation; mariadb-secure-installation
 Lenguajes SQL/PSM de Oracle;SQL Server; Postgres, PL/SQL; Transact-SQL; PL/pgSQL
 
 # CPD TIA 942
@@ -659,7 +668,7 @@ Que es RPO, Cantidad aceptable de pérdida de datos. Entre el último backup y c
 Que es RTO, Desde que se detecta el desastre hasta que se vuelve a recuperar
 En los racks medida anchura y altura(u) normalizada, Anchura: 19 pulgadas; Altura: 1.75 pulgadas. Temperatura 21ºC humedad 50% hr
 
-# Unidades medidia almacenamiento información
+# Unidades medidia almacenamiento información puertas lógicas
 
 Que unidades hay en el sistema internacional y en ISO de - a + tamaño,"
 Sist. Internacional     ISO
@@ -673,7 +682,6 @@ zettabyte (ZB)	10^21	zebibyte (ZiB)	2^70
 yottabyte (YB)	10^24	yobibyte (YiB)	2^80
 ronabyte (RB)   10^27
 quettabyte (QB) 10^30"
-
 Que es un Nibble, 4 bits
 Que es un Crumb, 2 bits
 Cual es numero 16 en BCD, 0001 0110 Cada digito se codifica independientemente. Pesos 2³ 2² 2¹ 2⁰
@@ -686,6 +694,13 @@ Cuantos bits tiene ISO 8859-1(latin-1), 8 bits ISO 8859-15 incorpora simbolo €
 Cuantos bits tiene UTF-8, 8 bit Unicode Transformation Format. Longitud variable 1-4 bytes
 Cuantos bits tiene UTF-16, 1 o 2 palabras de 16 bits. 2-4 bytes
 Cual es codificación latin-1 en Windows, windows-1252
+NOT, Negación 1-> 0. 0-> 1
+AND, 1 sólo cuando 1 | 1 -> equivalente a multiplicar
+OR, 1 cuando hay almenos un uno.  1 | 0 -> equivalente a sumar
+XOR, 1 cuando son diferentes 1 | 0 o 0 | 1.
+NAND, hacer AND y aplicar NOT
+NOR, hacer OR y aplicar NOT
+XNOR, hacer XOR y aplicar NOT
 
 # Terminos entidad-relacion relacional FN base-matematica
 
@@ -758,7 +773,7 @@ Dentro de los diagramas de comportamiento -> Interacción ..., Comunicación; In
 # Arquitectura CPU
 
 Que significa una CPU 64 bits,"
-tamaño de 64 bits para: 
+tamaño de 64 bits para:
 - Registro CPU
 - Ancho bus datos
 - Instrucciones
@@ -783,7 +798,51 @@ Que es la segmentación/pipeline y en que tipo procesador se usa, es paralelizar
 Que es el BSB, es un bus que conecta la CPU con la caché
 En la memoria DDR-200 que significa PC1600, 100Mhz X 2(Double Data Rate) X 8 Bytes = 1600 MB/S. Es el ancho banda del módulo
 
+# Almacenamiento
 
+Que es journaling, una especie de cuaderno bitácora
+Que es smdb, demonio de SMB/CIFS para compartir carpetas de Linux a clientes Windows
+Sistemas ficheros MS-DOS Windows, FAT16/32; NTFS(surgió en NT); RefS. De más antiguo a más moderno
+Sistemas ficheros de Linux, ext2; ext3; ext4; reiserFS; Btrfs; XFS; JFS
+Sistemas ficheros de MacOS, HFS; HFS+; APFS
+Sistemas ficheros para compartir red, nfs y cifs/SMB
+Sistema ficheros multiplafaorma para servidores, ZFS
+iso9660, CD
+UDF, DVD
+Que es SLC; MLC; TLC; QLC y diferencias, tecnología fabricación SSD. SLC 1 bit x celda...4bit x celda
+Interfaces HDD/SSD paralelos, IDE/PATA y SCSI
+Interfaces HDD/SSD serial, SATA y SAS(Serial Attached SCSI)
+Velocidad transferencia teorico SATA, 1.5Gbps(SATA-1) hasta 6Gbps(SATA-3)
+Velocidad transferencia SAS, SAS-1 3Gbps; SAS-2 6Gbps; SAS-3 12Gbps; SAS-4 22.5Gbps
+Arquitectura HDD rígido, CHS-> Cilindro/Pista->Cabeza L/E-> Sectors-> Cluster. Unidad mínima información el sector.
+Sistema almacenamiento LTO ejemplos y capacidades, LTO-8 12TB(comprimido 30TB); LTO-9 18TB(comprimido 45TB)
+Formatos de discos en maquinas virtuales, VMDK(VMWare->Open Format); VDI(VirtualBox); VHD(Virtual PC); HDD(Parallels)
 
+# Correo comandos cabeceras puertos
 
+Cabeceras RFC 822,"
+- From; Date; To; Subject
+- [Message-ID; In-Reply-To]->hilo mail
+- [Received; Return-Path]->traza MTA
+- CC; Reply-To; + CRLF (salto linea blanco); Body"
+POP3 comando login, USER y PASS
+POP3 comando listar nº mensajes + tamaño, LIST
+POP3 comando descargar correo, RETR
+POP3 comando marcar/desmarcar borrado correo, DELE/RSET. No borra hasta hacer QUIT
+POP3 comando nº total de mensajes y total tamaño, STAT
+IMAP comandos más importantes,"
+- LOGIN username@dominio password
+- LIST-> ver lista carpetas
+- STATUS-> ver estado mensajes(unseen...)
+- SELECT-> entrar en un mailbox. Alternativa-> EXAMINE
+- FETCH-> Leer contendio; headers
+- SEARCH-> buscar segun criterio FROM/TO/DATE/DELETED...
+- STORE-> poner etiquetas ej. /Delete
+- EXPUNGE-> borra mensajes con etiqueta /Delete"
+Puertos POP3 e IMAP, POP3-> 110; 993 con seguridad. IMAP-> 143 y 993 con seguridad
+Puertos SMTP, 25; 465(obsoleto por IANA); 587(el más oficial); 2525(standard de facto)
+SMTP comando inciar comunicación, HELO client.example.com
+SMTP comando indicar dirección origen/destino, MAIL FROM / RCPT TO
+ESMTP comando inicial cominicación segura, EHLO client.example.com
+ESMTP comando pasar a comunicación cifrada, STARTTLS. Se usa en otros protocolos: LDAP; FTP...
 

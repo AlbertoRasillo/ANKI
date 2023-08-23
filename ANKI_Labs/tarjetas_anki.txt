@@ -58,6 +58,8 @@ rpm -ql BitTorrent, lista los ficheros de la instalación
 rpm -evv nombre_paquete, elimina el paquete
 rpm -qi vsftpd, muestra información del paquete instalado
 rpm -qip sqlbuddy-1.3.3-1.noarch.rpm, muestra información del paquete
+Nombre de paquete servidor DNS, bind9
+Nombre de paquete servidor DHCP, isc-dhcp-server
 
 # Linux gestión usuarios
 
@@ -72,7 +74,7 @@ userdel -r pepe, borra la cuenta y todos sus ficheros asociados
 Diferencia entre adduser y useradd, adduser es un script que llama a useradd que usa el fichero de configuracion /etc/adduser.conf y ofrece un proceso de alta más sencillo e interactivo
 Para que sirve chage, nos sirve para gestionar la expiración de la cuenta del usuario y la policita de expiracion de la password
 Para que sirve passwd, nos permite cambiar la contraseña
-Que ficheros usa useradd, /etc/login.defs ej. parametro CREATE_HOME=yes y /etc/default/useradd 
+Que ficheros usa useradd, /etc/login.defs ej. parametro CREATE_HOME=yes y /etc/default/useradd
 Que es cada campo de /etc/passwd sally:x:1029:503:Sally Jones:/home/sally:/bin/bash, username - password - uid - gid - comentario - home - shell. TIP: la x indica que la password está en /etc/shadow
 Que es cada campo de /etc/shadow sally:$6$EmoFkLZPkHkpczVN2XRcMdyj8/ZeeT5UnTQ:15505:0:-1:7:-1:-1:, username - hash de la password - Ultimo cambio de password ...TIP: Una ! delante de la password indica cuenta bloqueda. TIP: Un * en la password indica que no se puede hacer login
 Que es cada campo de /etc/group project1:x:504:sally;sam;ellen;george, groupname - password - GID - lista de usuarios
@@ -90,11 +92,11 @@ setfacl -m g:developers:rwx /path/fichero, añade acl de permiso de rwx para el 
 setfacl -b  ficharo, borrar todas las acl's del fichero
 setfacl -x  'acl' fichero, elimina una acl concreta sobre el fichero
 chmod 755 fichero, activar permisos rwx r_x r_x
-chmod 1755 fichero, activar permisos + el bit sticky. Idem que o+t 
+chmod 1755 fichero, activar permisos + el bit sticky. Idem que o+t
 chmod 2755 ejecutable, activar permisos + el bit SetGID. Idem que g+s
 chmod 4755 ejecutable, activar permisos + el bit SetUID. Idem que u+s
 chmod --reference=fichero_origen fichero_destino, copiar permisos de un fichero a otro
-chown -R pepe:dev /path, establece como usuario y grupo propietario a todos los ficheros y directorios recursivamente 
+chown -R pepe:dev /path, establece como usuario y grupo propietario a todos los ficheros y directorios recursivamente
 lsof -u pepe, lista los ficheros abiertos por el usuario
 lsof -p PID, lista los ficheros abiertos por el proceso con PID
 lsof -c nombre, lista los ficheros abiertos por el proceso con nombre
@@ -403,7 +405,7 @@ pvcreate /dev/sda1 /dev/sdb1 /dev/sdc1
 vgcreate -s 32M tecmint_vg /dev/sda1 /dev/sdb1 /dev/sdc1","
 crea un grupo de volumenes a partir de los 3 PV's anteriores con tamaño de PE=32MB"
 "Paso 2:
-lvcreate -L 18G -n tecmint_documents tecmint_vg 
+lvcreate -L 18G -n tecmint_documents tecmint_vg
 lvcreate -L 18G -n tecmint_manager tecmint_vg
 lvcreate -L 18G -n tecmint_public tecmint_vg","
 a partir del VG creamos 3 LV o volumenes logicos"
@@ -480,7 +482,7 @@ Campo muestra comando top % MEM, valor de RES en porcentaje respecto del total d
 Campo muestra comando top TIME+, tiempo de cpu usado por el proceso desde que inicio
 nice -n valor-de-nice comando argumentos,"
 solo el root puede usar los valores negativos
-El valor-de-nice toma valores entre -20 y +19 (siendo 10 el valor por defecto)"
+El valor-de-nice toma valores entre -20 y +19 (siendo 0 el valor por defecto)"
 renice -n -12 -p 1055, solo a ese PID
 renice -n -2 -u apache2, para todos los procesos del user apache2
 otro fichero tambien se puede establecer un nice para un usuario, /etc/security/limits.conf
@@ -674,7 +676,7 @@ ssh -A, estando conectado a un servidor si quieres conectarte a otro esta opció
 ssh -L your_port:site_or_IP_to_access:site_port username@host, crea un tunel local
 ssh -R remote_port:site_or_IP_to_access:site_port username@host, crea un tunel remoto
 scp your_username@remotehost.edu:foobar.txt /some/local/directory,"
-- descargar fichero remoto en directorio del host local 
+- descargar fichero remoto en directorio del host local
 - scp [other options] [source username@IP]:/[directory and file name] [destination username@IP]:/[destination directory]"
 scp foobar.txt your_username@remotehost.edu:/some/remote/directory, subir fichero local a servidor remoto
 Opción scp: -r, copia recursiva
@@ -716,7 +718,7 @@ Dockerfile: definir variable entorno/parametros, ENV(usado en el proceso build y
 Dockerfile: establecer el directorio de trabajo, WORKDIR
 Dockerfile: usuario con el que se ejecutarán las acciones,USER por defecto root
 Dockerfile: comando+argumentos por defecto que se ejecutará cuando se inicie un CONTAINER con esta imagen,CMD Solo puede haber un CMD en el Dockerfile!!! Alternativa: ENTRYPOINT(no permite sobreescribir comando)
-Mostrar imagenes que hay disponibles,docker images. Ojo la S! comando igual a ->  docker image ls 
+Mostrar imagenes que hay disponibles,docker images. Ojo la S! comando igual a ->  docker image ls
 Como ejecutar un comando contra un contenedor en ejecución,docker exec
 Como entrar en el bash del contenedor,docker exec -it centos /bin/bash se crea un nuevo proceso en el enviroment del contenedor https://shorturl.at/xMNP5
 Como unirse a un contenedor en ejecución,docker attach conecta al standard input/output/error del proceso principal main https://shorturl.at/xMNP5
@@ -748,7 +750,7 @@ Que campo se usa dentro del fichero de configuración del site para asignar un n
 Que campo se usa dentro del fichero de configuración del site para asignar el path principal, DocumentRoot /var/www/ruinosa.com
 Que campo se usa dentro del fichero de configuración del site para asignar el puerto de escucha,"`<VirtualHost *:8080>`"
 Como configurar el SSL para un site?,"
-Hay que añadir al fichero: 
+Hay que añadir al fichero:
 SSLEngine on
 SSLCertificateFile /etc/apache2/ssl/example/apache.crt
 SSLCertificateKeyFile /etc/apache2/ssl/example/apache.key
@@ -785,7 +787,7 @@ Ejemplo de playbook:
    hosts: labservers (grupo servidores donde se va instalar)
    become: true
    user: root
-   tasks: 
+   tasks:
     - name: Ansible apt install Apache
       apt:
         name: apache2
@@ -1008,11 +1010,12 @@ nslookup -querytype=TXT -timeout=10 inap.es 8.8.8.8, consulta de los registros d
 nslookup -type=TXT -timeout=10 inap.es 8.8.8.8, consulta de los registros de tipo TXT de inap.es usando GoogleDNS
 Comando getmac, obtener la dirección fisica/MAC de una serie de interfaces de red
 Comando route, administración de la tabla de enrutamiento
+tracert / pathping, muestra la ruta que siguen los datagramas IP entre dos extremos
 tracert / pathping -d, no convierte direcciones en nombres de host
 tracert / pathping -h, numero maximo de saltos en la busqueda
 tracert / pathping -w milisegundos, tiempo para esperar cada respuesta
 tracert / pathping -6, forzar usando IPv6
-ntdsutil, herramienta de administración del fichero/bbdd del AD - 
+ntdsutil, herramienta de administración del fichero/bbdd del AD -
 mstsc, microsoft terminal server connection. Arranca el cliente de escritorio remoto
 convert, convertir de fat16/32 a NTFS
 powercfg, configuración de opciones de energia
