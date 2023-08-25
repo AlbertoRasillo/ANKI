@@ -178,7 +178,7 @@ Gestión routing, route
 # Linux paths ficheros
 
 /etc/apt/sources.list, URLs con los catálogos de todos los paquetes/programas (Debian)
-/etc/cache/apt/, Paquetes descargados por apt
+/var/cache/apt/, Paquetes descargados por apt
 /var/lib/apt/lists, Catálogos descargados por apt
 /var/cache/apt/archives, Paquetes descargados por apt
 /etc/yum.repos.d, URLs con los catálogos de todos los paquetes/programas (RedHat)
@@ -247,7 +247,7 @@ Gestión routing, route
 /etc/mysql/mysql.conf.d/mysql.conf, Fichero de configuración de MySQL
 /etc/pg-hba.conf, Fichero de configuración de la autenticación de usuarios de Postgres
 /etc/postgresql/9.6/main/postgresql.conf, Configuración del servidor Postgres
-/et/pg_hba.conf, Configuración autenticación servidor de Postgres
+/etc/pg_hba.conf, Configuración autenticación servidor de Postgres
 /etc/snmp/snmp.conf, Se configura la community (rocommunity) para autorizar al gestor SNMP y la ip para los traps (trap2sink)
 /etc/apache2/.htpasswd, Usuario/Contraseña autorizados a acceder a los recursos HTTP. Autenticación básica
 /etc/apache2/sites_available, Sitios disponibles para su gestión con Apache
@@ -258,7 +258,7 @@ Gestión routing, route
 /etc/httpd/conf/httpd.conf, Configuración de Apache en RedHat
 ~/.ssh/id_rsa, Clave privada de SSH
 ~/.ssh/id_rsa_pub, Clave pública de SSH
-~/.ssh/autorized_keys, Claves públicas de los usuarios autorizados a conectarse. Está en el host
+~/.ssh/authorized_keys, Claves públicas de los usuarios autorizados a conectarse. Está en el host
 ~/.ssh/known_hosts, Fingerprints de las claves públicas de los servidores a los que nos hemos conectado. Está en el servidor central
 /etc/ssh/sshd_config, Configuración del servidor SSH
 /etc/ssh/ssh_config, Configuración del cliente SSH
@@ -281,7 +281,7 @@ Gestión routing, route
 # Linux paths ficheros B side
 
 URLs con los catálogos de todos los paquetes/programas (Debian), /etc/apt/sources.list
-Paquetes descargados por apt, /etc/cache/apt/
+Paquetes descargados por apt, /var/cache/apt/
 Catálogos descargados por apt, /var/lib/apt/lists
 Paquetes descargados por apt, /var/cache/apt/archives
 URLs con los catálogos de todos los paquetes/programas (RedHat), /etc/yum.repos.d
@@ -360,7 +360,7 @@ Configuración de Apache en Debian, /etc/apache2/apache2.conf
 Configuración de Apache en RedHat, /etc/httpd/conf/httpd.conf
 Clave privada de SSH, ~/.ssh/id_rsa
 Clave pública de SSH, ~/.ssh/id_rsa_pub
-Claves públicas de los usuarios autorizados a conectarse. Está en el host, ~/.ssh/autorized_keys
+Claves públicas de los usuarios autorizados a conectarse. Está en el host, ~/.ssh/authorized_keys
 Fingerprints de las claves públicas de los servidores a los que nos hemos conectado. Está en el servidor central, ~/.ssh/known_hosts
 Configuración del servidor SSH, /etc/ssh/sshd_config
 Configuración del cliente SSH, /etc/ssh/ssh_config

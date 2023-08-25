@@ -294,3 +294,30 @@ Quien impone las sanciones graves y leves, secretaria de estado de digitalizaci�
 El período de vigencia de los certificados cualificados, no será superior a cinco años
 Motivos de extinción por caducidad certificados electrónicos, expiración o revocación
 
+# Protección de datos
+
+Sujetos importantes en la ley, titular(envia los datos); responsable(recibe datos); encargado ficheros(manipula datos)
+Cuales son los principios de la protección de datos,"
+- Exactitud de los datos
+- Deber de confidencialidad
+- Consentimiento del afectado"
+Cuando puede dar el consentimiento para el tratamiento de datos, cuando sea mayor de catorce años. Si son menores de 14 los tutores o patria potestad
+Que tipos de datos se consideran especiales,"
+- Ideologicos
+- Religiosos
+- Sexuales
+- Politicos / sindicales
+- Raza"
+Cuales son los derechos de las personas,"
+- Acceso
+- Rectificación
+- Supresión(derecho al olvido)
+- Limitación del tratamiento
+- Portabilidad
+- Oposición
+El responsable tiene el deber de informar de todos los derechos
+Se corresponde con los articulos del 15 al 22 del reglamento"
+Que función realiza el delegado de protección de datos, actuar en representación del responsable y encargado
+Plazo para comunicar a la AEPD cese del delegado de protección datos, 10 días notificarán el responsable y encargado
+
+

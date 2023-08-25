@@ -305,13 +305,14 @@ En un cable 10Base-T que significa 10 y T?, 10 = velocidad y T = par de cobre
 En un cable 10Base-F que significa 10 y F?, 10 = velocidad y F = Fibra
 Cuales son los tipos de ventana en fibra(F)?, S(1 ventana); L(2 ventanas); E(3 ventana)
 Velocidad de cable cat5?, 100 Mbit/s
-Velocidad de cable cat5e?, 1000 Mbit/s 802.3ae
+Velocidad de cable cat5e?, 1000 Mbit/s limitado a 100 m. 802.3ae
 Velocidad de cable y distancia máxima cat6?, 1 Gbit/s hasta 55 m
 Velocidad de cable y distancia máxima cat6A?, 10 Gbit/s hasta 100 m
-Velocidad de cable y distancia máxima cat7 y cat7A?, 10Gbit/s hasta 100 m
+Velocidad de cable y distancia máxima cat7 y cat7A?, 10Gbit/s hasta 100 m. El cat7 no usa RJ-45 usa CG-45
 Velociad de cable cat8.1 y cat8.2?, hasta 40 Gbps hasta 30 m
-Que es la fibra monomodo?, Se propaga una única longitud de onda de luz en el núcleo de fibra
+Que es la fibra monomodo?, Se propaga una única longitud de onda de luz en el núcleo de fibra. Led laser
 Que es la fibra multimodo?, núcleo de mayor diámetro que permite el paso de múltiples modos
+Tipos de conectores de fibra, FC; ST; LC y SC. Existen los transceptor(GBIC y SFP)
 Distancia y velocidad fibra monomodo OS2?, 200 Km con velocidad de 1 a 10 Gbps
 Distancia y velocidad fibra Multimodo OM2?, 500 m a 1 Gbps o de 82 m a 10 Gbps
 Distancia y velocidad fibra Multimodo OM3?, 1500 m a 1 Gbps o 300 m a 10 Gbps
@@ -845,4 +846,35 @@ SMTP comando inciar comunicación, HELO client.example.com
 SMTP comando indicar dirección origen/destino, MAIL FROM / RCPT TO
 ESMTP comando inicial cominicación segura, EHLO client.example.com
 ESMTP comando pasar a comunicación cifrada, STARTTLS. Se usa en otros protocolos: LDAP; FTP...
+
+# Medios transmision conmutacion
+
+Parametros de una señal, longitud de onda; frecuencia; amplitud
+Que es la diafonia(crosstalk) y la diafonia Alien, diafonia = acopla la señal(ej. par trenzado); diafonia alien es con cables diferentes(ej. rack)
+Que es el ruido de la señal, señal externa que se suma. Si es muy elevado la señal puede ser ininteligible
+Que es el desfase y atenuación, diferentes velocidades de propagación. Perdida de potencia
+Diferencias entre los dispositivos repetidor y amplificador, regenera la señal(elimina ruido); amplifica la señal pero el ruido también
+Tipos de codificación digital,"
+- Unipolar(1 solo voltaje)
+- Polar(múltiples valores)-> NRZ(sin reposo); RZ(3 niveles)
+- Manchester: se usó en IEEE 802.3. Existe una variante Manchester diferencial
+- Codificación bipolar. 3 niveles voltaje
+- Codificación por bloques: por cada 4 bloques bit se envian 5 bits. 4B5B
+"
+Tipos de modulación de una señal analógica, amplitud(AM); Fase(PM); Frecuencia. Se aplica a una señal portadora
+Tipos de multiplexación, frecuencia; longitud onda; tiempo; división en código
+Para que se usa el teorema de Nyquist, para pasar de analogica a digital se necesita hacer un muestreo. Nos sirve para saber cantidad muestreo. fm > 2*B
+Tipos de acceso en redes RDSI, acceso básico(160 kbps) y acceso primario(2048 kbps)
+Tipos de canales RDSI, canal datos B(64 kbps) HDLC/PPP y canal de señalización D(16/64 kbps) LAPD
+Que protocolos derivan de HDLC, LAPD(RDSI) LAPB(X.25) LAPF(Frame Relay) LLC PPP
+En ATM cual es el tamaño de celda, 53 octetos: 48 payload + 5 cabecera
+En ATM que tipos de circuitos existen, PVC(Permanent Virtual Circuit) y SVC(Switched Virtual Circuit)
+En ATM que es VP y VC, Son las divisiones del cable fisico ATM: Virtual Path que se subdividen en Virtual Circuits. Ambos tienen un identificador VPI y VCI
+En Frame Relay que es DLCI y CIR, identifica el circuito local y ancho de banda garantiza el proveedor(Commited Information Rate)
+En MPLS dispostivo que atiende clientes, LER(Label Edge Router)router que atiende a los clientes y genera etiquetas entrada/salida. Similar a etiquetas VLAN
+En MPLS dispositivo encargado de encaminar la información según etiqueta entrada/salida, LSR(Label Switch Router)
+En MPLS término para indicar camino que sigue el trafico, LSP(Label Switch Path)
+En MPLS término para indicar grupo de paquetes encaminados de una misma manera, FEC(Forwarding Equivalence Class)
+En MPLS protocolo utilizado para intercambiar información de enrutamiento entre encaminadores, LDP(Label Distribution Protocol)
+En MPLS tamaño de las etiquetas de entrada y salida, 20 bits. Campo Bottom Stack-> última etiqueta(1bit)
 
