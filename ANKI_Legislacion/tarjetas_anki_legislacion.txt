@@ -138,7 +138,7 @@ Validez DNIe cuando el titular haya cumplido los cinco años de edad y no haya a
 Validez DNIe cuando el titular haya cumplido los treinta y no haya alcanzado los setenta?, Diez años
 Validez DNIe cuando el titular haya cumplido los setenta años?, Permanente
 Validez DNIe a los mayores de 30 años que acrediten la condición de gran inválido?, De forma excepcional se podrá otorgar validez permanente o de un año en determinadas circunstancias
-Validez de los certificados contenidos en el chip del DNI?, sesenta meses(5 años)
+Validez de los certificados contenidos en el chip del DNI?, plazo validez 24 meses y plazo máximo validez sesenta meses(5 años)
 Certificados del propietario que contiene el DNIe?, Certificado de autenticación y certificado de firma electrónica reconocida. Ambos X509v3
 Que contiene el chip en la zona pública?, Certificado CA; Claves Diffie-Hellman; Certificado x509 de componente; Certificado de Firma; Certificado de Autenticación
 Que contiene el chip en la zona privada?, Datos de filiación del ciudadano; Imagen de la fotografía; Imagen de la firma manuscrita; Modelo dactilar
@@ -177,6 +177,30 @@ Nº Objetivo - VIDA DE ECOSISTEMAS TERRESTRES: Proteger. restaurar y promover la
 Nº Objetivo - PAZ. JUSTICIA E INSTITUCIONES SÓLIDAS: Promover sociedades pacíficas e inclusivas para el desarrollo sostenible. facilitar acceso a la justicia para todos y crear instituciones eficaces. responsables e inclusivas a todos los niveles., 16
 Nº Objetivo - ALIANZAS PARA LOGRAR LOS OBJETIVOS: Fortalecer los medios de ejecución y reavivar la alianza mundial para el desarrollo sostenible., 17
 
+# Agenda 2030 wordle
+
+¿Cuando se adopto la agenda 2030?, 25 de Septiembre de 2015
+¿Cuantos paises adoptaron la agenda 2030?, 193 países
+¿Cuantos son los objetivos de desarrollo sostenible(ODS)?, 17 objetivos
+¿Cuantos/Cuales son los ejes de centrales?, 5 Planeta-Personas-Prosperidad-Paz-Alianzas
+¿Cuantos/Cuales son los pilares?, 3 El económico-el social-el ambiental
+ Erradicar la _______ en todas sus formas en todo el mundo.,FIN DE LA POBREZA: Erradicar la pobreza en todas sus formas en todo el mundo. 
+ Poner fin al ______. conseguir la seguridad ___________ y una mejor __________ y promover la agricultura sostenible.,HAMBRE CERO Poner fin al hambre. conseguir la seguridad alimentaria y una mejor nutrición. y promover la agricultura sostenible.
+ Garantizar una vida _________ y promover el _________ para todos y todas en todas las edades.,SALUD Y BIENESTAR Garantizar una vida saludable y promover el bienestar para todos y todas en todas las edades.
+ Garantizar una _________ de calidad inclusiva y equitativa. y promover las oportunidades de ___________ permanente para todos.,EDUCACIÓN DE CALIDAD Garantizar una educación de calidad inclusiva y equitativa. y promover las oportunidades de aprendizaje permanente para todos.
+ Alcanzar la ________ entre los _______ y empoderar a todas las _______ y _____.,IGUALDAD DE GÉNERO Alcanzar la igualdad entre los géneros y empoderar a todas las mujeres y niñas.
+ Garantizar la disponibilidad y la gestión sostenible del ____ y el ___________ para todos.,AGUA LIMPIA Y SANEAMIENTO Garantizar la disponibilidad y la gestión sostenible del agua y el saneamiento para todos.
+ Asegurar el acceso a ________ asequibles. fiables sostenibles y modernas para todos.,ENERGÍA ASEQUIBLE Y NO CONTAMINANTE Asegurar el acceso a energías asequibles. fiables sostenibles y modernas para todos.
+ Fomentar el crecimiento _________ sostenido. inclusivo y sostenible. el ______ pleno y __________. y el _______ decente para todos.,TRABAJO DECENTE Y CRECIMIENTO ECONÓMICO Fomentar el crecimiento económico sostenido. inclusivo y sostenible. el empleo pleno y productivo. y el trabajo decentepara todos.
+ Desarrollar ________________ resilientes. promover la _________________ inclusiva y sostenible. y fomentar la __________.,INDUSTRIA. INNOVACIÓN E INFRAESTRUCTURA Desarrollar infraestructuras resilientes. promover la industrialización inclusiva y sostenible. y fomentar la innovación.
+ Reducir las _____________ entre países y dentro de ellos.,REDUCCIÓN DE LAS DESIGUALDADES Reducir las desigualdades entre países y dentro de ellos.
+ Conseguir que las ________ y los _____________ humanos sean inclusivos. _______. resilientes y ___________.,CIUDADES Y COMUNIDADES SOSTENIBLES Conseguir que las ciudades y los asentamientos humanos sean inclusivos. seguros. resilientes y sostenibles.
+ Garantizar las pautas de _______ y de __________ sostenibles.,PRODUCCIÓN Y CONSUMO RESPONSABLES Garantizar las pautas de consumo y de producción sostenibles.
+ Tomar medidas urgentes para combatir el ______ _________ y sus efectos.,ACCIÓN POR EL CLIMA Tomar medidas urgentes para combatir el cambio climático y sus efectos.
+ Conservar y utilizar de forma sostenible los _______. _____ y recursos _______ para lograr el desarrollo sostenible.,VIDA SUBMARINA Conservar y utilizar de forma sostenible los océanos. mares y recursos marinos para lograr el desarrollo sostenible.
+ Proteger. restaurar y promover la utilización sostenible de los ___________ __________. gestionar de manera sostenible los _______. combatir la _______________ y detener y revertir la degradación de la ______. y frenar la pérdida de diversidad _________.,VIDA DE ECOSISTEMAS TERRESTRES Proteger. restaurar y promover la utilización sostenible de los ecosistemas terrestres. gestionar de manera sostenible los bosques. combatir la desertificación y detener y revertir la degradación de la tierra. y frenar la pérdida de diversidad biológica.
+ Promover sociedades _________ e __________ para el desarrollo __________. facilitar acceso a la ________ para todos y crear _____________ eficaces. responsables e inclusivas a todos los niveles.,PAZ. JUSTICIA E INSTITUCIONES SÓLIDAS Promover sociedades pacíficas e inclusivas para el desarrollo sostenible. facilitar acceso a la justicia para todos y crear instituciones eficaces. responsables e inclusivas a todos los niveles.
+ Fortalecer los medios de _________ y reavivar la _______ mundial para el desarrollo sostenible.,ALIANZAS PARA LOGRAR LOS OBJETIVOS Fortalecer los medios de ejecución y reavivar la alianza mundial para el desarrollo sostenible.
 # Constitución Española Tribunal Constitucional
 
 De cuantos miembros se compone el TC, 12
@@ -276,19 +300,26 @@ Que formatos de firma electrónica avanzada existen,"
 - CAdES(CMS→ Binaria) Tipos: BES-EPES, T
 - PAdES(PDF) Tipos: BES-EPES, LTV
 - OOXML y ODF(Microsoft Office)"
+Cuales son los perfiles de firma avanzada,"
+- Firma Básica (AdES - BES): es el formato básico para satisfacer los requisitos de la firma electrónica avanzada.
+- AdES T: se añade un sellado de tiempo con el instante en que se firma un documento.
+- AdES C: añade un conjunto de referencias como base para una verificación longeva (C de Cadena).
+- AdES X: añade sellos de tiempo a las referencias (X de eXtendida).
+- AdES XL: añade los certificados y revocación: para su validación a largo plazo (XL de eXtendido Largo plazo).
+- AdES A: adición de sellos de tiempo integridad de la firma archivada o guardada para futuras verificaciones (A de Archivo)."
 Que es un Sello de Tiempo, firma para probar que un conjunto de datos existió antes de un momento dado y no han sido modificados
 Que es una TSA, Autoridad de Sellado de Tiempo. Es una tercera parte de confianza realiza el sello de tiempo. Utiliza una fuente tiempo confiable ej. ROA
 
 # TODO Servicios electrónicos confianza
 
 Periodo conservación información prestador servicios, 15 años desde la extinción del certificado o finalización servicio
-Importe seguro de responsabilidad civil del prestador servicios, 1.500.000 euros, excepto si pertenece al sector público
+Importe seguro de responsabilidad civil del prestador servicios, 1.500.000 euros; excepto si pertenece al sector público
 Preaviso del prestador de cese actividad ante los clientes, antelación mínima 2 meses
 Prestadores servicios cualificados presentan un informe a MAETD, 1 febrero de cada año
-Tipos de sanciones por infracciones,
+Tipos de sanciones por infracciones,"
 - Muy graves: multa por importe de 150.001 hasta 300.000 euros
 - Graves: multa por importe de 50.001 hasta 150.000 euros
-- Leves: multa por importe de hasta 50.000 euros
+- Leves: multa por importe de hasta 50.000 euros"
 Quien impone las sanciones muy graves, ministerio de asuntos económicos y transformación digital
 Quien impone las sanciones graves y leves, secretaria de estado de digitalización e inteligencia artificial
 El período de vigencia de los certificados cualificados, no será superior a cinco años
@@ -317,7 +348,75 @@ Cuales son los derechos de las personas,"
 - Oposición
 El responsable tiene el deber de informar de todos los derechos
 Se corresponde con los articulos del 15 al 22 del reglamento"
-Que función realiza el delegado de protección de datos, actuar en representación del responsable y encargado
+Que función realiza el delegado de protección de datos, actuar en representación del responsable y encargado frente a la autoridad independiente
+Quien es la autoridad independiente de protección de datos, la AEPD(Agencia Española de Protección de Datos)
 Plazo para comunicar a la AEPD cese del delegado de protección datos, 10 días notificarán el responsable y encargado
+Tipos sanciones; cantidades y prescripción,"
+- Leves 40K prescriben al año
+- Graves 40.001-300K prescriben a los dos años
+- Muy graves superior a 300K prescriben a los tres años" 
+Quien elabora el plan de impulso de los derechos digitales y cada cuanto se presenta el informe,"
+Lo elabora el Gobierno y presenta el informe una vez al año al congreso"
 
+# ENI
+
+Cuales son los principios básicos de ENI,"
+- La interoperabilidad como cualidad integral.
+- Carácter multidimensional de la interoperabilidad.
+- Enfoque de soluciones multilaterales:
+  - Organizativa(ejemplo: SIA y DIR3)
+  - Semantica(Ej. CISE)
+  - Técnica(ej. NTI catálogo estandares)"
+NTI catálogo de estandares características que tiene,"
+- No existe homologación pero se revisa/actualiza 1 vez/año
+- Abierto o de uso generalizado"
+NTI Documento Electronico que contiene,"
+- Datos XML / Binario / Referencia(ej. enlace Alfresco) 
+- Nombre formato(segun NTI catalogo estandares)
+- ID [opcional]"
+NTI Documento electrónico metadatos obligatorios,"
+- Versión NTI
+- Id(normalizado)
+- Organo(DIR3)
+- Fecha captura
+- Origen(0=ciudadano; 1=Administración)
+- Estado elaboración(original;copia autentica de papel...)
+- Tipo Documento(resolución; contrato; notificación...)
+- Tipo firma(csv;xades;cades;pades); contenido firma"
+Que agrupador logico está por encima del documento electrónico, expediente electrónico
+Como se organizan los documentos, independientes; dentro de carpeta; dentro de un sub-expediente 
+Que es lo que se firma en el expediente electrónico, el indice electrónico
+Que contiene el indice electrónico,"
+- Id documento
+- Huella digital(hash)
+- Fecha incorporación"
+Fases del ciclo vida expediente electrónico, apertura->tramitación->conservación y selección(servicio archiva)
+Resolución mínima digitalización documentos, 200 pixels por pulgada
+Que es el XaDES EPES,"
+- Perfil mínimo aceptado por la Admininistración
+- Es como el BES pero añade un SignaturePolicy(politica de firma con formato OID)"
+Que es el SCSP, Sustitución de Certificados en Soporte Papel orientado al intercambio de datos
+Cual es el modelo(XML) para intercambio de datos de asientos registrales, SICRES(última versión 4) circula dentro SIR
+Que es e-EMGDE, Amplia los metados del documento electronico. Caracteriza mejor un ambito concreto el documento.
+
+# ENS
+
+El ENS revisa la seguridada de los activos tipo..., información y servicios
+Que es el riesgo, probabilidad(amenaza) x impacto
+Cual es el equivalente de las NTI en el ENS, ITS(Instrucciones Técnicas de Seguridad)
+Cuantos responsables existen en el ENS,"
+- Información
+- Servicios
+- Seguridad
+- Sistemas(Implementa solución)
+- Nota: resp. seguridad y resp. sistemas son diferentes personas y no tienen dependencia jerarquica"
+Que es el POC, Persona de Contacto responsable de seguridad de la organización contratada(externalizada)
+Que son los perfiles de cumplimiento, conjunto medidas seguridad(del CCN) adaptadas al ENS(ej. universidades; entidades locales...)
+A quien da soporte INCIBE-CERT, a organizaciones privadas relacionadas con el ambito de la administración
+Quien da soporte a incidentes de seguridad a Defensa nacional, ESPDEF-CERT
+Las medidas como están agrupadas, organizativo(4); operacional(33); protección(36)
+Cual es el nombre de las guias ENS, CCN-STIC-800
+Cual es criterio para el certificado de conformidad(auditoria),"
+- Aplica solamente a Sistemas información categoría Media o Alta.
+- En S.I cat. básica aplica la declaración conformidad."
 

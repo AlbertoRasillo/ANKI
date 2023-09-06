@@ -75,8 +75,10 @@ Diferencia entre adduser y useradd, adduser es un script que llama a useradd que
 Para que sirve chage, nos sirve para gestionar la expiración de la cuenta del usuario y la policita de expiracion de la password
 Para que sirve passwd, nos permite cambiar la contraseña
 Que ficheros usa useradd, /etc/login.defs ej. parametro CREATE_HOME=yes y /etc/default/useradd
-Que es cada campo de /etc/passwd sally:x:1029:503:Sally Jones:/home/sally:/bin/bash, username - password - uid - gid - comentario - home - shell. TIP: la x indica que la password está en /etc/shadow
-Que es cada campo de /etc/shadow sally:$6$EmoFkLZPkHkpczVN2XRcMdyj8/ZeeT5UnTQ:15505:0:-1:7:-1:-1:, username - hash de la password - Ultimo cambio de password ...TIP: Una ! delante de la password indica cuenta bloqueda. TIP: Un * en la password indica que no se puede hacer login
+Que es cada campo de /etc/shadow sally:$6$EmoFkLZPkHkpczVN2XRcMdyj8/ZeeT5UnTQ:15505:0:-1:7:-1:-1:,"
+- username:hash de la password
+- Ultimo cambio de password:Días de aviso para el cambio de pass:Días de bloqueo después de contraseña incorrecta:Días de expiración de la cuenta:Cuenta inactiva
+TIP: Una ! delante de la password indica cuenta bloqueda. TIP: Un * en la password indica que no se puede hacer login"
 Que es cada campo de /etc/group project1:x:504:sally;sam;ellen;george, groupname - password - GID - lista de usuarios
 who -q, muestra los login y el numero total de usuarios logados
 who -m, muestra el hostname desde donde está conectandose el usuario
@@ -277,108 +279,6 @@ Gestión routing, route
 /etc/samba/smb.conf, Configuración de SMB/CIFS
 /proc/sys/net/ipv4/ip_forward, Para activar ip forward en la máquina. Cambio temporal. Routing.
 /etc/sysctl.conf, Configuración parámetros del kernel. Configuración de routing (forward) para iptables. Cambio permanente
-
-# Linux paths ficheros B side
-
-URLs con los catálogos de todos los paquetes/programas (Debian), /etc/apt/sources.list
-Paquetes descargados por apt, /var/cache/apt/
-Catálogos descargados por apt, /var/lib/apt/lists
-Paquetes descargados por apt, /var/cache/apt/archives
-URLs con los catálogos de todos los paquetes/programas (RedHat), /etc/yum.repos.d
-Fichero de configuración global del sistema. Llama al bash.bashrc, /etc/profile
-Fichero de configuración global del sistema, /etc/bash.bashrc
-Ficheros que tendrá cada nuevo usuario en su HOME tras su creación, /etc/skel
-Fichero de configuración de cada usuario, ~/.profile
-Fichero de configuración de cada usuario, ~/.bashrc
-Histórico de los últimos comandos ejecutados por shell, ~/bash_history
-Dispositivo instrumental que devuelve ceros, /dev/zero
-CD-ROM, /dev/cdrom
-Disco duro PATA/IDE, /dev/hda
-Disco duro SATA/SCSI, /dev/sda
-Dispositivo instrumental que devuelve nulos o que ignora lo que se le redirige a él, /dev/null
-Dispositivo instrumental que genera números aleatorios, /dev/random
-Se queda registrado todo suceso del sistema; cuando un servicio arranca o para; si genera algún error; etc, /var/log/syslog
-Montajes permanentes al arrancar el sistema. device  mount_point  FS  options, /etc/fstab
-Montajes actuales del sistema, /etc/mtab
-Librerías, /lib
-Librerías, /usr/lib
-Procesos planificados que se van a ejecutar, /etc/crontab
-Directorio con los scripts de los procesos que se van a ejecutar diariamente, /etc/cron.daily/
-Listado de usuarios que no pueden tener crontab, /etc/cron.deny
-Más ficheros crontab para no tener todo en /etc/crontab, /etc/cron.d
-Tareas a ejecutar por anacron, /etc/anacron
-Cada usuario tiene su propio crontab, /var/spool/cron/crontabs
-Fichero de configuración para lanzar los scripts de inicialización del sistema, /etc/inittab
-Directorio con enlaces a los servicios/demonios de Systemd (S/K), /etc/rc0.d
-Directorio donde están los servicios/demonios/scripts de arranque para el proceso init, /etc/init.d
-Relacionado con el sistema de inicia clásico /etc/inittab, /sbin/init
-Sistema de inicio nuevo /lib/systemd/system, /bin/systemd
-Unidades instaladas por el administrador, /etc/systemd/system
-Usado por el demonio supervisor de red inetd, /etc/inetd.conf
-Fichero de resolución local (IP - Nombre), /etc/hosts
-Nombre de la máquina local, /etc/hostname
-Configuración del DNS; al que pedimos las resoluciones de Nombre - IP, /etc/resolv.conf
-Fichero de configuración del cliente DNS para indicar cómo resolver los nombres de host, /etc/host.conf. Nueva versión: /etc/nsswitch.conf
-Configuración de la tarjeta de red en Debian, /etc/network/interfaces
-Configuración de la tarjeta de red en RedHat, /etc/sysconfig/network-scripts/ifcfg-eth0
-Información de las cuentas de usuario, /etc/passwd
-Contraseñas salteadas de los usuarios. Solo ! usuario sin contraseña. ! + contraseña: usuario bloqueado, /etc/shadow
-Nombres de los grupos y usuarios que pertenecen a cada uno, /etc/group
-Sistema de ficheros isntrumental. Filesystem montado en memoria, /proc
-Versión de la release, /proc/sys/kernel/osrelease
-Kernel, /proc/sys/kernel/ostype
-Nombre del host, /proc/sys/kernel/hostname
-Versión del kernel, /proc/sys/kernel/version
-máximo número de ficheros abiertos para todo el sistema, /proc/sys/fs/file-max
-Sistemas de ficheros soportados, /proc/filesystems
-Versión del kernel y otra información, /proc/version
-Información de la memoria del sistema, /proc/meminfo
-Información de la CPU, /proc/cpuinfo
-Lista de IRQs; interrupciones, /proc/interrupts
-Estadísticas del sistema, /proc/stat
-Información de los puertos de E/S, /proc/ioports
-Nice para usuario/proceso; nº máximo de procesos y archivos abiertos. soft (cambiable). hard (máximo)., /etc/security/limits.conf
-Fichero de configuración para adduser, /etc/adduser.conf
-Fichero de configuración para useradd, /etc/login.defs
-Fichero de configuración para useradd, /etc/default/useradd
-Configuración del comando sudo. Formato del fichero: who hosts = [(as who)] [tags] commands, /etc/sudoers
-Directorio raíz de Docker, /var/lib/docker
-Ubicación donde se guardan los volúmenes de almacenamiento de Docker, /var/lib/docker/volumes
-Tiene los !includedir a los ficheros de configuración de MySQL, /etc/mysql/my.cnf
-Fichero de configuración de MySQL, /etc/mysql/conf.d
-Fichero de configuración de MariaDB, /etc/mysql/mariadb.conf.d/50-server.cnf
-Fichero de configuración de MySQL, /etc/mysql/mysql.conf.d/mysql.conf
-Fichero de configuración de la autenticación de usuarios de Postgres, /etc/pg-hba.conf
-Configuración del servidor Postgres, /etc/postgresql/9.6/main/postgresql.conf
-Se configura la community (rocommunity) para autorizar al gestor SNMP y la ip para los traps (trap2sink), /etc/snmp/snmp.conf
-Usuario/Contraseña autorizados a acceder a los recursos HTTP. Autenticación básica, /etc/apache2/.htpasswd
-Sitios disponibles para su gestión con Apache, /etc/apache2/sites_available
-Sitios habilitados para su gestión con Apache, /etc/apache2/sites_enabled
-Módulos disponibles para su gestión con Apache, /etc/apache2/mods_available
-Módulos habilitados para su gestión con Apache, /etc/apache2/mods_enabled
-Configuración de Apache en Debian, /etc/apache2/apache2.conf
-Configuración de Apache en RedHat, /etc/httpd/conf/httpd.conf
-Clave privada de SSH, ~/.ssh/id_rsa
-Clave pública de SSH, ~/.ssh/id_rsa_pub
-Claves públicas de los usuarios autorizados a conectarse. Está en el host, ~/.ssh/authorized_keys
-Fingerprints de las claves públicas de los servidores a los que nos hemos conectado. Está en el servidor central, ~/.ssh/known_hosts
-Configuración del servidor SSH, /etc/ssh/sshd_config
-Configuración del cliente SSH, /etc/ssh/ssh_config
-Clave privada RSA usada por el demonio sshd, /etc/ssh/ssh_host_rsa_key
-Clave pública RSA usada por el demonio sshd, /etc/ssh/ssh_host_rsa_key_pub
-Clave privada DSA usada por el demonio sshd, /etc/ssh/ssh_host_dsa_key
-Clave pública DSA usada por el demonio sshd, /etc/ssh/ssh_host_dsa_key_pub
-Clave privada ECDH usada por el demonio sshd, /etc/ssh/ssh_host_ecdsa_key
-Clave pública ECDH usada por el demonio sshd, /etc/ssh/ssh_host_ecdsa_key_pub
-Inventario de máquinas a administrar por Ansible, /etc/ansible/hosts
-Directorio para colocar los ficheros YML con las variables de configuración para los grupos de Ansible, /etc/ansible/group_vars/
-Configuración general de Ansible, /etc/ansible/ansible.cfg
-Configuración del servidor central de Salt, /etc/salt/master
-Configuración de la máquina administrada por Salt, /etc/salt/minion
-Buzones de correo, /var/spool/mail
-Configuración de SMB/CIFS, /etc/samba/smb.conf
-Para activar ip forward en la máquina. Cambio temporal. Routing., /proc/sys/net/ipv4/ip_forward
-Configuración parámetros del kernel. Configuración de routing (forward) para iptables. Cambio permanente, /etc/sysctl.conf
 
 # Linux RAID
 
@@ -705,7 +605,7 @@ Crear un volumen Docker, docker volume create --name [nombre volumen]
 Listar volumenes Docker, docker volume ls
 Que parametros usar para arrancar un contenedor con un volumen almacenado en /var/mnt/datos en el host y /home/datos en el contenedor,-v /var/mnt/datos:/home/datos
 Que parametro usar para arrancar en segundo plano,-d
-Como crear un contenedor sin arrancarlo,docker create NombreImagen
+Como crear un contenedor sin arrancarlo,docker create NombreImagen; docker container create (alternativa)
 Como arrancar o parar un contenedor,docker start/stop id_del_contenedor
 Crear una nueva imagen de un contenedor editado, docker commit id_contenedor usuario/nombreimagen
 Como crear una imagen a partir del fichero Dockerfile situado en el directorio actual,docker build -t NombreImagen:TagImagen
@@ -1032,4 +932,65 @@ certutil -user -store MY, muestra todos los certificados del almacen personal
 sc create NewService binpath= c:\...\NewServ.exe type= share start= auto, crea nuevo servicio
 sc query type= service/driver/... state=active/inactive, consulta estado servicio
 sc /start/stop/delete nombreDelServicio, gestionar estado servicio
+
+# Iptables
+
+Como se llama el modulo del kernel,Netfilter
+Que herramientas están encima del modulo cortafuegos del kernel, iptables; nftables; ufw: firewalld
+Si tenemos una DMZ con un servicio correo que cadena hay que configurar para el trafico entrante, PREROUTING->INPUT
+Si desde nuestro equipo cliente queremos controlar el trafico saliente que cadena debemos configurar, OUTPUT->POSTROUTING
+Si queremos que una maquina linux haga de router que cadenas se deben configurar, PREROUTING->FORWARD->POSTROUTING. Usa dos tarjetas red
+Si en una regla no se indica la variable -t(table) cual se pone por defecto, filter(solamente esta en INPUT; FORWARD; OUTPUT)
+Si dentro de las cadenas hay varias reglas que pueden dar match que sucede, Solamente se aplica la primera que encuentra
+Que es el campo -j y que opciones tiene, significa Jump(tratamiento trafico) ACCEPT; DROP; REDIRECT; REJECT
+Diferencia entre DROP y REJECT, DROP elimina el trafico y no informa al origen; REJECT si informa al origen
+Como se guardan/restauran las reglas creadas,"
+- iptables-save > /etc/iptables/rules.v4(v6 para ipv6)
+- systemctl enable netfilter-persistent.service
+- iptables-restore < /etc/iptables/rules.v4"
+Añadir una regla nueva, iptables -A INPUT -i eth0 -p tcp --dport 8888 -j ACCEPT
+Como eliminar una regla, iptables -D test
+Borrar toda las iptables, iptables -F / iptables --flush
+Crear regla por defecto, iptables -P INPUT DROP
+Listar una tabla, iptables -t nat -L
+Por defecto en linux no permite reglas FORWARD como se configura, editar /etc/sysctl.conf añadir net.ipv4.ip_forward=1
+Que hace iptables -t nat -A POSTROUTING -s 192.168.3.0/24 -o eth0 -j SNAT --to 80.58.1.14, Hace NAT estático salida. Alternativa MASQUERADE
+
+# Windows powershell
+
+Add-Computer, Añade un ordenador a un dominio o grupo de trabajo.
+Add-Content (alias; ac), Añade contenido a un objeto.
+Clear-Item (alias; cli), Borra contenido de un objeto.
+Clear-ItemProperty (alias; clp), Borra el valor de una propiedad.
+Clear-Variable (alias; clv), Borra el valor de una variable.
+Compare-Object (alias; compare; diff), Compara dos conjuntos de objetos.
+ConvertTo-CSV, Convierte objetos a formato CSV.
+ConvertTo-Html, Convierte objetos a formato HTML.
+ConvertTo-XML, Convierte objetos a formato XML.
+Copy-Item (alias; cpi; cp; copy), Copia un objeto de un lugar a otro.
+Copy-ItemProperty (alias; cpp), Copia una propiedad y su valor de un lugar a otro.
+Get-ADUser, Consulta usuarios en Active Directory.
+Get-Alias (alias; gal), Muestra los aliases disponibles.
+Get-AppxPackage, Muestra la lista de paquetes .appx instalados (en Windows 8/10).
+Get-Command (alias; gcm), Muestra un listado de comandos instalados de todo tipo.
+Get-ComputerRestorePoint, Muestra los puntos de restauración del sistema.
+Get-Content (alias; gc), Muestra el contenido de un objeto.
+Get-Date, Muestra la fecha y hora.
+Get-Event, Muestra la cola de eventos.
+Get-Help, Muestra ayuda sobre comandos.
+Get-History (alias; ghy), Muestra el histórico de comandos usados en la sesión.
+Get-Item (alias; gi), Selecciona un objeto.
+Get-ItemProperty (alias; gp), Selecciona la propiedad de un objeto o del registro.
+Get-Process (alias; gps), Selecciona procesos en ejecución en el sistema.
+Get-Service (alias; gsv), Selecciona los servicios del sistema.
+Set-TimeZone, Establece una Zona Horaria.
+Get-ChildItem (alias; ls; dir; gci), Muestra el contenido de un directorio.
+New-Item (alias; ni), Crea un nuevo objeto.
+Get-Member (alias; gm), Muestra las propiedades y métodos de un objeto.
+Where-Object (alias; where; $_), Filtra la salida de otro cmdlet.
+Select-Object (alias; select), Selecciona propiedades específicas de un objeto.
+ForEach-Object (alias; foreach), Recorre una serie de objetos y ejecuta un script para cada uno.
+Get-CimInstance, Obtiene información de configuración a través de WMI.
+Get-Location (alias; gl; pwd), Muestra el directorio actual.
+Get-PSDrive (alias; gdr), Muestra todas las unidades; incluidas las virtuales para navegar por el registro; certificados; etc.
 

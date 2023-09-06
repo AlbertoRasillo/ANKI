@@ -9,20 +9,32 @@ def clean_lines(lines):
     cleaned_lines = [line.strip() for line in lines if line.strip()]
     return cleaned_lines
 
-def swap_csv_values(content):
-    # Intercambiar los valores CSV
+def swap_csv_values(lines):
+    swapping = False
     swapped_content = []
-    for line in content:
+    swap_buffer = []
+
+    for line in lines:
         if line.startswith("#"):
             swapping = True
             swapped_content.append(line)
-        elif swapping and line.strip():
-            parts = line.split(",")
-            if len(parts) == 2:
-                swapped_content.append(f"{parts[1].strip()}, {parts[0].strip()}")
+        elif swapping:
+            if line.startswith('"'):
+                swap_buffer.append(line)
+            elif line.endswith('"'):
+                swap_buffer.append(line)
+                swapped_content.extend(swap_buffer)
+                swap_buffer = []
+            else:
+                if swap_buffer:
+                    swap_buffer.append(line)
+                else:
+                    parts = line.split(",")
+                    if len(parts) == 2:
+                        swapped_content.append(f'"{parts[1].strip()}", "{parts[0].strip()}"')
         else:
-            swapping = False
             swapped_content.append(line)
+
     return swapped_content
 
 def create_backup(source_file, backup_folder):

@@ -1,4 +1,4 @@
-# Codigos respuesta HTTP
+# Redes comunicaciones Codigos respuesta HTTP
 
 Tipo 100s,Informativos
 Tipo 200s,Códigos de exito
@@ -23,7 +23,7 @@ Nº código: Bad Gateway, 502
 Nº código: Servicio no disponible, 503
 Nº código: Gateway Error, 504
 
-# Headers HTTP
+# Redes comunicaciones Headers HTTP
 
 Request ¿Autorización acceso BASIC o JWT?,Autorization: BASIC
 Request ¿Controlar el cache?,Cache-control
@@ -52,7 +52,7 @@ Response ¿Indentifica el servidor?,Server: ej. nginx
 Response ¿Politica cors de fuentes acceptadas?,Acces-Control-Allow-Origin: *
 Response ¿Envio de cookie?,Set-Cookie: cookie-name = cookie-value
 
-# Direcciones IPv6
+# Redes comunicaciones Direcciones IPv6
 
 Identifican a un interface,Unicast
 Identifican a un grupo de interfaces,Multicast
@@ -60,10 +60,10 @@ Identifican a interface dentro de un grupo,Anycast
 IPs Unicast Link-Local,FE80::/10
 IPs Unicast Unique-Local,FC00::/7 Se divide en dos bloques FD00::/8 y FC00::/8
 IPs Unicast Global,2000::/3
-IPs Multicast todos los nodos,FF02::1
-IPs Multicast todos los routers,FF02::2
+IPs Multicast todos los nodos,FF02::1 Multicast-> (FF00::/8)
+IPs Multicast todos los routers,FF02::2 Multicast-> (FF00::/8)
 
-# Direcciones Classfull
+# Redes comunicaciones Direcciones Classfull
 
 Rango IPs clase A,0-127 0.0.0.0 126 redes reservada y 127.0.0.0 loopback
 Rango IPs clase B,128-191
@@ -73,7 +73,7 @@ Rango IPs clase E(Experimental),240-255
 Direcciones uso privado,Clase A 10.0.0.0 Clase B 172.16.0.0-172.31.255.255 Clase C 192.168.0.0
 Direcciones automáticas APIPA,169.254.0.0/16 169.254.1.0-169.254.254.255 no se usan las 169.254.0.0/24 y 169.254.255.0/24
 
-# Versiones de Android Debian Ubuntu MacOSRedHat DesktopName
+# Sistemas hardware Versiones de Android Debian Ubuntu MacOSRedHat DesktopName
 
 Debian 12, Bookworm
 Debian 11, Bullseye
@@ -121,7 +121,7 @@ Android 11, Red Velvet Cake
 ¿Cuál es el nombre del conjunto de herramientas EAR para análisis y gestión de riesgo de sistemas que sigue la metodología Magerit y tiene diferentes?,PILAR
 ¿Cuál es el nombre de la plataforma de análisis avanzado de malware que evoluciona las capacidades de análisis dinámico (MARTA) y estático (MARIA) y cuenta con una interfaz unificada; estadísticas; histórico de muestras e informes?,ADA
 
-# Protocolos OSI
+# Redes comunicaciones Protocolos OSI
 
 Protocolos de capa 2, HDLC; LAPB
 Protocolos de capa 3, CLNS(No orientado a conexión) (CLNP; Routing IS-IS); CONS(Orientado a conexión)
@@ -130,8 +130,9 @@ Equivalente SNMP, CMIS/CMIP
 Equivalente FTP, FTAM
 Equivalente LDAP, X.500
 Equivalente SMTP, X.400
+Que funciones tiene la capa de presentación, cifrado; codificación; compresión; 
 
-# Formato del datagrama IPv4 y IPv6
+# Redes comunicaciones Formato del datagrama IPv4 y IPv6
 
 En IPv4 el 1 campo protocol transporta?, ICMP; Es enrutable porque va sobre IP(nivel 3) en cambio ARP no es enrutable proque va sobre nivel 2
 En IPv4 el 6 campo protocol transporta?, TCP
@@ -148,7 +149,7 @@ En IPv6 cuales son las cabeceras de extensión principales, Hop-by-Hop 0; Destin
 
 Cuales son las herramientas de gestión de la configuración?, Ansible(sin agente usa SSH); Chef; Puppet; SCCM(Microsft); SaltStack; StackStorm; Terraform; CFEngine; Otter
 Que preprocesadores CSS conoces?, Less; Sass; Stylus
-Que Frameworks CSS conoces?, Bootstrap; Material; Tailwind
+Que Frameworks CSS conoces?, Bootstrap; Material; Tailwind; Foundation
 Que motores de plantills Javascript para HTML existen?, Handlebars; Mustache; Pug
 Cual es el servidor web de .NET?, Kestrel
 Que proxy inversos conoces?, Nginx; Squid; Varnish; Haproxy
@@ -157,7 +158,9 @@ Que sistemas de autenticación AAA conoces?, Radius; TACACS; Diameter
 Herramientas de documentación REST?, Swagger/OpenAPI
 Herramientas de gestión de incidencias?, GLPI; Mantis; Redmine; Remedy; Jira; OSTicket; Bugzilla; Request Tracker; OTRS; SpiceWorks; Trac
 Herramientas control remoto puestos, VNC(puerto 5900); RDP(puerto 3389); TeamViewer(nube); AnyDesk; Chrome Remote Desktop; Citrix; LogMeIn; Be Anywhere; SSH
-Herramientas desarrollo app moviles multiplataforma, Nativas-> Xamarin; Flutter(DART); Hibridas-> Cordova; IONIC; React Native
+Herramientas desarrollo app moviles multiplataforma,"
+- Nativas-> Xamarin; Flutter(DART)
+- Hibridas-> Cordova; IONIC; React Native"
 Herramientas de pruebas funcionales, Selenium; SOAP-UI; Watir(Ruby); WatiN(.NET)
 Herramientas de pruebas unitarias, JUnit; Nunit; TestNG
 Herramientas de prueba de carga, JMeter; HPLoadRunner; LoadUI
@@ -167,16 +170,34 @@ Nombres de package bundle, Webpack; Parcel; Browserify; FuseBox
 Herramienta para automatizar tareas sobre nodeJS, Gulp y Grunt
 Herramienta gestión dependencias frontend NodeJS, Bower(bower.json y bowerrc); Yarn; npm(package.json)
 Transpiladores JavaScript, Babel; Traceur; tsc
-Gestores dependencias PHP; Ruby; Python; Perl; Javascript, Composer(composer.json; /vendor); Gems(Gemfile); Pip(Setup.py); PPM; npm(package.json)
-Frameworks PHP; Ruby; Python; Pel; JavaScript, Laravel Symfony Cake PHP Yii Zend; Ruby on Rails Roda Cuba Padrino Sinatra; Django Flask Pyramid; Catalyst; Express(node)
-Diferencias entre XAMPP; LAMP; WAMP; MAMP, L -> linux W -> windows M -> Mac X -> Multiplataforma A -> Apache E -> Nginx M -> MariaDB/MySQL P-> PHP; Perl; Python
+Gestores dependencias PHP; Ruby; Python; Perl; Javascript,"
+- Composer(composer.json; /vendor);
+- Gems(Gemfile)
+- Pip(Setup.py)
+- PPM
+- npm(package.json)"
+Frameworks PHP; Ruby; Python; Pel; JavaScript,"
+- Laravel Symfony Cake PHP Yii Zend
+- Ruby on Rails Roda Cuba Padrino Sinatra
+- Django Flask Pyramid
+- Catalyst
+- Express(node)"
+Diferencias entre XAMPP; LAMP; WAMP; MAMP,"
+- L -> linux W -> windows M -> Mac X -> Multiplataforma
+- A -> Apache E -> Nginx
+- M -> MariaDB/MySQL
+- P-> PHP; Perl; Python"
 Diferencias arquitectura entre MEAN; MERN; MEVN, Arquitectura MEAN: Mongo; Express; Angular/React(MERN)/VUE(MEVN); Node
 Software de Netflix; El que implementa patrón circuit breaker; API Gateway; Registro de microservicios(Catalogo); Balanceo de peticiones, Hystrix; Zuul; Eureka; Ribbon
 Software que envuevle a los cuatro frameworks de Netflix, Spring Cloud
 Que dos software hacen la función de service Mesh?, Istio(funciones con funcionalidades microservicios) + Envoy(balanceo carga; recuperación...)
 Que software se usa para trazabilidad en Microservicios?, Elastic Search; Jaeger; Solr; Lucence
 Que software se usa para observabilidad en Microservicios?, Grafana; Prometheus; Kiali
-Frameworks Microservicios para Java; Python; Node, Java-> Micronaut; Quarkus; Helidon; MicroProfile(JEE); Spring Cloud Python -> Flask Node -> NodeJS(V8)
+Frameworks Microservicios para Java; Python; Node,"
+- Java-> Micronaut; Quarkus; Helidon; MicroProfile(JEE); Spring Cloud
+- Python -> Flask
+- Node -> NodeJS(V8)"
+Software de contenedores, Docker; RKT; Messos; LXC; OpenVZ; Podman
 Servicios de IaaS  más populares, Amazon AWS; Red Hat(OpenStack); Azure; Google Cloud; Nube SARA
 Ejemplos software PaaS, OpenShift(usa Kubernetes y Docker); Heroku(modo nube); Cloud Foundry
 En IaaS servicios de almacenamiento modo objeto, S3(AWS); Swift(OpenStack)
@@ -184,7 +205,7 @@ En IaaS servicios de maquinas virtuales, EC2(AWS); Nova(OpenStack)
 En IaaS servicios de almacenamiento modo bloque, EBS(AWS); Cinder(OpenStack)
 Herramientas NMS(Network Monitoring Systems), Nagios; Zabbix; Cacti; Zennos; Pandora FMS; Icinga; Solar Winds; Open NMS; HP OpenView; IBM Patrol
 
-# Niveles aislamiento SQL reglas Codd
+# Bases datos Niveles aislamiento SQL reglas Codd
 
 Que número es la regla de Codd: Un SGBD relacional debe gestionar sus BD de forma completa usando el modelo relacional, Regla 0
 Que número es la regla de Codd: Información. Todos los datos deben estar almacenados en las tablas, Regla 1
@@ -204,7 +225,7 @@ Que efecto de lectura tiene el nivel de aislamiento Read Committed?, Lectura no 
 Que efecto de lectura tiene el nivel de aislamiento Repeatable Read?, Lectura fantasma
 Que efecto de lectura tiene el nivel de aislamiento Serializable?, Sin efectos de lectura. Es la más restrictiva.
 
-# Normas estandares internacionales
+# Redes comunicaciones Normas estandares internacionales
 
 Estándar Json?, ECMA 404
 Estándar CLI Common Language Infraestructure?, ECMA 335
@@ -236,12 +257,16 @@ Estándar SMIv2 SNMP?, RFC 2578
 Estandar representación coma flotante, IEEE 754
 Estandar Office Open XML Microsoft, ECMA 376
 Estandar mensaje de correo, RFC 822
+Estandar de contenedores CRI y OCI, Especificaciones para manejar conetenedores(implementan CRI-O y containerd) y estandard tecnología contenedores(implementa runc)
 
-# Algoritmos y criptografía
+# Desarrollo Algoritmos y criptografía
 
 Estándar criptográfico para firmar y/o cifrar mensajes?, PKCS#7
 Cuales son los algoritmos simétricos?, AES; RC5; 3DES; IDEA; ChaCha20; Blowfish; Twofish
-Cuales son los algoritmos asimétricos?, RSA; DSA; DH; EC
+Cuales son los algoritmos asimétricos?, RSA; DSA; DH; EC; ElGamal
+Como se conoce también a 3DES, TDEA y TDES
+Algoritmos de camino mínimo, Dijkstra; Bellman–Ford; A*; Johnson; Viterbi
+Algoritmos de recubrimiento mínimo, Prim; Kruskal
 Estándar para formato fichero para almacenar clave privada con certificado clave pública?, PKCS#12
 Estándar de cifrado basado en contraseñas?, PKCS#5
 Estándar intercambio claves Diffie-Hellman?, PKCS#3
@@ -250,7 +275,7 @@ Estándar define interfaz dispositivo criptográfico(Cryptoki)?, PKCS#11
 Extensión del protocol de comunicaciones que actualiza una conexión texto plano a una encriptada,"
 STARTTLS(Opportunistic TLS). Usado por IMAP; POP3; LDAP; SMTP; FTP"
 
-# Estandares de red 802
+# Redes comunicaciones Estandares de red 802
 
 Distancia redes PAN, 10-100 metros
 Distancia redes LAN, típico 300 metros hasta 1-2Km
@@ -271,42 +296,50 @@ Token Ring, 802.5
 Redes MAN DQDB (Distributed Queue Dual Bus). En hibernación e inactivo el grupo de trabajo, 802.6
 FDDI (Token Passing), 802.8
 Cual es el estandar WiFi3; banda y Mbps?, 802.11g; 2.4GHZ; 54Mbps
-Cual es el estandard WiFi4; banda y Mbps?, 802.11n; 2.4 y 5 GHz; 150 Mbps
-Cual es el estandard WiFi5; Modulación; banda y Mbps?, 802.11ac; 256 QAM; 5GHz; 450 Mbps; MU-MIMO (MU multiple user Multiple-Input Multiple-Outpu)
-Cual es el estandard WiFi6; Modulación; banda y Mbps?, 802.11ax; 1024 QAM; 2.4 y 5GHZ; 10.5 Gbps; OFDMA
+Cual es el estandard WiFi4; banda y Mbps?, 802.11n; 2.4 y 5 GHz; 150 Mbps; SU-MIMO(Solo atiende un usuario cada vez)
+Cual es el estandard WiFi5; Modulación; banda y Mbps?, 802.11ac; 256 QAM; 5GHz; 450 Mbps; MU-MIMO (MU multiple user Multiple-Input Multiple-Output)
+Cual es el estandard WiFi6; Modulación; banda y Mbps?, 802.11ax; 1024 QAM(modulación en amplitud y fase); 2.4 y 5GHZ; 10.5 Gbps; OFDMA
 Cual es el estandard WiFi7; banda y Mbps?, 802.11 be; 2.4;5;6 GHZ y 46Gbps
 Cual es el estandard WWAN y distancia?, 802.20 < 15 km
 Cual es el estandard WMAN(WiMax) y distancia?., 802.16[m] < 5 km
 Cual es el estandard WPAN; distancia?, 802.15 < 10 m
 Cual es el estandard Bluetooth; velocidades?, 802.15.1(Desarrollo por SIG); Version4; 32 Mbit/s (BLE Low energy); Version5; 50 Mbit/s (5.1 Mesh)
 Cual es el estandard zigbee; velocidad?, 802.15.4; 250 Kbit/s; Domotica bajo consumo
+Como se llama el identificador de la red en WiFi, SSID(Beacon Frame)
 Tamaño clave WPA-Personal; WPA-Enterprise?, 128 bits y 192 bits
+Organismo de estandarización WiFi, Wi-Fi Alliance
 
-# Redes Moviles
+# Redes comunicaciones Redes Moviles
 
+Que es la multiplexación y la modulación, reparto del canal para varios usuarios(FDMA); cambio de la señal de un usuario(FDM)
 Bandas de frecuencia 2G(GSM)?, 900MHz y 1800 MHz
 Velocidad de EDGE(2.75G), 384 Kbps
-Que tipo de red acceso tiene 3G(UMTS)?, UTRAN
+Que tipo de red acceso tiene 3G(UMTS)?, UTRAN(Node B y RNC equivalentes a BTS y BSC)
 Donde se encuentran las Macrocelda; Microcelda; Picocelda?, 3G(UMTS)
 Que tipo de red acceso tiene 4G(LTE)?, E-UTRAN
+Oranismo encargado de estandarizar redes móviles, 3GPP
 Que contiene la tarjeta SIM?, nº serie; estado; pin; clave autent./algorit.; IMSI(id internacional)
 Que codigo identifica al terminal?, IMEI
 Siglas de estación base?, BTS
 Siglas de controlador de estación base?, BSC junta todas las BTS
+Que es el BSS, Subsistema formado por el BTS + BSC
 Que elemento interconecta las diferentes redes moviles y fija(RTB)?, MSC Mobile switching center
 Base de datos de abonados(usuarios)?, HLR
 Base datos dinamicos de usuarios(ej. localización)?, VLR
 Base datos con IMEI(datos fisicos)?, EIR
 Base datos autenticación usuarios?, AUC
+Que es el traspaso sof/hard handover, soft: cambiar entre dos celdas de un mismo BTS. Hard: cambiar y perder visibilidad momentaneamente.
+Que es vertical handover, cambio de tecnología ej. GSM a UMTS
+Que dos modos de desplique tiene 5G, Non Stand Alone(NSA) usa EPC, Stand Alone(SA)
 
-# Ethernet 100Base 1000Base categorias cables fibra optica
+# Redes comunicaciones Ethernet 100Base 1000Base categorias cables fibra optica
 
 En un cable 10Base-T que significa 10 y T?, 10 = velocidad y T = par de cobre
 En un cable 10Base-F que significa 10 y F?, 10 = velocidad y F = Fibra
 Cuales son los tipos de ventana en fibra(F)?, S(1 ventana); L(2 ventanas); E(3 ventana)
 Velocidad de cable cat5?, 100 Mbit/s
-Velocidad de cable cat5e?, 1000 Mbit/s limitado a 100 m. 802.3ae
-Velocidad de cable y distancia máxima cat6?, 1 Gbit/s hasta 55 m
+Velocidad de cable cat5e?, 1 Gbit/s limitado a 100 m.
+Velocidad de cable y distancia máxima cat6?, 10 Gbit/s hasta 55 m
 Velocidad de cable y distancia máxima cat6A?, 10 Gbit/s hasta 100 m
 Velocidad de cable y distancia máxima cat7 y cat7A?, 10Gbit/s hasta 100 m. El cat7 no usa RJ-45 usa CG-45
 Velociad de cable cat8.1 y cat8.2?, hasta 40 Gbps hasta 30 m
@@ -316,7 +349,7 @@ Tipos de conectores de fibra, FC; ST; LC y SC. Existen los transceptor(GBIC y SF
 Distancia y velocidad fibra monomodo OS2?, 200 Km con velocidad de 1 a 10 Gbps
 Distancia y velocidad fibra Multimodo OM2?, 500 m a 1 Gbps o de 82 m a 10 Gbps
 Distancia y velocidad fibra Multimodo OM3?, 1500 m a 1 Gbps o 300 m a 10 Gbps
-Distancia y velocidad fibra Multimodo OM4?, 500 m a 10 Gbps
+Distancia y velocidad fibra Multimodo OM4?, 550 m a 10 Gbps
 Que dos opciones existen para cable coaxial?, Thick(2.5 a 500 metros) y Thin(0.5 a 185 m)
 En cables de par trenzado que tipo no cuenta con ningún tipo de cobertura individual o en común?, UTP (Unshielded Twisted Pair)
 Tipo de cable par trenzado exterior apantallado exterior para el conjunto de alumnio?, FTP (Foiled Twisted Pair)
@@ -336,7 +369,7 @@ Tipo MIME PDF, application/pdf
 Tipo MIME SVG, image/svg+xml (.svg)
 Tipo MIME texto plano, text/plain
 
-# Sintaxis XML DTD XSD
+# Desarrollo Sintaxis XML DTD XSD
 
 Como es la cabecera de xml cuando el fichero DTD es un fichero externo?,"
 <?xml versión='1.0' encoding='utf-8' standalone='no'?>
@@ -346,7 +379,7 @@ Crear comentario en xml,"<!-- comentario -->"
 En DTD: que son los tipos CDATA y PCDATA, CDATA para ATTLIST y PCDATA para ELEMENT. Nota: otros tipos ANY(Mixto) y EMPTY
 En DTD: Etiqueta con texto para que el parser no lo analice,"<![CDATA[texto sin analizar]]>"
 En DTD: Crear un empty element,"<role />"
-"En DTD que hace: <!ELEMENT deportistas (futbol | f1 | tenis)*>", * 0 o N esas opciones. + es 1 o N; ? es 0 o 1
+"En DTD que hace: <!ELEMENT deportistas (futbol | f1 | tenis)*>", * 0 o N esas opciones. + es 1 o N; ? es 0 o FDM1
 En DTD: Tipos de atributos, #REQUIRED;#IMPLIED(opcional);#FIXED valor(entre dobles comillas o simples)
 En DTD: Para que se el atributo ID/IDREF, equivalente a un PK/FK
 "<root xmlns:h='http://uri-a' xmlns:f='http://uri-b'>", TODO
@@ -365,10 +398,10 @@ En XSD como se indica la cardinalidad, minOccurs y maxOccur. Si no se dice nada 
 Que restricciones se pueden usar en XSD, length(fija); minLength; maxLength; pattern; enumeration...
 Para se usa la etiqueta extension, para definir una etiqueta a partir de otra
 
-# Sintaxis Json
+# Desarrollo Sintaxis Json
 
 Que tipos de datos tiene Json?,  Object (subdocumentos); Array; Number; String; true; false y null
-Como escrbes un campo Nombre con el valor Pepe, ""Nombre": "Pepe","
+Como escribes un campo Nombre con el valor Pepe,"''Nombre'': ''Pepe''(coma)"
 Json es case case sensitive?, Sí
 Los numeros decimales como se escriben?, Con punto ejemplo 4.5
 Que datos van sin dobles comillas?, Números; true/false; null
@@ -377,7 +410,7 @@ Librerias para procesar Json?, Jackson; GSON
 APIs de programación?, JSON-P(Bajo nivel) y JSON-B(Alto nivel)
 Hay alguna forma de validar un Json?, Json Schema
 
-# Principio SOLID
+# Desarrollo Principio SOLID
 
 S, Single Responsability: una clase debe tene una responsabilidad única
 O, Open / Close: una clase o metodo de estar abierto para la extensión pero cerrado para modificación
@@ -385,7 +418,7 @@ L, Liskov Subtitution: Los objetos deben poder ser reemplazable por subtipos sin
 I, Interface Segregation: No forzar a los clientes a depender de interfaces que no usan; hay que separa interfaces
 D, Dependency Inversion Principle; Dependender de la interface; no de la implementación
 
-# Patrones de diseño GOF
+# Desarrollo Patrones de diseño GOF
 
 Patrones creacionales?, Singleton; Factory Method; Abstract Factory; Builder; Prototype
 Patrones estructurales?, Flyweight; Adapter; Facade; Proxy; Composite; Decorator; Bridge
@@ -412,7 +445,7 @@ Conjunto de clases que se sirven para notificar a ciertos clientes (mediante sus
 Consiste en crear una jerarquia de clases que se corresponde con los estados por los que pasa una entidad de negocio y en cada una de estas se define el comportamiento/logica de un estado concreto,State
 Define un interface para un cierto algoritmo de forma que podamos tener por debajo todas sus posibles versiones/implementaciones,Strategy
 
-# RAID
+# Sistemas hardware RAID
 
 Como calcular la capacidad de RAID 0, Capacidad Neta = Numero de discos * Capacidad de almacenamiento del disco más pequeño (Ej. RAID con discos de 120GB y 320GB nos dará una capacidad de 240GB)
 Como calcular la capacidad de RAID 1, Capacidad Neta = (Numero de discos * Capacidad de almacenamiento del disco más pequeño)/2
@@ -427,9 +460,9 @@ Que tipo de paridad usa RAID 5 y 6?, RAID 5: Paridad distribuida(soporta 1 fallo
 Que RAIDs trabajan a nivel de bloque(Block-Level)?, RAID 4; RAID5; RAID6. Los tres son de acceso independiente
 Que RAID trabaja a nivel de bit(Bit-Level)?, RAID 2
 Que RAID trabaja a nivel de Byte(Byte-Level)?, RAID 3
-Que es JBOD, Just a Bunch of Disks. Si una unidad de disco alcanza su capacidad, los datos se almacenan en la siguiente. No redundancia.
+Que es JBOD, Just a Bunch of Disks. Si una unidad de disco alcanza su capacidad; los datos se almacenan en la siguiente. No redundancia.
 
-# USB Thunderbolt Firewire Power Delivery
+# Sistemas hardware USB Thunderbolt Firewire Power Delivery
 
 Que velocidad de transferencia tiene USB 2.0?, 480 Mbps
 Que velocidad de transferencia tiene USB 3.0?, 5 Gbps para Gen 1. (Llamado USB 3.1 Gen 1)
@@ -447,7 +480,7 @@ Que Firewire va sobre RJ-45?, Firewire S800T
 Organismo estandanrización USB?, USB-IF; USB Implementers Forum
 Cual es el rango de potencia de Power Delivery(EPR)3.1?, 100 W a 240 W. Anteriormente en la versión SPR 3.0 hasta 100W
 
-# Resoluciones pantalla
+# Sistemas hardware Resoluciones pantalla
 
 Cual es la resolución de SVGA?, 800 x 600
 Cual es la resolución de XGA?, 1024 x 768
@@ -458,7 +491,7 @@ Cual es la resolución de 8K?, 7680 x 4320
 Cual es la resolución de 2K?, 2048 x 1080
 Cual es la resolución de quadHD?, 2560 x 1440
 
-# Puertos comunicaciones
+# Redes comunicaciones Puertos comunicaciones
 
 RIP, 520 UDP
 RIPng, 521 UPD
@@ -475,7 +508,7 @@ FTP, 20 TCP(datos) 21 TCP(control)
 FTPS(SSL), 989(data) 990(control)
 SFTP(SSH), 22 TCP
 TFTP(trivial), 69 UDP
-SMTP, 25; 587; 467(SMTPS) todos TCP
+SMTP, 25; 587; 465(SMTPS) todos TCP
 POP3, 110 Y 995(cifrado) ambos TCP
 IMAP4, 143(tcp-udp); 993(tcp) cifrado
 HTTP 3.0, 80 udp en la versión 3
@@ -498,7 +531,7 @@ Postgres, 5432
 SQLServer, 1433
 Oracle, 1521 reemplaza 2483
 
-# Java Ecosistema
+# Desarrollo Java Ecosistema
 
 javac, compilador
 java, interprete
@@ -562,7 +595,7 @@ Que dos tipos de excepciones existen,"
 "
 De que clase heredan los Error y las Exception?, Throwable. Las RuntimeException heredan de Exception. https://docs.oracle.com/javase/tutorial/essential/exceptions/throwing.html
 
-# SQL
+# Bases datos SQL
 
 Configurar e inicio de transacción SQL y sublenguaje donde se encuentra, SET TRANSACTION(configurar TX) / START TRANSACTION(iniciar TX). DCL->TCL
 Como establecer un punto en las transacciones para no deshacer todo, con SAVEPOINT / RELEASE SAVEPOINT
@@ -643,7 +676,7 @@ VALUES
 END;"
 Que caracterísiticas tiene un procedimiento?, Se ejecuta con CALL; acepta parametros(a diferencia de los triggers) no retorna valor; pueden usar cursores; CREATE PROCEDURE nombre...
 
-# Oracle SQLserver Mysql Postgres
+# Bases datos Oracle SQLserver Mysql Postgres
 
 En Oracle que significado tiene la base de datos, Solo hay una. Es el conjunto de ficheros(estructura interna) pertenece a Oracle no al usuario
 Puerto Oracle, 1521 y reemplazado por 2483
@@ -658,7 +691,7 @@ Ficheros que crea MySQL, .frm(formato tabla); myd(datos); myi(indices)
 Script de MySQL para instalación segura, mysql_secure_installation; mariadb-secure-installation
 Lenguajes SQL/PSM de Oracle;SQL Server; Postgres, PL/SQL; Transact-SQL; PL/pgSQL
 
-# CPD TIA 942
+# Sistemas hardware CPD TIA 942
 
 Porcentaje disponibilidad en Tier I...Tier IV, Tier I: 99.671%; Tier II: 99.741%; Tier III: 99.982%; Tier IV: 99.995%
 Componentes redundantes en Tier I...Tier IV, Tier I: No hay; Tier II: N+1; Tier III: N+1; Tier IV: 2(N+1)
@@ -669,7 +702,7 @@ Que es RPO, Cantidad aceptable de pérdida de datos. Entre el último backup y c
 Que es RTO, Desde que se detecta el desastre hasta que se vuelve a recuperar
 En los racks medida anchura y altura(u) normalizada, Anchura: 19 pulgadas; Altura: 1.75 pulgadas. Temperatura 21ºC humedad 50% hr
 
-# Unidades medidia almacenamiento información puertas lógicas
+# Sistemas hardware Unidades medida almacenamiento información puertas lógicas
 
 Que unidades hay en el sistema internacional y en ISO de - a + tamaño,"
 Sist. Internacional     ISO
@@ -703,7 +736,7 @@ NAND, hacer AND y aplicar NOT
 NOR, hacer OR y aplicar NOT
 XNOR, hacer XOR y aplicar NOT
 
-# Terminos entidad-relacion relacional FN base-matematica
+# Bases datos Terminos entidad-relacion relacional FN base-matematica
 
 En el modelo E/R cardinalidad, nº de entidades que se relacionan de un extremo con el otro extremo
 En el modelo E/R grado, nº tipos de entidad que participan en la relación. Binaria; ternaria...
@@ -719,7 +752,7 @@ Que incluye E/R extendido,"
 - [Especialización; Agregación]-> Disjunta/Solapada; Total/Parcial"
 En E/R que es tipo correspondencia, Número máximos que pueden particiar en una relación(1:1; 1:N; N:M)
 Que jerarquías existen en E/R y que diferencias tienen,"
-- Total/Parcial: (1, x), (n, x)
+- Total/Parcial: (1, x), (0, x)
 - Exclusiva/Solapada: (x, 1) / (x, n)"
 En DFD que tipos de flujos de datos existen, consulta; actualización; diálogo; flujo control; proceso control(manejar eventos)
 Que flujos están permitidos y siempre que debe haber, proceso-proceso; proceso-almacen; proceso-entidad externa
@@ -746,7 +779,7 @@ Operaciones básicas algebra relacional,"
 - Diferencia: R-S tuplas de R que no estén en S"
 Operaciones derivadas algebra relacional, intersección; unión natural; división; outer joins
 
-# Complejidades algoritmos
+# Desarrollo Complejidades algoritmos
 
 Complejidad promedia algoritmo Burbuja, O(n²) y el mejor O(n)
 Complejidad promedia algoritmo Inserción directa, O(n²) y el mejor O(n)
@@ -757,7 +790,7 @@ Complejidad promedia algoritmo Selección, O(n²)
 Complejidad promedia algoritmo Radix Sort, O(n*K)
 Complejidad promedia algoritmo Bucket Sort/BinSort, O(n)
 
-# Diagramas UML
+# Desarrollo Diagramas UML
 
 El diagrama de Perfil es de tipo ..., Estructural
 El diagrama de Actividad es de tipo ..., Comportamiento
@@ -771,18 +804,18 @@ El diagrama de Objetos es de tipo ..., Estructural
 El diagrama de Composite es de tipo ..., Estructural
 Dentro de los diagramas de comportamiento -> Interacción ..., Comunicación; Interaction Overview; Secuencia; Timing
 
-# Arquitectura CPU
+# Sistemas hardware Arquitectura CPU
 
 Que significa una CPU 64 bits,"
 tamaño de 64 bits para:
 - Registro CPU
 - Ancho bus datos
 - Instrucciones
-- Pero 48 bits espacio de direcciones y bus de direcciones
+- Pero 48 bits espacio de direcciones y bus de direcciones"
 Que es una palabra en arquitectura computadoras, trozo de información que puede manejar
 Diferencias entre arquitectura Harvard y Von Neumann,"
 - Harvard memoria separada para datos e instrucciones. Mejor rendimiento al paralelizar y seguridad
-- Von Neumann 1 única memoria para instrucciones y datos. Cuellos botella
+- Von Neumann 1 única memoria para instrucciones y datos. Cuellos botella"
 Que hace la unidad de control, carga instrucciones; decodifica instrucciones
 Que hace la ALU, operaciones aritméticas y manipulación bits
 Que tipos de registros existen,"
@@ -790,7 +823,7 @@ Que tipos de registros existen,"
 - MDR(Mem. Data Reg.)
 - AC(Acumulador)
 - PC(Program counter)
-- CIR(Current Instruction Reg.)
+- CIR(Current Instruction Reg.)"
 Cual es el ciclo de instrucción del procesador,"
 fetch(búsqueda/carga) -> Decodificador -> Secuenciador(ejecuta)"
 Que hace el Contador de Programa(PC; intel-> Instruction Pointer), contiene dirección memoria de la siguiente instrucción a ejecutar(puntero)
@@ -798,8 +831,9 @@ Que modos de direccionamiento existen, implicito;inmediato;indirecto;directo/abs
 Que es la segmentación/pipeline y en que tipo procesador se usa, es paralelizar instrucciones; se usa en RISC
 Que es el BSB, es un bus que conecta la CPU con la caché
 En la memoria DDR-200 que significa PC1600, 100Mhz X 2(Double Data Rate) X 8 Bytes = 1600 MB/S. Es el ancho banda del módulo
+TODO: Cuales son los algoritmos de planificación CPU, FCFS...
 
-# Almacenamiento
+# Sistemas hardware Almacenamiento
 
 Que es journaling, una especie de cuaderno bitácora
 Que es smdb, demonio de SMB/CIFS para compartir carpetas de Linux a clientes Windows
@@ -847,7 +881,7 @@ SMTP comando indicar dirección origen/destino, MAIL FROM / RCPT TO
 ESMTP comando inicial cominicación segura, EHLO client.example.com
 ESMTP comando pasar a comunicación cifrada, STARTTLS. Se usa en otros protocolos: LDAP; FTP...
 
-# Medios transmision conmutacion
+# Redes comunicaciones Medios transmision conmutacion
 
 Parametros de una señal, longitud de onda; frecuencia; amplitud
 Que es la diafonia(crosstalk) y la diafonia Alien, diafonia = acopla la señal(ej. par trenzado); diafonia alien es con cables diferentes(ej. rack)
@@ -877,4 +911,31 @@ En MPLS término para indicar camino que sigue el trafico, LSP(Label Switch Path
 En MPLS término para indicar grupo de paquetes encaminados de una misma manera, FEC(Forwarding Equivalence Class)
 En MPLS protocolo utilizado para intercambiar información de enrutamiento entre encaminadores, LDP(Label Distribution Protocol)
 En MPLS tamaño de las etiquetas de entrada y salida, 20 bits. Campo Bottom Stack-> última etiqueta(1bit)
+
+# Accesibilidad WCAG 2 1
+
+Nº de principios; pautas; criterios de conformidad; técnicas,"
+- 4 Principios
+- 13 Pautas
+- 78 Criterios
+- 580 Técnicas"
+Pautas del principio Perceptible,"
+- Alternativa de texto
+- Contenido multimedia dependiente del tiempo
+- Adaptable
+- Distinguible"
+Pautas del principio Operable,"
+- Teclado accesible
+- Tiempo suficiente
+- Ataques epilecticos
+- Navegable
+- Modalidades de entrada"
+Pautas del principio Comprensible,"
+- Legible
+- Previsible
+- Asistencia a la entrada de datos"
+Pautas del principio Robusto,"
+- Compatible"
+
+
 
