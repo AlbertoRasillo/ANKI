@@ -933,29 +933,6 @@ sc create NewService binpath= c:\...\NewServ.exe type= share start= auto, crea n
 sc query type= service/driver/... state=active/inactive, consulta estado servicio
 sc /start/stop/delete nombreDelServicio, gestionar estado servicio
 
-# Iptables
-
-Como se llama el modulo del kernel,Netfilter
-Que herramientas están encima del modulo cortafuegos del kernel, iptables; nftables; ufw: firewalld
-Si tenemos una DMZ con un servicio correo que cadena hay que configurar para el trafico entrante, PREROUTING->INPUT
-Si desde nuestro equipo cliente queremos controlar el trafico saliente que cadena debemos configurar, OUTPUT->POSTROUTING
-Si queremos que una maquina linux haga de router que cadenas se deben configurar, PREROUTING->FORWARD->POSTROUTING. Usa dos tarjetas red
-Si en una regla no se indica la variable -t(table) cual se pone por defecto, filter(solamente esta en INPUT; FORWARD; OUTPUT)
-Si dentro de las cadenas hay varias reglas que pueden dar match que sucede, Solamente se aplica la primera que encuentra
-Que es el campo -j y que opciones tiene, significa Jump(tratamiento trafico) ACCEPT; DROP; REDIRECT; REJECT
-Diferencia entre DROP y REJECT, DROP elimina el trafico y no informa al origen; REJECT si informa al origen
-Como se guardan/restauran las reglas creadas,"
-- iptables-save > /etc/iptables/rules.v4(v6 para ipv6)
-- systemctl enable netfilter-persistent.service
-- iptables-restore < /etc/iptables/rules.v4"
-Añadir una regla nueva, iptables -A INPUT -i eth0 -p tcp --dport 8888 -j ACCEPT
-Como eliminar una regla, iptables -D test
-Borrar toda las iptables, iptables -F / iptables --flush
-Crear regla por defecto, iptables -P INPUT DROP
-Listar una tabla, iptables -t nat -L
-Por defecto en linux no permite reglas FORWARD como se configura, editar /etc/sysctl.conf añadir net.ipv4.ip_forward=1
-Que hace iptables -t nat -A POSTROUTING -s 192.168.3.0/24 -o eth0 -j SNAT --to 80.58.1.14, Hace NAT estático salida. Alternativa MASQUERADE
-
 # Windows powershell
 
 Add-Computer, Añade un ordenador a un dominio o grupo de trabajo.
@@ -993,4 +970,27 @@ ForEach-Object (alias; foreach), Recorre una serie de objetos y ejecuta un scrip
 Get-CimInstance, Obtiene información de configuración a través de WMI.
 Get-Location (alias; gl; pwd), Muestra el directorio actual.
 Get-PSDrive (alias; gdr), Muestra todas las unidades; incluidas las virtuales para navegar por el registro; certificados; etc.
+
+# Iptables
+
+Como se llama el modulo del kernel,Netfilter
+Que herramientas están encima del modulo cortafuegos del kernel, iptables; nftables; ufw: firewalld
+Si tenemos una DMZ con un servicio correo que cadena hay que configurar para el trafico entrante, PREROUTING->INPUT
+Si desde nuestro equipo cliente queremos controlar el trafico saliente que cadena debemos configurar, OUTPUT->POSTROUTING
+Si queremos que una maquina linux haga de router que cadenas se deben configurar, PREROUTING->FORWARD->POSTROUTING. Usa dos tarjetas red
+Si en una regla no se indica la variable -t(table) cual se pone por defecto, filter(solamente esta en INPUT; FORWARD; OUTPUT)
+Si dentro de las cadenas hay varias reglas que pueden dar match que sucede, Solamente se aplica la primera que encuentra
+Que es el campo -j y que opciones tiene, significa Jump(tratamiento trafico) ACCEPT; DROP; REDIRECT; REJECT
+Diferencia entre DROP y REJECT, DROP elimina el trafico y no informa al origen; REJECT si informa al origen
+Como se guardan/restauran las reglas creadas,"
+- iptables-save > /etc/iptables/rules.v4(v6 para ipv6)
+- systemctl enable netfilter-persistent.service
+- iptables-restore < /etc/iptables/rules.v4"
+Añadir una regla nueva, iptables -A INPUT -i eth0 -p tcp --dport 8888 -j ACCEPT
+Como eliminar una regla, iptables -D test
+Borrar toda las iptables, iptables -F / iptables --flush
+Crear regla por defecto, iptables -P INPUT DROP
+Listar una tabla, iptables -t nat -L
+Por defecto en linux no permite reglas FORWARD como se configura, editar /etc/sysctl.conf añadir net.ipv4.ip_forward=1
+Que hace iptables -t nat -A POSTROUTING -s 192.168.3.0/24 -o eth0 -j SNAT --to 80.58.1.14, Hace NAT estático salida. Alternativa MASQUERADE
 
