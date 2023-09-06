@@ -1,0 +1,20 @@
+¿Cual es la utilidad del interface Datasource? ¿Como se utiliza en el contexto de un servidor JEE?,- Proporcionar a las aplicaciones de un pool de conexiones de BBDD - Para poder usarse necesitamos recuperar ese objeto Datasource del arbol JNDI (programaticamente o mediante inyeccion de dependencias)
+¿En que consiste la tecnica de inyeccion de dependencias? Ejemplos,"En un mecanismo de diseño que consiste en que los objetos que quieren colaborar los enlaza entre si el ""sistema"" Ejemplos --> Spring (CORE) y JEE (CDI)"
+En c#. ¿para que nos sirve la palabra reservada sealed?,Para evitar que se puede heredar de esta clase (equivalente a final en Java)
+En php. ¿en que consisten los traits?,En un mecanismo de reutilización de metodos distinto al de la herencia
+¿Con que protocolo podemos conseguir alta disponibilidad entre routers?,VRRP (Virtual Router Redundancy Protocol)
+¿Cuantos host podemos direccionar con una dirección IP de clase D?,No aplica. son direcciones multicast
+¿Que zona de la memoria se utiliza cuando se generan objetos en Java?,HEAP (se puede configurar cuando se lanza un proceso java con la jre)
+¿Para que se usa el modificador volatile en Java?,Para evitar que cada hilo de ejecución haga copia en su cache de un atributo de un objeto que están compartiendo
+¿Cual es el objetivo principal de una VLAN?,Segmentar de forma logica la red. Crea distintos dominios de difusión y le da mayor seguridad al diseño de la LAN
+¿Qué es un hipervisor de tipo 1?,Aquellos que funcionan directamente sobre el hardware
+¿Qué diferencia existe entre una CPU y una APU?,Que la APU (concepto de AMD) tiene una tarjeta grafica incorporada
+En SQL. ¿qué podemos decir del conjunto de resultados despues de aplicar UNION ALL?,Que incluirá las filas repetidas
+¿Cual es el objetivo de un producto como Nagios?,Monitorización de red (dispositivos SNMP entre otros)
+"¿Para que nos sirve el caracter ""="" en la codificación Base64?",Para relleno cuando la información no es multiplo exacto al dividir de 6 en 6 bits
+¿Qué es el grado en el modelo relacional?,Numero de atributos de la relacion
+En el modelo relacional.¿que particularidad tiene una superclave?,Que en ocasiones se puede reducir (eliminar algun atributo) y seguir siendo una clave
+En redes inalámbricas. ¿cual es el concepto del MU-MIMO?,Tecnica para permitir transmisiones simultaneas a los clientes (basado en streams.2x2.4x4....)
+¿Qué es el estrangulamiento térmico en una CPU?,Mecanismo de protección que hace que el rendimiento de la CPU baje con una excesiva temperatura
+¿En que consiste la técnica de overclocking?,En forzar a un regimen de funcionamiento superior a la CPU (es importante un buen mecanismo de refrigeración)
+¿En que consiste la NVRAM?,Memoria de acceso aleatorio no volatil (una de ellas mateniente la información de configuración. por ej de la CMOS-RAM de la BIOS. mientras esté alimentada por una bateria/pila)
