@@ -140,9 +140,11 @@ Validez DNIe cuando el titular haya cumplido los setenta años?, Permanente
 Validez DNIe a los mayores de 30 años que acrediten la condición de gran inválido?, De forma excepcional se podrá otorgar validez permanente o de un año en determinadas circunstancias
 Validez de los certificados contenidos en el chip del DNI?, plazo validez 24 meses y plazo máximo validez sesenta meses(5 años)
 Certificados del propietario que contiene el DNIe?, Certificado de autenticación y certificado de firma electrónica reconocida. Ambos X509v3
-Que contiene el chip en la zona pública?, Certificado CA; Claves Diffie-Hellman; Certificado x509 de componente; Certificado de Firma; Certificado de Autenticación
-Que contiene el chip en la zona privada?, Datos de filiación del ciudadano; Imagen de la fotografía; Imagen de la firma manuscrita; Modelo dactilar
-Características chip DNIe, 400KB flash; 8 KB RAM; libreria RSA; Standard CC EAL5+; Dual interface
+Que certificados tiene el chip, certificado componente(canal seguro con drivers); certificado autenticación; certificado firma
+Que contiene el chip en la zona pública?, Certificado CA; Claves Diffie-Hellman; Certificado x509 de componente
+Que contiene el chip en la zona privada?, certificado firma; certificado autenticación
+Que contiene el chip en la zona seguridad?, Datos de filiación del ciudadano; Imagen de la fotografía; Imagen de la firma manuscrita
+Características chip DNIe, libreria RSA; Standard CC EAL5+; Dual interface; 400KB flash; 8 KB RAM;
 Que usos tiene el DNIe?, Medio de autenticación de identidad; Medio de firma/integridad electrónica de documentos; Documento de viaje
 El DNIe tiene antena NFC(Near Field Communication)?, Si
 Que prestadores de servicios de validación existen para el DNIe?, FNMT(Fabrica Nacional de Moneda y Timbre) y Ministerio de Hacienda Y Administraciones Públicas
@@ -184,7 +186,7 @@ Nº Objetivo - ALIANZAS PARA LOGRAR LOS OBJETIVOS: Fortalecer los medios de ejec
 ¿Cuantos son los objetivos de desarrollo sostenible(ODS)?, 17 objetivos
 ¿Cuantos/Cuales son los ejes de centrales?, 5 Planeta-Personas-Prosperidad-Paz-Alianzas
 ¿Cuantos/Cuales son los pilares?, 3 El económico-el social-el ambiental
- Erradicar la _______ en todas sus formas en todo el mundo.,FIN DE LA POBREZA: Erradicar la pobreza en todas sus formas en todo el mundo. 
+ Erradicar la _______ en todas sus formas en todo el mundo.,FIN DE LA POBREZA: Erradicar la pobreza en todas sus formas en todo el mundo.
  Poner fin al ______. conseguir la seguridad ___________ y una mejor __________ y promover la agricultura sostenible.,HAMBRE CERO Poner fin al hambre. conseguir la seguridad alimentaria y una mejor nutrición. y promover la agricultura sostenible.
  Garantizar una vida _________ y promover el _________ para todos y todas en todas las edades.,SALUD Y BIENESTAR Garantizar una vida saludable y promover el bienestar para todos y todas en todas las edades.
  Garantizar una _________ de calidad inclusiva y equitativa. y promover las oportunidades de ___________ permanente para todos.,EDUCACIÓN DE CALIDAD Garantizar una educación de calidad inclusiva y equitativa. y promover las oportunidades de aprendizaje permanente para todos.
@@ -354,7 +356,7 @@ Plazo para comunicar a la AEPD cese del delegado de protección datos, 10 días 
 Tipos sanciones; cantidades y prescripción,"
 - Leves 40K prescriben al año
 - Graves 40.001-300K prescriben a los dos años
-- Muy graves superior a 300K prescriben a los tres años" 
+- Muy graves superior a 300K prescriben a los tres años"
 Quien elabora el plan de impulso de los derechos digitales y cada cuanto se presenta el informe,"
 Lo elabora el Gobierno y presenta el informe una vez al año al congreso"
 
@@ -371,7 +373,7 @@ NTI catálogo de estandares características que tiene,"
 - No existe homologación pero se revisa/actualiza 1 vez/año
 - Abierto o de uso generalizado"
 NTI Documento Electronico que contiene,"
-- Datos XML / Binario / Referencia(ej. enlace Alfresco) 
+- Datos XML / Binario / Referencia(ej. enlace Alfresco)
 - Nombre formato(segun NTI catalogo estandares)
 - ID [opcional]"
 NTI Documento electrónico metadatos obligatorios,"
@@ -384,7 +386,7 @@ NTI Documento electrónico metadatos obligatorios,"
 - Tipo Documento(resolución; contrato; notificación...)
 - Tipo firma(csv;xades;cades;pades); contenido firma"
 Que agrupador logico está por encima del documento electrónico, expediente electrónico
-Como se organizan los documentos, independientes; dentro de carpeta; dentro de un sub-expediente 
+Como se organizan los documentos, independientes; dentro de carpeta; dentro de un sub-expediente
 Que es lo que se firma en el expediente electrónico, el indice electrónico
 Que contiene el indice electrónico,"
 - Id documento
@@ -420,3 +422,54 @@ Cual es criterio para el certificado de conformidad(auditoria),"
 - Aplica solamente a Sistemas información categoría Media o Alta.
 - En S.I cat. básica aplica la declaración conformidad."
 
+# Servicios comunes
+
+Identidad y firma: Identificación digital del ciudadano, Cl@ve
+Identidad y firma: Firma en la nube. Para el ciudadano, Cl@ve-firma
+Identidad y firma: Webservices internos validación firma/certificado, @firma
+Identidad y firma: Solución integral(escritorio; movil; nube) firma, Fire
+Identidad y firma: Autoridad sellado de tiempo, TS@
+Identidad y firma: Validación firmas usuario final, Valide
+Identidad y firma: Firma en flujos de trabajo de administración, Portafirmas
+Identidad y firma: Librerías integración @firma, Integr@
+Identidad y firma: Aplicación firma para escritorio, Autofirma
+Identidad y firma: Single Sign On, Autentica
+Registros y representación: Sistema Interconexión Registros, SIR usa modelo datos SICRES 4.0
+Registros y representación: Registro Electrónico AGE para ciudadanos/empresas, REG-AGE
+Registros y representación: Solución para crear oficina de registros, GEISER y ORVE
+Registros y representación: Registro Electronico Apoderamiento, REA(Apodera)
+Registros y representación: Registro Funcionarios Habilitados, RFH(Habilita)
+Registros y representación: Gateway para validar identidad de representación, Representa
+Atención al ciudadano/empresa: Puerta de entrada digital de los ciudadanos a las AA.PP.,PAG Punto de Acceso General
+Atención al ciudadano/empresa: Teléfono único de atención de la AGE.,teléfono 060
+Atención al ciudadano/empresa: Espacio del ciudadano con todos los datos relativos a su relación con las AA.PP,carpeta ciudadana
+Atención al ciudadano/empresa: Punto de entrada centralizado para facturas electrónicas por parte de proveedores de las AA.PP.,FACE
+Atención al ciudadano/empresa: Trámite único para comunicar cambio de domicilio de ciudadanos,SCCD (Servicio de Comunicación de Cambio de Domicilio)
+Atención al ciudadano/empresa: Incripción en pruebas selectivas,IPS (Inscripción de Pruebas Selectivas)
+Atención al ciudadano/empresa: Permite la gestión de citas en oficinas de atención al ciudadano.,Cita Previa
+Intercambio información entre AAPP, comunicaciones seguras entre organismos/unidades administrativas->Corinto; herramientas para intercambio datos->SCSP
+S.I. Transversal: Relación de procedimientos y servicios, Sistema de Información Administrativa (SIA)
+S.I. Transversal: Directorio Común de Unidades Orgánicas y Oficinas, DIR3
+Comunicaciones/notificaciones ciudadano: Punto único para ciudadano de notificaciones de AAPP, Dirección Electrónica Habilitada Única (DEHú)
+Comunicaciones/notificaciones ciudadano: Gestión de notificaciones, Notific@(cuatro vias-> DEHú; Carpeta ciudadana; Soporte papel)
+Comunicaciones/notificaciones ciudadano: Plataforma de Mensajería,SIM
+Servicios ciudadano: Generación y custodia documento y expedientes electrónicos,InSiDe
+Servicios ciudadano: Archivo definitivo de expedientes y documentos electrónicos,Archive
+Servicios ciudadano: CMS crea formularios procedimientos y tramita expedientes electrónicos,Acceda
+Servicios ciudadano: Portal de Administración Electrónica, PAE punto centralizado información
+Servicios ciudadano: Observatorio de Administración Electrónica, OBSAE
+Servicios ciudadano: Centro de Transferencia de Tecnología. Directorio aplicaciones, FORJA/CTT
+Servicios ciudadano: Publica modelos datos intercambi(ENI),Centro de Interoperabilidad Semántica
+Servicios ciudadano: Datos abiertos,Portal datos.gob.es
+Servicios ciudadano: Plataforma de traducción automática para portales,PLATA
+Servicios ciudadano: Creación de mapas GIS: EGEO
+Servicios ciudadano: Generación de formularios y encuestas,FORMA
+Servicios ciudadano: Búsqueda personalizable para portales públicos,BUSCADORAGE
+Servicios ciudadano: Generación de URLs cortas,RUN
+Gestión interna: Servicio común de reuniones virtuales,Reúnete
+Gestión interna: Permite el intercambio de ficheros de gran tamaño,Almacén
+Gestión interna: Gestión de nómina de los empleados públicos,NEDAES
+Gestión interna: Gestión de los procedimientos de Recursos Humanos,SIGP
+Gestión interna: Portal para empleado público asuntos de recursos humanos,FUNCIONA
+Gestión interna: Consulta nominas,SERVINOMINA
+Gestión interna: Control de presencia,TRAMA

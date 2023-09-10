@@ -33,7 +33,7 @@ apt-get update, actualiza el indice de paquetes usando los repositorios
 apt-get upgrade, actualiza los paquetes instalados en el sistema
 apt-get install vsftpd, instala el paquete vsftpd online
 apt-get remove vsftpd, elimina el paquete
-apt-get purge vsftpd, elimina el paquete y ficheros de configuracion
+apt-get purge vsftpd, elimina el paquete y ficheros de configuracion. Equivalente a apt remove --purge
 apt-get autoremove, elimina paquetes huerfanos que ya no son necesarios
 dpkg -i flash_2.8.2+squeeze1_i386.deb, instalación offline
 dpkg -l, lista paquetes instalados
@@ -56,7 +56,7 @@ rpm -Uvh nx-3.5.0-2.el6.centos.i686.rpm, hacer un upgrade
 rpm -qpR BitTorrent-5.2.2-1-Python2.4.noarch.rpm, chequear dependencias antes de la instalacion
 rpm -ql BitTorrent, lista los ficheros de la instalación
 rpm -evv nombre_paquete, elimina el paquete
-rpm -qi vsftpd, muestra información del paquete instalado
+rpm -qi vsftpd, muestra información del paquete instalado. La q es query
 rpm -qip sqlbuddy-1.3.3-1.noarch.rpm, muestra información del paquete
 Nombre de paquete servidor DNS, bind9
 Nombre de paquete servidor DHCP, isc-dhcp-server
@@ -110,10 +110,10 @@ ln origen nombre_enlace, enlace duro; no vale para directorios
 
 # Linux tar tape archive
 
-tar cvf file.tar *.c, crea un fichero empaquetado sin comprimir
-tar cvfz file.tar.gz *.c, crea un fichero emaquetado y comprimido con gzip
+tar cvf file.tar *.c, crea un fichero empaquetado sin comprimir. Ojo tar -cvf importa el orden(-)
+tar cvfz file.tar.gz *.c, crea un fichero emaquetado y comprimido con gzip. Ojo tar -cvzf importa el orden(-)
 tar cvfj Phpfiles-org.tar.bz2 /home/php, crea un fichero emaquetado y comprimido con bzip2
-tar xvf file.tar, desempaqueta un fichero con o sin compresion
+tar xvf file.tar, desempaqueta un fichero con o sin compresion.
 tar xvf videos-14-09-12.tar.bz2, desempaqueta un fichero con o sin compresion
 opción -r, actualiza o añade un fichero en un empaquetado concreto
 opción -f, para poder especificar el nombre del fichero resultante

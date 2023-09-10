@@ -95,31 +95,32 @@ Android 11, Red Velvet Cake
 
 # Soluciones CCN-CERT
 
-¿Qué solución es la elaboración de la documentación de seguridad y facilita un marco para manejar información sensible?,AMPARO
-¿Cuál es el nombre de la solución que se enfoca en la auditoría continua para reducir las probabilidades de explotación de vulnerabilidades?,ANA
-¿Cuál es el nombre de la plataforma de formación con desafíos de seguridad informática?,ATENEA
-¿Qué solución se encarga de la protección y trazabilidad del dato?,CARLA
-¿Qué solución se enfoca en la protección de las infraestructuras tecnológicas y para la identificación de Amenazas Persistentes Avanzadas (APT)?,CARMEN
-¿Qué herramientas de seguridad son para dispositivos Android?,CCNDroid
-¿Cuál es el nombre de la herramienta para analizar el cumplimiento de ENS en Windows y Linux?,CLARA
-¿Cuál es el nombre de la solución de endpoint integrada en CARMEN para detección de malware y APT?,CLAUDIA
-¿Cuál es el nombre de la solución que es un agente ligero para Windows para protección de ransomware y utiliza el motor de CLAUDIA?,microCLAUDIA
-¿Cuál es el nombre del simulador de cibervigilancia para poner práctica conocimientos?,ELENA
-¿Qué solución es un sistema de vigilancia de la seguridad de la red corporativa que se integra con ROCIO y ANA?,EMMA
-¿Cuál es el nombre de la plataforma para la gestión de incidentes y amenazas de ciberseguridad que aplica inteligencia (SIEM)?,GLORIA
-¿Cuál es el nombre de la solución que evalúa el nivel de adecuación al ENS y el estado de seguridad de los sistemas?,INES
-¿Qué herramienta se utiliza para visualizar en tiempo real el estado de la ciberseguridad del sector público?,IRIS
-¿Cuál es el nombre de la solución de almacenamiento en la nube?,LORETO
-¿Qué solución es una herramienta de gestión y notificación de ciberincidentes que utiliza el Listado Unificado de Coordinación y Amenazas?,LUCIA
-¿Cuál es el nombre de la plataforma de sandbox para análisis de posibles ficheros maliciosos?,MARTA
-¿Cuál es el nombre de la herramienta del CCN que sirve como plataforma multiantivirus?,MARIA
-¿Cuál es el nombre del sistema de automatización de gestión de información y eventos de seguridad para anticiparse a las amenazas (NGSIEM)?,MONICA
-¿Cuál es el nombre de la herramienta para tareas de sobreescritura y borrado de archivos y discos?,OLVIDO
-¿Cuál es el nombre del repositorio de ciberinteligencia para intercambio bidireccional?,REYES
-¿Qué solución se utiliza para automatizar tareas realizadas por el auditor de seguridad?,ROCIO
-¿Cuál es el nombre de la plataforma de retransmisión de sesiones formativas en directo?,VANESA
-¿Cuál es el nombre del conjunto de herramientas EAR para análisis y gestión de riesgo de sistemas que sigue la metodología Magerit y tiene diferentes?,PILAR
-¿Cuál es el nombre de la plataforma de análisis avanzado de malware que evoluciona las capacidades de análisis dinámico (MARTA) y estático (MARIA) y cuenta con una interfaz unificada; estadísticas; histórico de muestras e informes?,ADA
+Elaboración de la documentación de seguridad y facilita un marco para manejar información sensible conforme ENS,AMPARO
+Se enfoca en la automatización y normalización de auditorias,ANA
+Plataforma de formación con desafíos de seguridad informática,ATENEA
+Portal de formación y cultura de ciberseguridad que unifica desafios(Atenea) y formación en directo(Vanesa),ANGELES
+Se encarga de la protección y trazabilidad del dato,CARLA
+Protección de las infraestructuras tecnológicas y defensa Amenazas Persistentes Avanzadas (APT)?,CARMEN
+Herramientas de seguridad para dispositivos Android,CCNDroid
+Herramienta para analizar el cumplimiento de ENS en Windows y Linux,CLARA
+Integrada en CARMEN para detección de malware y APT en el puesto de usuario,CLAUDIA
+Agente ligero para Windows para protección de ransomware y utiliza el motor de CLAUDIA,microCLAUDIA
+Simulador de cibervigilancia para poner práctica conocimientos,ELENA
+Sistema de vigilancia de la seguridad de la red corporativa que se integra con ROCIO y ANA,EMMA
+Plataforma para la gestión de incidentes y amenazas de ciberseguridad que aplica inteligencia (SIEM),GLORIA
+Solución que evalúa el nivel de adecuación al ENS y el estado de seguridad de los sistemas,INES
+Herramienta que se utiliza para visualizar en tiempo real el estado de la ciberseguridad del sector público,IRIS
+Solución de almacenamiento en la nube,LORETO
+Herramienta de gestión y notificación de ciberincidentes que utiliza el Listado Unificado de Coordinación y Amenazas,LUCIA
+Plataforma de sandbox para análisis de posibles ficheros maliciosos(integrada en ADA),MARTA
+Herramienta del CCN que sirve como plataforma multiantivirus en tiempo real(integrada en ADA),MARIA
+Sistema de automatización de gestión de información y eventos de seguridad para anticiparse a las amenazas(NGSIEM),MONICA
+Herramienta para tareas de sobreescritura y borrado de archivos y discos,OLVIDO
+Repositorio de ciberinteligencia para intercambio bidireccional,REYES
+Herramienta para automatizar tareas realizadas por el auditor de seguridad en equipos comunicaciones,ROCIO
+Plataforma de retransmisión de sesiones formativas en directo,VANESA
+Herramientas para análisis y gestión de riesgo de sistemas que sigue la metodología Magerit y tiene diferentes versiones,PILAR
+Plataforma de análisis avanzado de malware que evoluciona las capacidades de análisis dinámico (MARTA) y estático (MARIA),ADA
 
 # Redes comunicaciones Protocolos OSI
 
@@ -130,7 +131,7 @@ Equivalente SNMP, CMIS/CMIP
 Equivalente FTP, FTAM
 Equivalente LDAP, X.500
 Equivalente SMTP, X.400
-Que funciones tiene la capa de presentación, cifrado; codificación; compresión; 
+Que funciones tiene la capa de presentación, cifrado; codificación; compresión;
 
 # Redes comunicaciones Formato del datagrama IPv4 y IPv6
 
@@ -754,7 +755,10 @@ En E/R que es tipo correspondencia, Número máximos que pueden particiar en una
 Que jerarquías existen en E/R y que diferencias tienen,"
 - Total/Parcial: (1, x), (0, x)
 - Exclusiva/Solapada: (x, 1) / (x, n)"
-En DFD que tipos de flujos de datos existen, consulta; actualización; diálogo; flujo control; proceso control(manejar eventos)
+En DFD que tipos de flujos de datos existen, consulta; actualización; diálogo; flujo control
+Que hace el flujo de diálogo, flujo entre proceso y almacen de consulta y actualización
+Que es un proceso control, procesos que coordinan y sincronizan otros procesos(manejar eventos)
+Que es un flujo de control, flujo entre proceso de control y otro proceso
 Que flujos están permitidos y siempre que debe haber, proceso-proceso; proceso-almacen; proceso-entidad externa
 Que flujogramas conoces, actividad UML; Nassi; Bertini; Tabourier; Jackson; Warnier
 En modelo Relacional que es el Grado, nº atributos de la relación
@@ -831,7 +835,6 @@ Que modos de direccionamiento existen, implicito;inmediato;indirecto;directo/abs
 Que es la segmentación/pipeline y en que tipo procesador se usa, es paralelizar instrucciones; se usa en RISC
 Que es el BSB, es un bus que conecta la CPU con la caché
 En la memoria DDR-200 que significa PC1600, 100Mhz X 2(Double Data Rate) X 8 Bytes = 1600 MB/S. Es el ancho banda del módulo
-TODO: Cuales son los algoritmos de planificación CPU, FCFS...
 
 # Sistemas hardware Almacenamiento
 

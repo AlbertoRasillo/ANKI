@@ -2,9 +2,9 @@
 
 path version Red Hat, cat /etc/redhat-release
 path version Ubuntu, cat /etc/lsb-release alternativa /etc/os-release
-path version Debian, cat /etc/os-release alternativa /etc/lsb-release
-path version release OS, cat /proc/sys/kernel/osrelease -> 5.10.0-21-amd64
-existe /etc/issue; /etc/osrelease y /etc/debian_version?, Sí podemos obtener info acerca de la distribucion de Linux
+path version Debian, cat /etc/debian_version
+path version release kernel, cat /proc/sys/kernel/osrelease -> 5.10.0-21-amd64
+existe /etc/issue; /etc/osrelease?, Sí podemos obtener info acerca de la distribucion de Linux
 path version tipo OS, cat /proc/sys/kernel/ostype -> Linux
 En Linux imprime toda la información nombre kernel; version; release; plataforma hardware, uname -a o --all
 En Linux imprime con uname el nombre del kernel, uname -s o --kernel-name
@@ -51,7 +51,7 @@ yum: busca el paquete openssh,yum search openssh
 yum: muestra info del paquete,yum info firefox
 yum: muestra lista de repositorios activos,yum repolist
 yum: para instalar desde un repo concreto,yum --enablerepo=epel install phpmyadmin
-yum: instalación offline verbose,rpm -ivh pidgin-2.7.9-5.el6.2.i686.rpm
+rpm: instalación offline verbose,rpm -ivh pidgin-2.7.9-5.el6.2.i686.rpm
 rpm: hacer un upgrade,rpm -Uvh nx-3.5.0-2.el6.centos.i686.rpm
 rpm: chequear dependencias antes de la instalacion,rpm -qpR BitTorrent-5.2.2-1-Python2.4.noarch.rpm
 rpm: lista los ficheros de la instalación,rpm -ql BitTorrent
@@ -110,8 +110,8 @@ ln origen nombre_enlace, enlace duro; no vale para directorios
 
 # Linux tar tape archive B side
 
-crea un fichero empaquetado sin comprimir,tar cvf file.tar *.c
-crea un fichero emaquetado y comprimido con gzip,tar cvfz file.tar.gz *.c
+crea un fichero empaquetado sin comprimir,tar cvf file.tar *.c Ojo tar -cvf importa el orden(-)
+crea un fichero emaquetado y comprimido con gzip,tar cvfz file.tar.gz *.c. Ojo tar -cvzf importa el orden(-)
 crea un fichero emaquetado y comprimido con bzip2,tar cvfj Phpfiles-org.tar.bz2 /home/php
 desempaqueta un fichero con o sin compresion,tar xvf file.tar
 desempaqueta un fichero con o sin compresion,tar xvf videos-14-09-12.tar.bz2
@@ -518,7 +518,7 @@ Reinicia la maquina,poweroff --reboot
 Para la maquina,halt
 Apaga la maquina con halt,halt -p
 Reinicia la maquina,halt --reboot
-Chequea que el estado del servicio/unidad,systemctl status firewalld.service. Idem sin el '.service':systemctl status firewalld 
+Chequea que el estado del servicio/unidad,systemctl status firewalld.service. Idem sin el '.service':systemctl status firewalld
 Systemctl: Lista todos los servicios activos,systemctl list-unit-files --type=service --state=active
 Systemctl: Inicio;reinicio;parada y recarga,systemctl start/restart/stop/reload httpd.service
 Systemctl: Activar el servicio al arranque,systemctl enable/disable httpd.service
@@ -565,7 +565,7 @@ ssh: añadir claves privadas al agente de autenticacion,ssh-add
 ssh: recopilar claves publicas de ciertos hosts,ssh-keyscan
 ssh: permitir autenticación con clave pública. Campo: AuthorizedKeysFile  .ssh/authorized_keys .ssh/authorized_keys2,Campo dentro /etc/ssh/sshd_config PubkeyAuthentication yes|no
 ssh: permitir hacer login a usuario root,Campo dentro /etc/ssh/sshd_config PermitRootLogin yes|no
-ssh:permitir hacer login con password. Opcional PermitEmptyPasswords yes|no,Campo dentro /etc/ssh/sshd_config PasswordAuthentication yes|no 
+ssh:permitir hacer login con password. Opcional PermitEmptyPasswords yes|no,Campo dentro /etc/ssh/sshd_config PasswordAuthentication yes|no
 ssh: cliente de ssh,ssh
 ssh: conectar al host e iniciar una sesion interactiva remotamente,ssh username@remote_host
 ssh: conectar al host e iniciar una sesion interactiva remotamente,ssh -l username remote_host
@@ -595,7 +595,7 @@ Docker Root Dir: /var/lib/docker
 ",docker info. Con docker inspect se obtiene información de objetos: volumen; imagen...
 Como descargar una imagen del hub?,docker pull jenkins
 Comando para obtener la versión del runtime docker,docker version
-Mostrar listado de los contenedores ejecutandose en el sistema,docker ps; docker container ls
+Mostrar listado de los contenedores ejecutandose en el sistema,docker ps; docker container ls; docker container list
 Mostrar listado de todos los contenedores,docker ps -a; docker container ls -a
 Como arrancar un contenedor,docker run image
 Como arrancar un contenedor con mapeo de puerto 8080 host y puerto contenedor 8888,docker run -p 8080:8888 jenkins. Otro ejemplo: docker run -p 8080:8080 -p 50000:50000 jenkins
@@ -622,7 +622,7 @@ Como ejecutar un comando contra un contenedor en ejecución,docker exec
 Como entrar en el bash del contenedor,docker exec -it centos /bin/bash se crea un nuevo proceso en el enviroment del contenedor https://shorturl.at/xMNP5
 Como unirse a un contenedor en ejecución,docker attach conecta al standard input/output/error del proceso principal main https://shorturl.at/xMNP5
 Borrar contenedor,docker rm id_del_contenedor
-Borrar imagen docker,docker rmi id_de_la_imagen
+Borrar imagen docker,docker rmi id_de_la_imagen; docker image rm
 
 # Kubernetes
 
