@@ -208,19 +208,32 @@ Herramientas NMS(Network Monitoring Systems), Nagios; Zabbix; Cacti; Zennos; Pan
 
 # Bases datos Niveles aislamiento SQL reglas Codd
 
-Que número es la regla de Codd: Un SGBD relacional debe gestionar sus BD de forma completa usando el modelo relacional, Regla 0
-Que número es la regla de Codd: Información. Todos los datos deben estar almacenados en las tablas, Regla 1
-Que número es la regla de Codd: Acceso garantizado. Cualquier dato es accesible sabiendo la clave de su fila y el nombre de su columna o atributo, Regla 2
-Que número es la regla de Codd: Tratamiento sistemático de los valores nulos. Capacidad de manejar valores nulos, Regla 3
-Que número es la regla de Codd: Catálogo en línea relacional. Es el diccionario de datos. Los metadatos se organizan también en tablas relacionales, Regla 4
-Que número es la regla de Codd: Sublenguaje de datos completo. Un lenguaje capaz de hacer todas las funciones del SGBD, Regla 5
-Que número es la regla de Codd: Vistas actualizadas. No puede haber diferencia entre los datos de las vistas y los datos de las tablas base, Regla 6
-Que número es la regla de Codd: Inserciones; modificaciones y eliminaciones de alto nivel. Lenguaje que maneja la BD sea muy humano, Regla 7
-Que número es la regla de Codd: Independencia física. Cambios en la física de la BD no afecta a las aplicaciones ni a los esquemas lógicos, Regla 8
-Que número es la regla de Codd: Independencia lógica. Cambios en el esquema lógico (tablas) de la BD no afectan al resto de esquemas, Regla 9
-Que número es la regla de Codd: Independencia de integridad. Las reglas de integridad (restricciones) deben de ser gestionadas y almacenadas por el SGBD, Regla 10
-Que número es la regla de Codd: Independencia de distribución, Regla 11
-Que número es la regla de Codd: No subversión. La base de datos no permitirá que exista un lenguaje o forma de acceso; que permita saltarse las reglas anteriores, Regla 12
+0.Un SGBD relacional debe gestionar sus BD de forma ________ usando el modelo __________,"
+0.Regla fundamental. Un SGBD relacional debe gestionar sus BD de forma completa usando el modelo relacional"
+1.Todos los datos deben estar almacenados en las ______,"
+1.Información. Todos los datos deben estar almacenados en las tablas"
+2.Cualquier dato es _________ sabiendo la clave de su ____ y el nombre de su _______ o atributo,"
+2.Acceso garantizado. Cualquier dato es accesible sabiendo la clave de su fila y el nombre de su columna o atributo"
+3.Capacidad de manejar valores _____,"
+3.Tratamiento sistemático de los valores nulos. Capacidad de manejar valores nulos"
+4.Los metadatos se organizan también en ______ relacionales,"
+4.Catálogo en línea relacional. Es el diccionario de datos. Los metadatos se organizan también en tablas relacionales"
+5.Un lenguaje capaz de hacer _____ las _________ del SGBD,"
+5.Sublenguaje de datos completo. Un lenguaje capaz de hacer todas las funciones del SGBD"
+6.No puede haber diferencia entre los datos de las ______ y los datos de las ______ base,"
+6.Vistas actualizadas. No puede haber diferencia entre los datos de las vistas y los datos de las tablas base"
+7.Lenguaje que maneja la BD sea muy ______,"
+7.Inserciones; modificaciones y eliminaciones de alto nivel. Lenguaje que maneja la BD sea muy humano"
+8.Cambios en la ______ de la BD no afecta a las aplicaciones ni a los esquemas lógicos,"
+8.Independencia física. Cambios en la física de la BD no afecta a las aplicaciones ni a los esquemas lógicos"
+9.Cambios en el esquema ______ (tablas) de la BD no afectan al resto de esquemas,"
+9.Independencia lógica. Cambios en el esquema lógico (tablas) de la BD no afectan al resto de esquemas"
+10.Las reglas de __________ (restricciones) deben de ser gestionadas y almacenadas por el SGBD,"
+10.Independencia de integridad. Las reglas de integridad (restricciones) deben de ser gestionadas y almacenadas por el SGBD"
+11.El usuario final no ha de ver que los datos están ____________ en varias ubicaciones(____________),"
+11.Independencia de distribución. El usuario final no ha de ver que los datos están distribuidos en varias ubicaciones(transparente)"
+12.La base de datos no permitirá que exista un ________ o forma de acceso que permita ________ las reglas anteriores,"
+12.No subversión. La base de datos no permitirá que exista un lenguaje o forma de acceso que permita saltarse las reglas anteriores"
 Que efecto de lectura tiene el nivel de aislamiento Read Uncommitted?, Lectura sucia; Lectura no repetible; Lectura fantasma
 Que efecto de lectura tiene el nivel de aislamiento Read Committed?, Lectura no repetible; Lectura fantasma
 Que efecto de lectura tiene el nivel de aislamiento Repeatable Read?, Lectura fantasma
@@ -472,7 +485,7 @@ Que velocidad de transferencia tiene USB 3.2?, 20 Gbps para Gen 2 con 2 lanes. P
 Que velocidad de transferencia tiene USB 4.0?,"
 - 40 Gbps para Gen 3 con 2 lanes. Anterior generación 20 Gbps.
 - USB 4.0 con capacidad de tunneling; conectar disposivos PCIe y DisplayPort
-- Hay una versión poco conocida USB 4 Symetric/Asymetric con 80 Gbps"
+- Hay unas versiones poco conocidas USB 4 Symetric/Asymetric con 80 Gbps y 120 Gbps"
 Que velocidad de transferencia tiene Thunderbolt 2?, 20 Gbps. Conector tipo PCIe+DisplayPort
 Que velocidad de transferencia tiene Thunderbolt 3 y 4?, 40 Gbps usa USB tipo C
 Que características tiene Thunderbolt?, Multiples protocolos(Display Port; HDMI; Ethernet); QoS; Multiples dispositivos; Transferencia bidireccional
@@ -534,6 +547,7 @@ Oracle, 1521 reemplaza 2483
 
 # Desarrollo Java Ecosistema
 
+De que se compone la JRE(ejecución), interprete(maquina virtual java) + librerias de clases BASE (rt.jar)
 javac, compilador
 java, interprete
 jshell, interprete ReadEvaluatePrintLoop - REPL de comandos interactivo. A partir de Java9
@@ -939,6 +953,3 @@ Pautas del principio Comprensible,"
 - Asistencia a la entrada de datos"
 Pautas del principio Robusto,"
 - Compatible"
-
-
-

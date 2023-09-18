@@ -405,6 +405,9 @@ Que es e-EMGDE, Amplia los metados del documento electronico. Caracteriza mejor 
 
 El ENS revisa la seguridada de los activos tipo..., información y servicios
 Que es el riesgo, probabilidad(amenaza) x impacto
+Que es una amenaza, evento que pueda darse aprovechando una vulnerabilidad
+Que es una vulnerabilidad, probabilidad ocurrencia/materialización de una amenaza
+Que e el impacto, daño producido por la ocurrencia de una amenaza
 Cual es el equivalente de las NTI en el ENS, ITS(Instrucciones Técnicas de Seguridad)
 Cuantos responsables existen en el ENS,"
 - Información
@@ -473,3 +476,5 @@ Gestión interna: Gestión de los procedimientos de Recursos Humanos,SIGP
 Gestión interna: Portal para empleado público asuntos de recursos humanos,FUNCIONA
 Gestión interna: Consulta nominas,SERVINOMINA
 Gestión interna: Control de presencia,TRAMA
+
+# Transparencia y buen gobierno

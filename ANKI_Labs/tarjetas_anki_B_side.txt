@@ -141,7 +141,7 @@ Mofificar fecha de modificación, touch -m
 Parametro de touch que no crea fichero si no existe, touch -c
 Comando para crear copias de seguridad, cpio; con -i extraer; con -o create
 Copia datos entre dispositivos a bajo nivel, dd
-dd if=/deb/zero of=empty.img bs=1024 count=720,  if entrada; of salida; bs y count sector
+dd if=/dev/zero of=empty.img bs=1024 count=720,  if entrada; of salida; bs y count sector
 Con mkdir crear todos los subdirectorios necesarios, mkdir -p
 Comando para borrar todo el directorio y el arbol, rmdir -p. rmdir solo borra directorios que están vacios
 chown recursivo, chown -R. Solo puede ROOT o el owner del fichero puede hacer chown
@@ -298,7 +298,7 @@ Como cargar el modulo cifs para poderlo montar,modprobe cifs
 
 pvcreate / pvdisplay / pvmove, crear un volumen fisico a partir de un disco entero o particion
 vgcreate / vgdisplay / vgextend / vgreduce, crear un grupo de volumenes fisicos
-vcreate / lvdisplay /lvextend / lvreduce, crear un volumen logico a partir de un grupo de volumenes
+lvcreate / lvdisplay /lvextend / lvreduce, crear un volumen logico a partir de un grupo de volumenes
 "Paso 1:
 pvcreate /dev/sda1 /dev/sdb1 /dev/sdc1
 vgcreate -s 32M tecmint_vg /dev/sda1 /dev/sdb1 /dev/sdc1","
@@ -604,8 +604,8 @@ Crear un volumen Docker, docker volume create --name [nombre volumen]
 Listar volumenes Docker, docker volume ls
 Que parametros usar para arrancar un contenedor con un volumen almacenado en /var/mnt/datos en el host y /home/datos en el contenedor,-v /var/mnt/datos:/home/datos
 Que parametro usar para arrancar en segundo plano,-d
-Como crear un contenedor sin arrancarlo,docker create NombreImagen
-Como arrancar o parar un contenedor,docker start/stop id_del_contenedor
+Como crear un contenedor sin arrancarlo,docker create NombreImagen; docker containter create NombreImagen
+Como arrancar o parar un contenedor,docker start/stop id_del_contenedor; docker container start/stop id_contenedor
 Crear una nueva imagen de un contenedor editado, docker commit id_contenedor usuario/nombreimagen
 Como crear una imagen a partir del fichero Dockerfile situado en el directorio actual,docker build -t NombreImagen:TagImagen
 Dockerfile: a partir de la cual crear una imagen ej. imagen:tag_basealpine;ubuntu;scratch...,FROM
@@ -617,7 +617,7 @@ Dockerfile: definir variable entorno/parametros, ENV(usado en el proceso build y
 Dockerfile: establecer el directorio de trabajo, WORKDIR
 Dockerfile: usuario con el que se ejecutarán las acciones,USER por defecto root
 Dockerfile: comando+argumentos por defecto que se ejecutará cuando se inicie un CONTAINER con esta imagen,CMD Solo puede haber un CMD en el Dockerfile!!! Alternativa: ENTRYPOINT(no permite sobreescribir comando)
-Mostrar imagenes que hay disponibles,docker images. Ojo la S! comando igual a ->  docker image ls
+Mostrar imagenes que hay disponibles,docker images. Ojo la S! comando igual a ->  docker image ls; docker image list
 Como ejecutar un comando contra un contenedor en ejecución,docker exec
 Como entrar en el bash del contenedor,docker exec -it centos /bin/bash se crea un nuevo proceso en el enviroment del contenedor https://shorturl.at/xMNP5
 Como unirse a un contenedor en ejecución,docker attach conecta al standard input/output/error del proceso principal main https://shorturl.at/xMNP5
@@ -992,4 +992,3 @@ Crear regla por defecto, iptables -P INPUT DROP
 Listar una tabla, iptables -t nat -L
 Por defecto en linux no permite reglas FORWARD como se configura, editar /etc/sysctl.conf añadir net.ipv4.ip_forward=1
 Que hace iptables -t nat -A POSTROUTING -s 192.168.3.0/24 -o eth0 -j SNAT --to 80.58.1.14, Hace NAT estático salida. Alternativa MASQUERADE
-
